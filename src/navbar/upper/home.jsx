@@ -73,9 +73,7 @@ export const Home = () => {
         </div>
       </div>
       <hr></hr>
-      <div id="topbook" className="topbook">
-        afaf
-      </div>
+      <div id="topbook" className="topbook"></div>
       <hr></hr>
       <div id="viewbook" className="viewbook">
         <Viewbook />
