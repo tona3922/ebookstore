@@ -8,6 +8,7 @@ import phone from "../../img/phone.png";
 import location from "../../img/location.png";
 import momo from "../../img/momo.png";
 import bank from "../../img/bank.png";
+import slider1 from "../../img/slider1.png";
 
 // import "../../navbar/nav.css";
 import "./home.css";
@@ -23,14 +24,52 @@ export const Home = () => {
         <a href="#viewbook">
           <button class="normbutton">View Books</button>
         </a>
-
-        <button class="category">Category</button>
+        <button class="category">
+          <select>
+            <option value="#">Category</option>
+            <option value="A">Science</option>
+            <option value="B">Novel</option>
+            <option value="C">Fiction</option>
+            <option value="D">Adventure</option>
+            <option value="E">Comic</option>
+          </select>
+        </button>
         <div class="searchButton">
           <input type="text" placeholder="Search here" />
           <button class="search">Search</button>
         </div>
       </div>
-      <div className="sliderIntro">jjjjj</div>
+      <div className="slider">
+        <div className="slides">
+          <input type="radio" id="radio1" name="radio-btn" />
+          <input type="radio" id="radio2" name="radio-btn" />
+          <input type="radio" id="radio3" name="radio-btn" />
+          <input type="radio" id="radio4" name="radio-btn" />
+          <input type="radio" id="radio5" name="radio-btn" />
+          <div className="slide first">
+            <img src={slider1} alt="" />
+          </div>
+          <div className="slide">
+            <img src={bank} alt="" />
+          </div>
+          <div className="slide">
+            <img src={slider1} alt="" />
+          </div>
+          <div className="slide">
+            <img src={slider1} alt="" />
+          </div>
+          <div className="slide">
+            <img src={slider1} alt="" />
+          </div>
+        </div>
+        <div className="navigation-manual">
+          <label htmlFor="radio1" className="manual-btn"></label>
+          <label htmlFor="radio2" className="manual-btn"></label>
+          <label htmlFor="radio3" className="manual-btn"></label>
+          <label htmlFor="radio4" className="manual-btn"></label>
+          <label htmlFor="radio5" className="manual-btn"></label>
+        </div>
+      </div>
       <hr></hr>
       <div id="topbook" className="topbook">
         afaf
