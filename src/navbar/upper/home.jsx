@@ -10,12 +10,14 @@ import momo from "../../img/momo.png";
 import bank from "../../img/bank.png";
 import slider1 from "../../img/slider1.png";
 import { Viewbook } from "./viewbook";
+import { Uppernav } from "../uppernav";
 
 import "./home.css";
 
 export const Home = () => {
   return (
     <div className="homepage">
+      <Uppernav />
       <div className="introHome">
         <img src={logo} alt="#" />
         <a href="#topbook">
