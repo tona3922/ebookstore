@@ -15,7 +15,7 @@ export const Uppernav = () => {
     <div className="upperNav">
       <nav>
         <div className="Left">
-          <Link to="/home" style={{ textDecoration: "none", color: "black" }}>
+          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
             {/* <FaHome /> */}
             <div className="navbutton">
               <img class="navimg" src={home} alt="" />

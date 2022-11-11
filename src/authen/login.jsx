@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
-// import login_icon from "../img/login-icon.png"
-// import back_icon from "../img/back.png"
+import login_icon from "../img/login-icon.png"
+import back_icon from "../img/back.png"
 import "./login.css"
 
 
@@ -18,14 +19,22 @@ export const Login = () => {
                     <input className="login-input" type="text" placeholder="Tên đăng nhập"/>
                     <label className="login-label" htmlFor="">Mật khẩu</label>
                     <input className="login-input" type="text" placeholder="Mật khẩu"/>
-                    <button className="btn">
-                        {/* <img src={back_icon} alt="" /> */}
-                        Quay lại
-                    </button>
-                    <button className="btn">
-                        {/* <img src={login_icon} alt="" /> */}
-                        Đăng nhập
-                    </button>
+                    <div className="button-container">
+                        <Link to="/">
+                            <button className="btn back-btn">
+                                <img src={back_icon} alt="" />
+                                Quay lại
+                            </button>
+                        </Link>
+                        <button className="btn login-btn">
+                            <img src={login_icon} alt="" />
+                            Đăng nhập
+                        </button>
+                    </div>
+                    <div className="login-text">
+                        <p>Quên mật khẩu? <a href="#">Cập nhật mật khẩu</a></p>
+                        <p>Chưa có tài khoản? <Link to="/signup">Đăng ký</Link></p>
+                    </div>
                 </div>
             </div>
         </div>   
