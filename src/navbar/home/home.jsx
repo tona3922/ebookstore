@@ -11,6 +11,7 @@ import bank from "../../img/home/bank.png";
 import slider1 from "../../img/home/slider1.png";
 import { Viewbook } from "./viewbook";
 import { Uppernav } from "../uppernav";
+import { Topbook } from "./topbook";
 
 import "./home.css";
 
@@ -73,7 +74,9 @@ export const Home = () => {
         </div>
       </div>
       <hr></hr>
-      <div id="topbook" className="topbook"></div>
+      <div id="topbook" className="topbook">
+        <Topbook />
+      </div>
       <hr></hr>
       <div id="viewbook" className="viewbook">
         <Viewbook />
