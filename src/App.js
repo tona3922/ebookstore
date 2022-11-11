@@ -1,5 +1,4 @@
 import "./style.scss";
-import { Uppernav } from "./navbar/uppernav";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from "./navbar/upper/home";
 import { Cart } from "./navbar/upper/cart";
