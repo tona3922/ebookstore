@@ -1,5 +1,9 @@
-import returnIcon from './button/return.png';
-import okIcon from './button/ok.png';
+import okIcon from '../../img/button/ok.png';
+import returnIcon from '../../img/button/return.png';
+import pen from "../../img/pen.png";
+import momo from "../../img/momo.png";
+import bank from "../../img/bank.png";
+import cash from "../../img/cash.png";
 import './confirm_order.css';
 import './cart.css'; // for mainBox mainButton style
 import { useRef, useState } from 'react';
@@ -53,7 +57,7 @@ export default function ConfirmOrder(props) {
     <>
         <div>
         <button className="mainButton" style={returnButton}>
-            <img src={returnIcon}/>
+            <img src={returnIcon} alt=''/>
             Quay lại
         </button>
         <span style={pageTitle}>
@@ -107,26 +111,26 @@ export default function ConfirmOrder(props) {
                 <div style={sectionTitle}>3. Phương thức thanh toán</div>
                 <label className='choiceContainer'>
                 <input type="radio" value="0" checked={inputs.method==="0"} onChange={handleChoiceChange}/>
-                <img src={require('./icon/cash.png')} style={{width:'30px', verticalAlign:'middle'}}/>
+                <img src={cash} style={{width:'30px', verticalAlign:'middle'}} alt=''/>
                 Thanh toán tiền mặt khi nhận hàng
                 </label>
                 <br/>
                 <label className='choiceContainer'>
                 <input type="radio" value="1" checked={inputs.method==="1"} onChange={handleChoiceChange}/>
-                <img src={require('./icon/bank.png')} style={{width:'30px', verticalAlign:'middle'}}/>
+                <img src={bank} style={{width:'30px', verticalAlign:'middle'}} alt=''/>
                 Chuyển khoản qua ngân hàng
                 </label>
                 <br/>
                 <label className='choiceContainer'>
                 <input type="radio" value="2" checked={inputs.method==="2"} onChange={handleChoiceChange}/>
-                <img src={require('./icon/momo.png')} style={{width:'30px', verticalAlign:'middle'}}/>
+                <img src={momo} style={{width:'30px', verticalAlign:'middle'}} alt=''/>
                 Thanh toán qua ví Momo
                 </label>
             </div>           
         </div>
         <div style={{display: 'flex', justifyContent: 'center'}}>
             <button className="mainButton" style={{backgroundColor:'#E0FD56'}} onClick={handleSubmit}>
-                <img src={okIcon}/>
+                <img src={okIcon} alt=''/>
                 XÁC NHẬN ĐẶT HÀNG
             </button>
         </div>        
@@ -146,7 +150,6 @@ function EditableInput(props) {
         <div className='row'>
             <div className='col-25'><label>{labelText}</label></div>
             <div className='col-75'>
-            {/* <button onClick={handleClick} style={{float:'left', display:'inline'}}>+</button> */}
             <input
                 ref={inputRef}
                 type="text"
@@ -157,7 +160,7 @@ function EditableInput(props) {
             </div>
             <div className='col-end'>
                 <button className='mainButton' onClick={handleClick} style={{backgroundColor:'inherit', boxShadow:'none'}}>
-                    <img src={require('./icon/pen.png')}/>
+                    <img src={pen} alt=''/>
                 </button>
             </div>
         </div>        
