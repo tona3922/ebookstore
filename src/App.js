@@ -6,6 +6,7 @@ import { Contact } from "./navbar/contact/contact";
 import { Login } from "./authen/login";
 import { Signup } from "./authen/singup";
 import { Register_info } from "./authen/register_info";
+import Admin from "./admin/pages/admin";
 import { useState } from "react";
 
 const item1 = {
@@ -92,9 +93,10 @@ function App() {
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup/info_reg" element={<Register_info />} />
+          <Route path="/admin/*" element={<Admin />}></Route>
         </Routes>
       </Router>
-    </div>
+    </div >
   );
 }
 
