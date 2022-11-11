@@ -16,6 +16,7 @@
     width: 500px;
     height: 600px;
     border-radius: 50px;
+    animation: Fadein ease 0.6s;
 }
 
 .login-header h1 {
@@ -25,7 +26,7 @@
     padding: 10px 10px;
     /* background: #EFEFEF content-box; */
     border: 2px solid #472D30;
-    font-family: 'Source Serif Pro';
+    /* font-family: 'Source Serif Pro'; */
     font-size: 25px;
     color: #472D30;
 }
@@ -114,8 +115,87 @@
     background-color: #FFC4AE;
 }
 
+.update-pw-btn {
+    background-color: #fff;
+    border: none;
+    padding: 0px;
+    font-size: 17px;
+    font-family: 'Times New Roman';
+    color: rgb(85,26,139);
+    text-decoration-color: rgb(0,0,238);
+    cursor: pointer;
+}
+
+.update-pw-btn:active {
+    color: rgb(255,0,0);
+}
+
 .login-text {
     padding-top: 25px;
     text-align: center;
     font-size: 17px;
+}
+
+.modal-forgetpw {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+    display: none;
+}
+
+.modal-forgetpw.open {
+    display: flex;
+}
+
+.modal-container {
+    border: 2px solid #472D30;
+    background-color: #fff;
+    width: 600px;
+    height: 500px;
+    border-radius: 10px;
+    animation: modalFadein ease 0.6s;
+}
+
+.modal-header h1 {
+    text-align: center;
+    margin: 40px 20px 20px 20px;
+    padding: 10px 10px;
+    /* background: #EFEFEF content-box; */
+    border: 2px solid #472D30;
+    /* font-family: 'Source Serif Pro'; */
+    font-size: 25px;
+    color: #472D30;
+    background-color: #EFEFEF;
+}
+
+.modal-content {
+    padding: 10px 20px 20px 20px;
+}
+
+@keyframes Fadein {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes modalFadein {
+    from {
+        opacity: 0;
+        transform: translateY(-140px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

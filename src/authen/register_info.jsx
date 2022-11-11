@@ -4,11 +4,11 @@ import back_icon from "../img/back.png"
 import ok_icon from '../img/button/ok.png';
 import "./register_info.css";
 
-function Info_input (props) {
+export function Info_input (props) {
     return(
         <div className="info-input">
             <label className="register-label" htmlFor="">{props.labelName}</label>
-            <input className="register-input" type="text" placeholder={props.labelName}/>
+            <input className="register-input" type={props.type} placeholder={props.labelName}/>
         </div>
     );
 }
@@ -23,6 +23,7 @@ export const Register_info = () => {
                 <div className="register-content">
                     <Info_input 
                         labelName = "Họ và tên"
+                        type = "text"
                     />
                     <div>
                         <label className="register-label" htmlFor="">Giới tính</label>
@@ -31,15 +32,19 @@ export const Register_info = () => {
                     </div>
                     <Info_input 
                         labelName = "CMND/CCCD"
+                        type = "text"
                     />
                     <Info_input 
                         labelName = "Số điện thoại"
+                        type = "text"
                     />
                     <Info_input 
                         labelName = "Email"
+                        type = "text"
                     />
                     <Info_input 
                         labelName = "Địa chỉ"
+                        type = "text"
                     />
                     <div className="button-container">
                         <Link to="/signup">
@@ -52,7 +57,6 @@ export const Register_info = () => {
                             <img src={ok_icon} alt="" />
                             Xác nhận
                         </button>
-                        
                     </div>
                 </div>
             </div>
