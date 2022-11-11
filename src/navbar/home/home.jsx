@@ -1,14 +1,14 @@
 import React from "react";
-import logo from "../../img/logo.png";
-import facebook from "../../img/facebook.png";
-import instagram from "../../img/instagram.png";
-import twitter from "../../img/twitter.png";
-import mail from "../../img/mail.png";
-import phone from "../../img/phone.png";
-import location from "../../img/location.png";
-import momo from "../../img/momo.png";
-import bank from "../../img/bank.png";
-import slider1 from "../../img/slider1.png";
+import logo from "../../img/home/logo.png";
+import facebook from "../../img/home/facebook.png";
+import instagram from "../../img/home/instagram.png";
+import twitter from "../../img/home/twitter.png";
+import mail from "../../img/home/mail.png";
+import phone from "../../img/home/phone.png";
+import location from "../../img/home/location.png";
+import momo from "../../img/home/momo.png";
+import bank from "../../img/home/bank.png";
+import slider1 from "../../img/home/slider1.png";
 import { Viewbook } from "./viewbook";
 import { Uppernav } from "../uppernav";
 

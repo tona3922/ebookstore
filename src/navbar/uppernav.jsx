@@ -1,13 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { FaHome, FaShoppingCart, FaSignInAlt } from "react-icons/fa";
-// import { AiFillContacts } from "react-icons/ai";
-// import { GoSignIn } from "react-icons/go";
-import home from "../img/home.png";
-import contact from "../img/contact.png";
-import cart from "../img/cart.png";
-import signin from "../img/signin.png";
-import signup from "../img/signup.png";
+import home from "../img/navbar/home.png";
+import contact from "../img/navbar/contact.png";
+import cart from "../img/navbar/cart.png";
+import signin from "../img/navbar/signin.png";
+import signup from "../img/navbar/signup.png";
 import "./nav.css";
 
 export const Uppernav = () => {

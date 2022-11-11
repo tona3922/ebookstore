@@ -1,8 +1,8 @@
 import "./style.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Home } from "./navbar/upper/home";
-import { Cart } from "./navbar/upper/cart";
-import { Contact } from "./navbar/upper/contact";
+import { Home } from "./navbar/home/home";
+import { Cart } from "./navbar/cart/cart";
+import { Contact } from "./navbar/contact/contact";
 import { Login } from "./authen/login";
 import { Signup } from "./authen/singup";
 import { Register_info } from "./authen/register_info";
