@@ -74,7 +74,7 @@ export const Home = () => {
       </div>
       <hr></hr>
       <div id="topbook" className="topbook">
-        afaf
+        
       </div>
       <hr></hr>
       <div id="viewbook" className="viewbook">

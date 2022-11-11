@@ -45,6 +45,8 @@
 .login-label {
     display: block;
     font-size: 18px;
+    color: #472D30;
+    font-weight: 500;
     padding-bottom: 10px;
     padding-top: 15px;
 }
@@ -54,6 +56,7 @@
     width: 95%;
     font-size: 15px;
     padding: 10px;
+    border-radius: 20px;
 }
 
 .login-input::placeholder {
@@ -107,7 +110,7 @@
 }
 
 .login-btn {
-    margin-left: calc(100%/4);
+    margin-left: calc(100%/4) !important;
     background-color: #FFC4AE;
 }
 

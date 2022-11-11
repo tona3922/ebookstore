@@ -1,5 +1,5 @@
-.signup-page {
-    background-image: url(../img/signup_background.jpg);
+.register-page {
+    background-image: url(../img/signup_background_1.jpg);
     position: fixed;
     top: 0;
     left: 0;
@@ -10,16 +10,17 @@
 	justify-content: center;
 }
 
-.signup-container {
+.register-container {
     background-color: #fff;
     width: 500px;
     height: 600px;
     border-radius: 50px;
+    border: #000 solid;
 }
 
-.signup-header h1 {
+.register-header h1 {
     text-align: center;
-    margin: 5px 20px;
+    margin: 30px 20px 10px 20px;
     border-radius: 20px;
     padding: 10px 10px;
     /* background: #EFEFEF content-box; */
@@ -27,22 +28,21 @@
     font-family: 'Source Serif Pro';
     font-size: 25px;
     color: #472D30;
+    background-color: #EFEFEF;
 }
 
-.signup-logo {
-    margin: auto;
-    padding-top: 30px;
-    display: block;
-    width: 270px;
-    height: 83.6px;
-}
-
-.signup-content {
+.register-content {
     padding: 5px 20px 20px 20px;
 }
 
-.signup-label {
-    display: block;
+.info-input {
+    width: 100%;
+    margin: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.register-label {
     font-size: 18px;
     color: #472D30;
     font-weight: 500;
@@ -50,51 +50,43 @@
     padding-top: 15px;
 }
 
-.signup-input {
+.register-input {
+    width: 300px;
     border: 1px solid #ccc;
-    width: 95%;
+    /* width: 95%; */
     font-size: 15px;
     padding: 10px;
     border-radius: 20px;
 }
 
-.signup-input::placeholder {
+.register-input::placeholder {
     color: rgba(0, 0, 0, 0.4);
     text-decoration: none;
 }
 
-/* .btn {
-    margin-top: 30px;
-    border-radius: 20px;
-    font-size: 15px;
-    border: none;
-    padding: 8px 10px;
-    position: relative;
-} */
+.register-radio {
+    width: 15px;
+    margin: 0px 0px 0px 75px;
+}
 
-/* .btn img {
-    height: 25px;
-    margin-right: 10px;
-    padding-top: 3px;
-} */
-.btn {
+.btn-reg {
     border-radius: 20px;
     margin: 0 5px;
     padding: 10px 20px;
     border: none; 
     opacity: 0.9; 
-    margin-top: 45px;
+    margin-top: 15px;
     color: #472D30;
     font-weight: 600;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
-.btn:hover {
+.btn-reg:hover {
     opacity: 0.7;
 }
-.btn:active {
+.btn-reg:active {
     opacity: 1;
 }
-.btn > img {
+.btn-reg > img {
     width: 30px;
     vertical-align: middle;
     margin-right: 10px;
@@ -108,7 +100,7 @@
     background-color: #DDBEA9;
 }
 
-.signup-btn {
+.confirm-btn {
     margin-left: calc(100%/4) !important;
     background-color: #FFC4AE;
 }

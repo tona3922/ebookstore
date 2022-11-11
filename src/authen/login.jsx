@@ -15,10 +15,10 @@ export const Login = () => {
                     <h1>ĐĂNG NHẬP</h1>
                 </header>
                 <div className="login-content">
-                    <label className="login-label" htmlFor="">Tên đăng nhập</label>
-                    <input className="login-input" type="text" placeholder="Tên đăng nhập"/>
-                    <label className="login-label" htmlFor="">Mật khẩu</label>
-                    <input className="login-input" type="text" placeholder="Mật khẩu"/>
+                    <label className="login-label" htmlFor="username">Tên đăng nhập</label>
+                    <input name="username" className="login-input" type="text" placeholder="Tên đăng nhập"/>
+                    <label className="login-label" htmlFor="password">Mật khẩu</label>
+                    <input name="password" className="login-input" type="password" placeholder="Mật khẩu"/>
                     <div className="button-container">
                         <Link to="/">
                             <button className="btn back-btn">
