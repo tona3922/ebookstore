@@ -9,8 +9,8 @@ import location from "../../img/location.png";
 import momo from "../../img/momo.png";
 import bank from "../../img/bank.png";
 import slider1 from "../../img/slider1.png";
+import { Viewbook } from "./viewbook";
 
-// import "../../navbar/nav.css";
 import "./home.css";
 
 export const Home = () => {
@@ -76,7 +76,7 @@ export const Home = () => {
       </div>
       <hr></hr>
       <div id="viewbook" className="viewbook">
-        asfas
+        <Viewbook />
       </div>
       <hr></hr>
       <div className="footer">

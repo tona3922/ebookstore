@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: space-between;
   padding-right: 20px;
+  background-color: rgb(255, 255, 255);
 }
 button.normbutton {
   color: black;
@@ -125,15 +126,15 @@ a {
 }
 /* topbook//////// */
 .topbook {
-  height: 500px;
+  height: fit-content;
 }
 /* viewbook/////// */
 .viewbook {
-  height: 500px;
+  height: fit-content;
 }
 /* footer//////// */
 hr {
-  border: 2px black solid;
+  border: 1px black solid;
   border-radius: 10px;
   width: 80%;
 }
