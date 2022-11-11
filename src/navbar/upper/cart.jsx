@@ -8,6 +8,8 @@ import minusButton from '../../img/button/minus.png';
 import plusButton from '../../img/button/plus.png';
 import quitButton from '../../img/button/quit.png';
 
+// Note: chưa có đường link quay lại trang trước, link tới trang xác nhận đơn
+
 const quantityStyle = {
     backgroundColor: 'rgb(249, 205, 211)',
     padding: '5px',
