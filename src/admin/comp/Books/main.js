@@ -1,14 +1,15 @@
 import React from 'react';
 import Card from './book_info';
 import books from './trending_books';
+import "./books.scss"
 
 
-export default function Trending() {
+export default function Books() {
     return (
-        <div className="trending-books">
+        <div className="books">
             {
                 books.map(book => {
-                    return <Card book={book}/>;
+                    return <Card book={book} />;
                 }
                 )
             }

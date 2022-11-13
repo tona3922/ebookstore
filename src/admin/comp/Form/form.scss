@@ -1,7 +1,9 @@
+$mainfont: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
 body {
 // display: flex;
 margin: 0;
-font-family: Huawei;
+font-family: $mainfont;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 overflow-x: auto;
@@ -10,13 +12,13 @@ overflow-x: auto;
     box-sizing: border-box;
 }
 div {
-font-family: Huawei;
+font-family: $mainfont;
 }
 input{
     all: initial;
 }
 // @font-face {
-//     font-family: Huawei;
+//     font-family: $mainfont;
 //     src: url("../../../../public/font/ja-jp.ttf");
 // }
 
@@ -33,16 +35,16 @@ input{
     // max-width: 65%;
     align-items: center;
     // justify-content: center;
-    flex-grow: 3;
+    flex-grow: 4;
     .form-tag{
         // 
         width: 100%;
         h1{
             // margin: 3vh 3vw;
-            // margin: 0;
-            padding-top: 2em;
-            font-size: 1.5em;
-            font-weight:1;
+            margin: 0;
+            padding-top: 1.5em;
+            font-size: 1.75em;
+            // font-weight:1;
         }
     }    
 }
@@ -64,6 +66,8 @@ input{
         position: absolute;
         transform: translateY(-0.75rem);
         transition: .25s ease;
+        font-weight: bold;
+        font-size: 1.2em;
     }
 
     .input-field {
@@ -73,7 +77,7 @@ input{
         background-color: transparent;
         border-bottom: 2px solid #eee; 
         font: inherit;
-        font-size: 1.125rem;
+        font-size: 1.125em;
         padding: .25rem 0;
         &:focus, &:valid {
             outline: 0;
@@ -112,11 +116,11 @@ input{
 .action {
     margin-top: 2rem;
     .action-button {
-        font-family: Huawei;
+        font-family: $mainfont;
         font-size: 1.25rem;
         padding: 1em;
         width: 100%;
-        font-weight: 500;
+        font-weight: bold;
         background-color: #6658d3;
         border-radius: 6px;
         color: #FFF;

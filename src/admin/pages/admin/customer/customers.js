@@ -16,7 +16,7 @@ export default class Customers extends Component {
     render() {
         return (
             <div className="main">
-                <Header title="Danh sách tài khoản" searchbarPH="Tìm kiếm người dùng" />
+                <Header title="Danh sách tài khoản" quantity={this.state.listCustomer.length} searchbarPH="Tìm kiếm người dùng" />
                 <div className="content"><Table header={this.state.header} info={this.state.listCustomer} /></div>
             </div>
         )

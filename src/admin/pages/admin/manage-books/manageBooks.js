@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../../../comp/header/header.js'
+import Books from '../../../comp/Books/main.js'
 // import Table from './table'
 export default class ManageBooks extends Component {
     render() {
@@ -7,6 +8,7 @@ export default class ManageBooks extends Component {
             <div className="main">
                 <Header title="Quản lý sách trong tiệm" searchbarPH="Tìm kiếm sách" />
                 {/* <div className="content"><Table /></div> */}
+                <Books />
             </div>
         )
     }
