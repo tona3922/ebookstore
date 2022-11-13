@@ -78,6 +78,7 @@ div {
 				vertical-align: middle;
 				padding: 3px 10px;
 				font-size: 1.1em;
+				font-weight: 500;
 				.ad--option{
 					opacity: 0;
 					display: flex;
@@ -85,7 +86,7 @@ div {
 					gap: 10px;
 					button{
 						height: 31px;
-						width: 180px;
+						width: 150px;
 						border-radius: 90px;
 						border: 0;
 						// opacity: 1;
@@ -96,8 +97,8 @@ div {
 						gap: 6px;
 						font-family: $mainfont;
 						// font-weight: bold;
-						font-size: 1.1em;
-						text-align: center;
+						font-size: 1em;
+						// text-align: center;
 						line-height: 31px;
 						img{
 							margin-left: -3px;

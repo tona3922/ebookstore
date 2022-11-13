@@ -4,7 +4,7 @@ class AdminOption extends Component {
     render() {
         return (
             <div className="ad--option">
-                <button type="button" className="del"><img src={process.env.PUBLIC_URL + "/admin/table/admin-option/del.png"} alt=""></img>Vô hiệu hóa TK</button>
+                <button type="button" className="del"><img src={process.env.PUBLIC_URL + "/admin/table/admin-option/del.png"} alt=""></img>Vô hiệu hóa</button>
                 <button type="button" className="per"><img src={process.env.PUBLIC_URL + "/admin/table/admin-option/per.png"} alt=""></img>Phân quyền</button>
             </div>
         );
