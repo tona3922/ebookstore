@@ -8,8 +8,8 @@ export default function Books() {
     return (
         <div className="books">
             {
-                books.map(book => {
-                    return <Card book={book} />;
+                books.map((book, index) => {
+                    return <Card book={book} key={index} />;
                 }
                 )
             }

@@ -8,20 +8,20 @@
 }
 
 .book-card{
-width: 400px;
-display: flex;
-padding: 2em 1em;
-border-bottom: 2px solid #eeeeef;
+    width: 400px;
+    display: flex;
+    padding: 2em 1em;
+    border-bottom: 2px solid #eeeeef;
 }
 .book-image {
-height: 175px;
-// border-radius: 5px;
-transition: transform .2s;
-box-shadow: 2px 2px 5px ;
+    height: 175px;
+    // border-radius: 5px;
+    transition: transform .2s;
+    box-shadow: 2px 2px 5px ;
 }
 
 .book-image:hover{
-transform: scale(1.05);
+    transform: scale(1.05);
 }
 .book-info {
     display: flex;
