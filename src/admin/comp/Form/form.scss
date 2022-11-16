@@ -14,9 +14,9 @@ overflow-x: auto;
 div {
 font-family: $mainfont;
 }
-input{
-    all: initial;
-}
+// input{
+//     all: initial;
+// }
 // @font-face {
 //     font-family: $mainfont;
 //     src: url("../../../../public/font/ja-jp.ttf");
@@ -74,6 +74,7 @@ input{
         border: 0;
         z-index: 1;
         // padding-left: 150px;
+        width: 100%;
         background-color: transparent;
         border-bottom: 2px solid #eee; 
         font: inherit;
