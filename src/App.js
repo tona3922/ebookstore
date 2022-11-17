@@ -8,6 +8,10 @@ import { Signup } from "./authen/singup";
 import { Register_info } from "./authen/register_info";
 import Admin from "./admin/pages/admin";
 import { useState } from "react";
+import { AllBook } from "./navbar/home/allbook";
+import Products from "./navbar/home/products";
+import { Review } from "./navbar/home/review";
+// import Data from "./navbar/home/data.json";
 
 const item1 = {
   id: 1,
@@ -93,10 +97,13 @@ function App() {
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup/info_reg" element={<Register_info />} />
-          <Route path="/admin/*" element={<Admin />}></Route>
+          <Route path="/allbook" element={<AllBook />} />
+          <Route path="/product" element={<Products />} />
+          <Route path="/review/:id" element={<Review />} />
+          <Route path="/admin/*" element={<Admin />} />
         </Routes>
       </Router>
-    </div >
+    </div>
   );
 }
 
