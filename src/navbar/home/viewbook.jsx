@@ -1,182 +1,56 @@
 import React from "react";
 import { FaShoppingBag, FaBook } from "react-icons/fa";
-import mypic1 from "../../img/book1.jpg";
+import { Link } from "react-router-dom";
+import Data from "./data.json";
 import "./viewbook.css";
-
+const products = Data.products;
+var array = [];
+for (let i = 0; i < 8; i++) {
+  array.push(
+    <div className="card">
+      <div className="uppercard">
+        <div className="bookimg">
+          <img src={products[i].image} alt="" />
+        </div>
+        <div className="bookinfo">
+          <em>{products[i].title}</em>
+          <span>{products[i].author}</span>
+          <span>price: ${products[i].price}</span>
+          <p>available : {products[i].count}</p>
+        </div>
+      </div>
+      <div className="downcard">
+        <button className="shopping-bag">
+          Add to cart <FaShoppingBag />
+        </button>
+        <button className="review">
+          <Link
+            to={{
+              pathname: "/review/" + products[i]._id,
+            }}
+            style={{ textDecoration: "none", color: "white" }}
+            state={{ index: products[i]._id }}
+          >
+            review <FaBook />
+          </Link>
+        </button>
+      </div>
+    </div>
+  );
+}
 export const Viewbook = () => {
   return (
     <div>
       <div className="viewbooktitle">View Books</div>
-      <div className="container">
-        <div className="card">
-          <div className="uppercard">
-            <div className="bookimg">
-              <img src={mypic1} alt="capricons's believer" />
-            </div>
-            <div className="bookinfo">
-              <em>Sketch Book</em>
-              <span>author: none</span>
-              <span>price: 100.000</span>
-              <p>available : 100</p>
-            </div>
-          </div>
-          <div className="downcard">
-            <button className="shopping-bag">
-              Add to cart <FaShoppingBag />
-            </button>
-            <button className="review">
-              review <FaBook />
-            </button>
-          </div>
+      <div className="container">{array}</div>
+      <Link
+        to="/allbook"
+        style={{ textDecoration: "none", color: "black", fontWeight: "bold" }}
+      >
+        <div className="toallbook">
+          <span>&#8611;</span>&nbsp; View all book here
         </div>
-        <div className="card">
-          <div className="uppercard">
-            <div className="bookimg">
-              <img src={mypic1} alt="capricons's believer" />
-            </div>
-            <div className="bookinfo">
-              <em>Sketch Book</em>
-              <span>author: none</span>
-              <span>price: 100.000</span>
-              <p>available : 100</p>
-            </div>
-          </div>
-          <div className="downcard">
-            <button className="shopping-bag">
-              Add to cart <FaShoppingBag />
-            </button>
-            <button className="review">
-              review <FaBook />
-            </button>
-          </div>
-        </div>
-        <div className="card">
-          <div className="uppercard">
-            <div className="bookimg">
-              <img src={mypic1} alt="capricons's believer" />
-            </div>
-            <div className="bookinfo">
-              <em>Sketch Book</em>
-              <span>author: none</span>
-              <span>price: 100.000</span>
-              <p>available : 100</p>
-            </div>
-          </div>
-          <div className="downcard">
-            <button className="shopping-bag">
-              Add to cart <FaShoppingBag />
-            </button>
-            <button className="review">
-              review <FaBook />
-            </button>
-          </div>
-        </div>
-        <div className="card">
-          <div className="uppercard">
-            <div className="bookimg">
-              <img src={mypic1} alt="capricons's believer" />
-            </div>
-            <div className="bookinfo">
-              <em>Sketch Book</em>
-              <span>author: none</span>
-              <span>price: 100.000</span>
-              <p>available : 100</p>
-            </div>
-          </div>
-          <div className="downcard">
-            <button className="shopping-bag">
-              Add to cart <FaShoppingBag />
-            </button>
-            <button className="review">
-              review <FaBook />
-            </button>
-          </div>
-        </div>
-        <div className="card">
-          <div className="uppercard">
-            <div className="bookimg">
-              <img src={mypic1} alt="capricons's believer" />
-            </div>
-            <div className="bookinfo">
-              <em>Sketch Book</em>
-              <span>author: none</span>
-              <span>price: 100.000</span>
-              <p>available : 100</p>
-            </div>
-          </div>
-          <div className="downcard">
-            <button className="shopping-bag">
-              Add to cart <FaShoppingBag />
-            </button>
-            <button className="review">
-              review <FaBook />
-            </button>
-          </div>
-        </div>
-        <div className="card">
-          <div className="uppercard">
-            <div className="bookimg">
-              <img src={mypic1} alt="capricons's believer" />
-            </div>
-            <div className="bookinfo">
-              <em>Sketch Book</em>
-              <span>author: none</span>
-              <span>price: 100.000</span>
-              <p>available : 100</p>
-            </div>
-          </div>
-          <div className="downcard">
-            <button className="shopping-bag">
-              Add to cart <FaShoppingBag />
-            </button>
-            <button className="review">
-              review <FaBook />
-            </button>
-          </div>
-        </div>
-        <div className="card">
-          <div className="uppercard">
-            <div className="bookimg">
-              <img src={mypic1} alt="capricons's believer" />
-            </div>
-            <div className="bookinfo">
-              <em>Sketch Book</em>
-              <span>author: none</span>
-              <span>price: 100.000</span>
-              <p>available : 100</p>
-            </div>
-          </div>
-          <div className="downcard">
-            <button className="shopping-bag">
-              Add to cart <FaShoppingBag />
-            </button>
-            <button className="review">
-              review <FaBook />
-            </button>
-          </div>
-        </div>
-        <div className="card">
-          <div className="uppercard">
-            <div className="bookimg">
-              <img src={mypic1} alt="capricons's believer" />
-            </div>
-            <div className="bookinfo">
-              <em>Sketch Book</em>
-              <span>author: none</span>
-              <span>price: 100.000</span>
-              <p>available : 100</p>
-            </div>
-          </div>
-          <div className="downcard">
-            <button className="shopping-bag">
-              Add to cart <FaShoppingBag />
-            </button>
-            <button className="review">
-              review <FaBook />
-            </button>
-          </div>
-        </div>
-      </div>
+      </Link>
     </div>
   );
 };

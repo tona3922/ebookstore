@@ -5,9 +5,15 @@ export default class Form extends Component {
         return (
             <form className="card-form">
                 <div className="form-tag"><h1>Thông tin đăng nhập</h1></div>
-                <div className="form--input">
-                    <input type="text" className="input-field" required />
-                    <label className="input-label">Username</label>
+                <div className="multi-inputs">
+                    <div className="form--input" style={{ "width": "50%" }}>
+                        <input type="text" className="input-field" required />
+                        <label className="input-label">Username</label>
+                    </div>
+                    <div className="form--input" style={{ "width": "50%" }}>
+                        <input type="text" className="input-field" required />
+                        <label className="input-label">Email</label>
+                    </div>
                 </div>
                 <div className="multi-inputs">
                     <div className="form--input" style={{ "width": "50%" }}>
@@ -23,9 +29,15 @@ export default class Form extends Component {
 
                 <form className="card-form"> */}
                 <div className="form-tag"><h1>Thông tin cá nhân</h1></div>
-                <div className="form--input" >
-                    <input type="text" className="input-field" required />
-                    <label className="input-label">Họ và tên</label>
+                <div className="multi-inputs">
+                    <div className="form--input" >
+                        <input type="text" className="input-field" required />
+                        <label className="input-label">Họ và tên</label>
+                    </div>
+                    <div className="form--input" >
+                        <input type="text" className="input-field" required />
+                        <label className="input-label">Số CMND</label>
+                    </div>
                 </div>
                 <div className="multi-inputs" >
                     <div className="form--input" style={{ "width": "25%" }}>
