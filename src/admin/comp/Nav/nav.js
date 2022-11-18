@@ -22,6 +22,10 @@ export default function Navbar() {
                     <img src={process.env.PUBLIC_URL + '/admin/nav-bar/book-manage.png'} alt="" />
                     <span to="/admin/shop">Quản lý sách</span>
                 </NavLink>
+                <NavLink className='nav--route' to="/admin/stocks">
+                    <img src={process.env.PUBLIC_URL + '/admin/nav-bar/warehouse.png'} alt="" />
+                    <span to="/admin/stocks">Quản lý kho</span>
+                </NavLink>
             </div>
 
         </nav>
