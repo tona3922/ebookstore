@@ -15,7 +15,7 @@
     width: 500px;
     height: 600px;
     border-radius: 50px;
-    animation: Fadein ease 0.6s;
+    /* animation: Fadein ease 0.6s; */
 }
 
 .signup-header h1 {
@@ -25,8 +25,7 @@
     padding: 10px 10px;
     /* background: #EFEFEF content-box; */
     border: 2px solid #472D30;
-    font-family: 'Source Serif Pro';
-    font-size: 25px;
+    font-size: 18px;
     color: #472D30;
 }
 
@@ -44,24 +43,26 @@
 
 .signup-label {
     display: block;
-    font-size: 18px;
+    font-size: 15px;
     color: #472D30;
     font-weight: 500;
     padding-bottom: 10px;
     padding-top: 15px;
+    padding-left: 11px
 }
 
 .signup-input {
     border: 1px solid #ccc;
-    width: 95%;
+    width: 100%;
     font-size: 15px;
     padding: 10px;
     border-radius: 20px;
 }
 
 .signup-input::placeholder {
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.3);
     text-decoration: none;
+    font-weight: 500;
 }
 
 /* .btn {
