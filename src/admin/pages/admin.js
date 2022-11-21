@@ -5,6 +5,7 @@ import Nav from "../comp/Nav/nav"
 import Customers from "./admin/customer/customers"
 import CreateAccount from "./admin/create-account/createAccount"
 import ManageBooks from "./admin/manage-books/manageBooks"
+import Stock from "./admin/stock/stock"
 import "../styles/index.scss"
 import "../styles/table.scss"
 import {
@@ -22,6 +23,7 @@ export default function App() {
                 <Route path="/accounts" element={<Customers />} />
                 <Route path="/create-account" element={<CreateAccount />} />
                 <Route path="/shop" element={<ManageBooks />} />
+                <Route path="/stocks/*" element={<Stock />} />
             </Switch>
         </div>
     )
