@@ -25,7 +25,7 @@ export const Register_info = () => {
                         labelName = "Họ và tên"
                         type = "text"
                     />
-                    <div>
+                    <div className="sex-option">
                         <label className="register-label" htmlFor="">Giới tính</label>
                         <input className="register-radio" type="radio" value="Nam"/> Nam
                         <input className="register-radio" type="radio" value="Nữ"/> Nữ
@@ -48,12 +48,12 @@ export const Register_info = () => {
                     />
                     <div className="button-container">
                         <Link to="/signup">
-                            <button className="btn-reg back-btn">
+                            <button className="btn back-btn-reg">
                                 <img src={back_icon} alt="" />
                                 Quay lại
                             </button>
                         </Link>
-                        <button className="btn-reg confirm-btn">
+                        <button className="btn confirm-btn">
                             <img src={ok_icon} alt="" />
                             Xác nhận
                         </button>
