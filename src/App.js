@@ -11,6 +11,12 @@ import { useState } from "react";
 import { AllBook } from "./navbar/home/allbook";
 import Products from "./navbar/home/products";
 import { Review } from "./navbar/home/review";
+import { Adventure } from "./navbar/home/book genre/adventure";
+import { Comic } from "./navbar/home/book genre/comic";
+import { Fiction } from "./navbar/home/book genre/fiction";
+import { Novel } from "./navbar/home/book genre/novel";
+import { Science } from "./navbar/home/book genre/science";
+import { Search } from "./navbar/home/search";
 // import Data from "./navbar/home/data.json";
 
 const item1 = {
@@ -101,6 +107,12 @@ function App() {
           <Route path="/product" element={<Products />} />
           <Route path="/review/:id" element={<Review />} />
           <Route path="/admin/*" element={<Admin />} />
+          <Route path="/adventure" element={<Adventure />} />
+          <Route path="/comic" element={<Comic />} />
+          <Route path="/fiction" element={<Fiction />} />
+          <Route path="/novel" element={<Novel />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/science" element={<Science />} />
         </Routes>
       </Router>
     </div>

@@ -10,3 +10,9 @@
   padding-bottom: 10px;
   background-color: #eae0d5;
 }
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+  margin: 10px 30px;
+}
