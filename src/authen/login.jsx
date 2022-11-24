@@ -45,7 +45,7 @@ export const Login = () => {
             />
             <div className="button-container">
               <Link to="/">
-                <button className="btn back-btn">
+                <button className="btn back-btn-login">
                   <img src={back_icon} alt="" />
                   Quay lại
                 </button>
@@ -80,11 +80,11 @@ export const Login = () => {
             <Info_input labelName="Xác nhận mật khẩu mới" type="password" />
           </div>
           <div className="button-container">
-            <button onClick={removeModal} className="btn-reg back-btn">
+            <button onClick={removeModal} className="btn back-btn-modal">
               <img src={back_icon} alt="" />
               Quay lại
             </button>
-            <button className="btn-reg confirm-btn">
+            <button className="btn confirm-btn">
               <img src={ok_icon} alt="" />
               Xác nhận
             </button>

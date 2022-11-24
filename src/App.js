@@ -6,6 +6,7 @@ import { Contact } from "./navbar/contact/contact";
 import { Login } from "./authen/login";
 import { Signup } from "./authen/singup";
 import { Register_info } from "./authen/register_info";
+import { Profile } from "./profile_management/profile";
 import Admin from "./admin/pages/admin";
 import { useState } from "react";
 import { AllBook } from "./navbar/home/allbook";
@@ -107,12 +108,16 @@ function App() {
           <Route path="/product" element={<Products />} />
           <Route path="/review/:id" element={<Review />} />
           <Route path="/admin/*" element={<Admin />} />
+<<<<<<< HEAD
           <Route path="/adventure" element={<Adventure />} />
           <Route path="/comic" element={<Comic />} />
           <Route path="/fiction" element={<Fiction />} />
           <Route path="/novel" element={<Novel />} />
           <Route path="/search" element={<Search />} />
           <Route path="/science" element={<Science />} />
+=======
+          <Route path="/profile" element={<Profile />} />
+>>>>>>> 300a3a45216b0f1a975f3ed702592cee9ef0b7b5
         </Routes>
       </Router>
     </div>

@@ -43,7 +43,7 @@ export const Signup = () => {
           />
           <div className="button-container">
             <Link to="/">
-              <button className="btn back-btn">
+              <button className="btn back-btn-signup">
                 <img src={back_icon} alt="" />
                 Quay lại
               </button>

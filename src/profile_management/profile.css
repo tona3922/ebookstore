@@ -1,0 +1,132 @@
+.profile-page {
+    background-image: url(../img/profile/background.png);
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+	/* align-items: center; */
+	justify-content: center;
+}
+
+.profile-page-content {
+    position: fixed;
+    top: 15px;
+    width: 60%;
+    height: 100%;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.back-btn-profile {
+    background-color: #DDBEA9;
+    position: absolute;
+    top: 15px;
+    left: 0;
+}
+
+
+.profile-logo {
+    width: 228px;
+    height: 70.6px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.profile-container {
+    background-color: rgba(237,242,244,0.7);
+    width: 100%;
+    height: 80%;
+    border-radius: 50px;
+    position: relative;
+}
+
+.avatar-section {
+    /* display: flex;
+    justify-content: center; */
+    width: 35%;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+.ava-img {
+    width: 170px;
+    height: 175px;
+}
+
+.profile-name {
+    margin-top: 10px;
+    font-size: 28px;
+}
+
+.profile-page-btn {
+    border-radius: 20px;
+    width: 60%;
+    border: none;  
+    color: #472D30;
+    background-color: #ffff;
+    font-weight: 600;
+    padding: 10px 0;
+    margin-top: 20px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+}
+.profile-page-btn:hover {
+    opacity: 0.7;
+}
+.profile-page-btn:active {
+    opacity: 1;
+}
+.profile-page-btn > img {
+    width: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.profile-content-section {
+    background-color: #ffff;
+    border-radius: 40px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60%;
+    height: 85%;
+    border: 4px solid rgb(237,242,255);
+}
+
+.profile-content-section h1 {
+    color: #472D30;
+    padding: 10px 45px;
+}
+
+.profile-content {
+    list-style: none;
+    padding: 0;
+    margin: 30px 45px;
+}
+
+.profile-content li {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    
+}
+
+.profile-content li label {
+    margin: auto 0px;
+}
+
+.profile-content li p {
+    background-color: #F5F0F2;
+    border-radius: 20px;
+    width: 75%;
+    padding: 8px 20px;
+    margin: 0;
+}
