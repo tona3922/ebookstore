@@ -13,7 +13,7 @@
 .register-container {
     background-color: #fff;
     width: 500px;
-    height: 600px;
+    height: 630px;
     border-radius: 50px;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 30%), 0 6px 20px 0 rgb(0 0 0 / 30%);
     /* border: #000 solid; */
@@ -41,7 +41,7 @@ header.register-header {
 }
 
 .info-input {
-    width: 100%;
+    width: 100%; 
     margin: 25px 0px;
     display: flex;
     justify-content: space-between;
@@ -60,12 +60,12 @@ header.register-header {
 }
 
 .register-input {
-    width: 345px; 
-    border: 1px solid #ccc;
+    width: 345px !important; 
+    border: 1px solid #ccc !important;
     /* width: 95%; */
-    font-size: 15px;
-    padding: 10px;
-    border-radius: 20px;
+    font-size: 15px !important;
+    padding: 10px !important;
+    border-radius: 20px !important;
 }
 
 .register-input::placeholder {

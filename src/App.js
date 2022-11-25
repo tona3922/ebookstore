@@ -98,12 +98,9 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/science" element={<Science />} />
           <Route path="/profile" element={<Profile />} />
-<<<<<<< HEAD
           <Route path="/profile/activities" element={<Activity />} />
           <Route path="/activities" element={<Activity />} />
-=======
           <Route path="/confirm_order" element={< ConfirmOrder userInfo={userInfo} cartItems={cartItems}/>}/>
->>>>>>> a3caf7c80274a3a140e2460841aeb44736c2d540
         </Routes>
       </Router>
     </div>
