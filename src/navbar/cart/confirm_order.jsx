@@ -1,12 +1,14 @@
+import React from "react";
 import okIcon from "../../img/button/ok.png";
 import returnIcon from "../../img/button/return.png";
 import pen from "../../img/pen.png";
-import momo from "../../img/momo.png";
-import bank from "../../img/bank.png";
+import momo from "../../img/home/momo.png";
+import bank from "../../img/home/bank.png";
 import cash from "../../img/cash.png";
 import "./confirm_order.css";
-import "./cart.css"; // for mainBox mainButton style
+import "./cart.css"; // for reusing mainBox_cart mainButton style
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 // Note: chưa có đường link trở về trang giỏ hàng, chưa có props thông tin người dùng và mã giỏ hàng
 
@@ -28,46 +30,56 @@ const sectionTitle = {
 };
 
 export default function ConfirmOrder(props) {
-  const [inputs, setInputs] = useState({
-    name: props.name,
-    number: props.number,
-    address: props.address,
-    code: props.code,
-    total: props.total,
-    method: "0", // default
-  });
+  // const [inputs, setUserInfo] = useState({
+  //   name: props.name,
+  //   number: props.number,
+  //   address: props.address,
+  //   code: props.code,
+  //   total: props.total,
+  //   method: "0", // default
+  // });
+  const [userInfo, setUserInfo] = useState(props.userInfo)
+  // setUserInfo({...userInfo, method: '0'})
+  const [cartItems] = useState(props.cartItems)
+
+  const itemsPrice = cartItems.reduce((a, c) => a + c.qty * c.price, 0);
+  const shippingPrice = itemsPrice < 300000 ? itemsPrice * 0.2 : 0;
+  const totalPrice = itemsPrice + shippingPrice;  
 
   const handleFormChange = (event) => {
     const attr = event.target.name;
     const value = event.target.value;
-    setInputs((values) => ({ ...values, [attr]: value }));
+    setUserInfo((values) => ({ ...values, [attr]: value }));
   };
   const handleChoiceChange = (event) => {
-    setInputs((values) => ({ ...values, method: event.target.value }));
+    setUserInfo((values) => ({ ...values, method: event.target.value }));
   };
+  // hàm này sẽ gửi toàn bộ thông tin đơn hàng về chỗ quản lý đơn hàng
   const handleSubmit = (event) => {
     event.preventDefault();
     alert(
       "Your name is: " +
-        inputs.name +
+        userInfo.name +
         "\nYour number is: " +
-        inputs.number +
+        userInfo.phone +
         "\nYour address is: " +
-        inputs.address
+        userInfo.address
     );
   };
   return (
     <>
       <div>
+        <Link to="/cart">
         <button className="mainButton" style={returnButton}>
           <img src={returnIcon} alt="" />
           Quay lại
         </button>
+        </Link>
         <span style={pageTitle}>Xác nhận đơn hàng</span>
       </div>
 
-      <div className="mainBox">
-        <div className="mainBox formBox formContainer">
+      <div className="mainBox_cart mainBox_confirm">
+        <div className="mainBox_confirm formBox formContainer">
           <div className="row" style={sectionTitle}>
             1. Thông tin người nhận
           </div>
@@ -75,48 +87,49 @@ export default function ConfirmOrder(props) {
             <EditableInput
               labelText="Tên"
               name="name"
-              value={inputs.name}
+              value={userInfo.name}
               onChange={handleFormChange}
             />
             <EditableInput
               labelText="SĐT"
               name="number"
-              value={inputs.number}
+              value={userInfo.phone}
               onChange={handleFormChange}
             />
             <EditableInput
               labelText="Địa chỉ"
               name="address"
-              value={inputs.address}
+              value={userInfo.address}
               onChange={handleFormChange}
             />
           </form>
         </div>
-        <div className="mainBox formBox formContainer">
+        <div className="mainBox_confirm formBox formContainer">
           <div style={sectionTitle}>2. Thông tin đơn hàng</div>
           <form>
             <UneditableInput
               labelText="Mã đơn hàng"
               name="code"
-              value={inputs.code}
+              value={'13579'}
             />
             <UneditableInput
               labelText="Tổng cộng"
               name="total"
-              value={inputs.total + " VNĐ"}
+              value={totalPrice + " VNĐ"}
             />
           </form>
         </div>
       </div>
 
-      <div className="mainBox">
-        <div className="mainBox choiceBox">
+      <div className="mainBox_cart mainBox_confirm">
+        <div className="mainBox_confirm choiceBox">
           <div style={sectionTitle}>3. Phương thức thanh toán</div>
           <label className="choiceContainer">
             <input
+              className="radioButton"
               type="radio"
               value="0"
-              checked={inputs.method === "0"}
+              checked={userInfo.method === "0"}
               onChange={handleChoiceChange}
             />
             <img
@@ -129,9 +142,10 @@ export default function ConfirmOrder(props) {
           <br />
           <label className="choiceContainer">
             <input
+              className="radioButton"
               type="radio"
               value="1"
-              checked={inputs.method === "1"}
+              checked={userInfo.method === "1"}
               onChange={handleChoiceChange}
             />
             <img
@@ -144,9 +158,10 @@ export default function ConfirmOrder(props) {
           <br />
           <label className="choiceContainer">
             <input
+              className="radioButton"
               type="radio"
               value="2"
-              checked={inputs.method === "2"}
+              checked={userInfo.method === "2"}
               onChange={handleChoiceChange}
             />
             <img
@@ -192,6 +207,7 @@ function EditableInput(props) {
           name={name}
           value={value}
           onChange={onChange}
+          style={{background:'white'}}
         />
       </div>
       <div className="col-end">
@@ -216,7 +232,7 @@ function UneditableInput(props) {
         <label>{labelText}</label>
       </div>
       <div className="col-75">
-        <input type="text" name={name} value={value} readOnly />
+        <input type="text" name={name} value={value} style={{background:'#FEFAE0'}}readOnly />
       </div>
     </div>
   );

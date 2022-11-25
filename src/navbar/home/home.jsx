@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import logo from "../../img/home/logo.png";
 import facebook from "../../img/home/facebook.png";
 import instagram from "../../img/home/instagram.png";
@@ -12,10 +12,18 @@ import slider1 from "../../img/home/slider1.png";
 import { Viewbook } from "./viewbook";
 import { Uppernav } from "../uppernav";
 import { Topbook } from "./topbook";
-
+import { useNavigate, Link } from "react-router-dom";
 import "./home.css";
 
-export const Home = () => {
+export const Home = (props) => {
+  const {cartItems, onDecrease, onIncrease} = props
+  let navigate = useNavigate();
+  function handleChange(value) {
+    navigate(`${value}`);
+    value = "";
+  }
+  // let input = "";
+  const [input, setInput] = useState("");
   return (
     <div className="homepage">
       <Uppernav />
@@ -28,18 +36,31 @@ export const Home = () => {
           <button class="normbutton">View Books</button>
         </a>
         <button class="category">
-          <select>
-            <option value="#">Category</option>
-            <option value="A">Science</option>
-            <option value="B">Novel</option>
-            <option value="C">Fiction</option>
-            <option value="D">Adventure</option>
-            <option value="E">Comic</option>
+          <select onChange={(event) => handleChange(event.target.value)}>
+            <option value="home">Category</option>
+            <option value="science">Science</option>
+            <option value="novel">Novel</option>
+            <option value="fiction">Fiction</option>
+            <option value="adventure">Adventure</option>
+            <option value="comic">Comic</option>
           </select>
         </button>
         <div class="searchButton">
-          <input type="text" placeholder="Search here" />
-          <button class="search">Search</button>
+          <input
+            type="text"
+            placeholder="Search here"
+            value={input}
+            onInput={(e) => setInput(e.target.value)}
+          />
+          <button class="search">
+            <Link
+              to="/search"
+              style={{ textDecoration: "none", color: "black" }}
+              state={{ string: input }}
+            >
+              Search
+            </Link>
+          </button>
         </div>
       </div>
       <div className="slider">
@@ -75,7 +96,7 @@ export const Home = () => {
       </div>
       <hr></hr>
       <div id="topbook" className="topbook">
-        <Topbook />
+        <Topbook cartItems={cartItems} onDecrease={onDecrease} onIncrease={onIncrease}/>
       </div>
       <hr></hr>
       <div id="viewbook" className="viewbook">

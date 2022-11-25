@@ -1,7 +1,7 @@
-.mainBox {
+.mainBox_confirm {
   display: flex;
 }
-.mainBox.formBox {
+.mainBox_confirm.formBox {
   margin: 25px;
   flex-wrap: wrap;
   box-shadow: none;
@@ -41,7 +41,7 @@ label {
     background-color: #45a049;
   } */
 
-.mainBox.formBox.formContainer {
+.mainBox_confirm.formBox.formContainer {
   border-radius: 5px;
   /* background-color: #f2f2f2; */
   /* padding: 20px; */
@@ -83,15 +83,21 @@ label {
     width: 100%;
     margin-top: 0;
   }
-  .mainBox {
+  .mainBox_confirm {
     flex-direction: column;
   }
 }
 
-.mainBox.choiceBox {
+.mainBox_confirm.choiceBox {
   /* flex-direction: column; */
   box-shadow: none;
   /* flex-wrap: wrap; */
   display: block;
   margin: 25px;
+}
+
+.radioButton {
+  margin:0;
+  padding:0;    
+  width:20px!important;  
 }
