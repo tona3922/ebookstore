@@ -18,12 +18,19 @@ import { Fiction } from "./navbar/home/book genre/fiction";
 import { Novel } from "./navbar/home/book genre/novel";
 import { Science } from "./navbar/home/book genre/science";
 import { Search } from "./navbar/home/search";
+import ConfirmOrder from "./navbar/cart/confirm_order";
 // import Data from "./navbar/home/data.json";
 
 function App() {
   // 
   const [cartItems, setCartItems] = useState([]);
-
+  const [userInfo] = useState({
+    name: 'Nguyễn Văn A',
+    address: '1, Lê Duẩn, P.1, Q.1, TP.HCM',
+    phone: '0909090909',
+    method:'0'
+  });
+  // chưa có kiểm tra số lượng còn lại của sách
   const onIncrease = (product) => {
     const exist = cartItems.find((x) => x._id === product._id);
     if (exist) {
@@ -90,6 +97,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/science" element={<Science />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/confirm_order" element={< ConfirmOrder userInfo={userInfo} cartItems={cartItems}/>}/>
         </Routes>
       </Router>
     </div>
