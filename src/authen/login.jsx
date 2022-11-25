@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Info_input } from "./register_info";
+import { InfoInput } from "./register_info";
 import logo from "../img/home/logo.png";
 import login_icon from "../img/login-icon.png";
 import back_icon from "../img/back.png";
@@ -9,11 +9,11 @@ import "./login.css";
 
 export const Login = () => {
   const displayModal = () => {
-    const modal = document.querySelector(".modal-forgetpw");
+    const modal = document.querySelector(".modal-pw");
     modal.classList.add("open");
   };
   const removeModal = () => {
-    const modal = document.querySelector(".modal-forgetpw.open");
+    const modal = document.querySelector(".modal-pw.open");
     modal.classList.remove("open");
   };
   return (
@@ -69,15 +69,15 @@ export const Login = () => {
           </div>
         </div>
       </div>
-      <div className="modal-forgetpw">
+      <div className="modal-pw">
         <div className="modal-container">
           <header className="modal-header">
             <h1>CẬP NHẬT MẬT KHẨU</h1>
           </header>
           <div className="modal-content">
-            <Info_input labelName="Tên đăng nhập" type="text" />
-            <Info_input labelName="Mật khẩu mới" type="password" />
-            <Info_input labelName="Xác nhận mật khẩu mới" type="password" />
+            <InfoInput labelName="Tên đăng nhập" type="text" />
+            <InfoInput labelName="Mật khẩu mới" type="password" />
+            <InfoInput labelName="Xác nhận mật khẩu mới" type="password" />
           </div>
           <div className="button-container">
             <button onClick={removeModal} className="btn back-btn-modal">

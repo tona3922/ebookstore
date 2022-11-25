@@ -7,6 +7,7 @@ import { Login } from "./authen/login";
 import { Signup } from "./authen/singup";
 import { Register_info } from "./authen/register_info";
 import { Profile } from "./profile_management/profile";
+import { Activity } from "./profile_management/activities";
 import Admin from "./admin/pages/admin";
 import { useState } from "react";
 import { AllBook } from "./navbar/home/allbook";
@@ -103,6 +104,8 @@ function App() {
           <Route path="/review/:id" element={<Review />} />
           <Route path="/admin/*" element={<Admin />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/activities" element={<Activity />} />
+          <Route path="/activities" element={<Activity />} />
         </Routes>
       </Router>
     </div>

@@ -1,11 +1,14 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+import { InfoInput } from "../authen/register_info";
 import logo from "../img/home/logo.png";
 import back_icon from "../img/back.png";
 import profile_ava from "../img/profile/profile_ava.png";
 import update_profile_icon from "../img/profile/update_profile_icon.png";
 import change_password_icon from "../img/profile/change_password_icon.png";
 import activity_icon from "../img/profile/activity_icon.png";
-import profileInfo from "./account_info";
+import ok_icon from "../img/button/ok.png";
+import { profileInfo } from "./profile_data";
 import "./profile.css";
 
 function Displayprofile (props) {
@@ -41,34 +44,72 @@ function Displayprofile (props) {
     )
 }
 
+function Displaysexoption () {
+    if (profileInfo.sex === "Nam"){
+        return (
+            <Fragment>
+                <input className="register-radio" type="radio" value="Nam" name="sex" defaultChecked="checked"/> Nam
+                <input className="register-radio" type="radio" value="Nữ" name="sex"/> Nữ
+            </Fragment>
+        )
+    } 
+    else {
+        return (
+            <Fragment>
+                <input className="register-radio" type="radio" value="Nam" name="sex"/> Nam
+                <input className="register-radio" type="radio" value="Nữ" name="sex" defaultChecked="checked"/> Nữ
+            </Fragment>
+        )
+    }  
+}
 
 export const Profile = () => {
+        const displayModal = () => {
+            const modal = document.querySelector(".modal-pw");
+            modal.classList.add("open");
+        };
+        const removeModal = () => {
+            const modal = document.querySelector(".modal-pw.open");
+            modal.classList.remove("open");
+        };
+        const displayModalProfile = () => {
+            const modal = document.querySelector(".modal-profile");
+            modal.classList.add("open");
+        };
+        const removeModalProfile = () => {
+            const modal = document.querySelector(".modal-profile.open");
+            modal.classList.remove("open");
+        };
     return(
-        <div>
+        <Fragment>
             <div className="profile-page">
                 <div className="profile-page-content">
+                    <Link to="/">
                     <button className="btn back-btn-profile">
                         <img src={back_icon} alt="" />
                             Quay lại
                     </button>
+                    </Link>
                     <img className="profile-logo" src={logo} alt="" />
                     
                     <div className="profile-container">
                         <div className="avatar-section">
                             <img className="ava-img" src={profile_ava} alt="" />
                             <h1 className="profile-name">{profileInfo.name}</h1>
-                            <button className="profile-page-btn">
+                            <button onClick={displayModalProfile} className="profile-page-btn">
                                 <img src={update_profile_icon} alt="" />
                                 Sửa hồ sơ
                             </button>
-                            <button className="profile-page-btn">
+                            <button onClick={displayModal} className="profile-page-btn">
                                 <img src={change_password_icon} alt="" />
                                 Đổi mật khẩu
                             </button>
-                            <button className="profile-page-btn">
-                                <img src={activity_icon} alt="" />
-                                Xem hoạt động
-                            </button>
+                            <Link to="/profile/activities">
+                                <button className="profile-page-btn">
+                                    <img src={activity_icon} alt="" />
+                                    Xem hoạt động
+                                </button>
+                            </Link>
                         </div>
                         
                         <div className="profile-content-section">
@@ -85,6 +126,60 @@ export const Profile = () => {
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div className="modal-pw">
+                <div className="modal-container">
+                    <header className="modal-header">
+                        <h1>ĐỔI MẬT KHẨU</h1>
+                    </header>
+                    <div className="modal-content">
+                        <InfoInput labelName="Mật khẩu hiện tại" type="password" />
+                        <InfoInput labelName="Mật khẩu mới" type="password" />
+                        <InfoInput labelName="Xác nhận mật khẩu mới" type="password" />
+                    </div>
+                    <div className="button-container">
+                        <button onClick={removeModal} className="btn back-btn-modal">
+                            <img src={back_icon} alt="" />
+                            Quay lại
+                        </button>
+                        <button className="btn confirm-btn">
+                            <img src={ok_icon} alt="" />
+                            Xác nhận
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div className="modal-profile">
+                <div className="modal-container">
+                    <header className="modal-header">
+                        <h1>ĐỔI MẬT KHẨU</h1>
+                    </header>
+                    <div className="modal-content">
+                    <InfoInput labelName = "Họ và tên" type = "text" defaultVal = {profileInfo.name}/>
+                    <div className="sex-option">
+                        <label className="register-label" htmlFor="" defaultValue={profileInfo.sex}>Giới tính</label>
+                        <Displaysexoption />
+                        {/* <input className="register-radio" type="radio" value="Nam" name="sex"/> Nam
+                        <input className="register-radio" type="radio" value="Nữ" name="sex"/> Nữ */}
+                    </div>
+                    <InfoInput labelName = "Ngày sinh" type = "date" defaultVal = {profileInfo.DoB}/>
+                    <InfoInput labelName = "Số điện thoại" type = "text" defaultVal = {profileInfo.phonenumber}/>
+                    <InfoInput labelName = "Email" type = "text" defaultVal = {profileInfo.email}/>
+                    <InfoInput labelName = "Địa chỉ" type = "text" defaultVal = {profileInfo.address}/>
+                    </div>
+                    <div className="button-container">
+                        <button onClick={removeModalProfile} className="btn back-btn-modal">
+                            <img src={back_icon} alt="" />
+                            Quay lại
+                        </button>
+                        <button className="btn confirm-btn">
+                            <img src={ok_icon} alt="" />
+                            Xác nhận
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </Fragment>
     )
 }

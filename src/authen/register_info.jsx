@@ -4,11 +4,11 @@ import back_icon from "../img/back.png"
 import ok_icon from '../img/button/ok.png';
 import "./register_info.css";
 
-export function Info_input (props) {
+export function InfoInput (props) {
     return(
         <div className="info-input">
             <label className="register-label" htmlFor="">{props.labelName}</label>
-            <input className="register-input" type={props.type} placeholder={props.labelName}/>
+            <input className="register-input" type={props.type} placeholder={props.labelName} defaultValue={props.defaultVal}/>
         </div>
     );
 }
@@ -21,28 +21,28 @@ export const Register_info = () => {
                     <h1>THÔNG TIN CÁ NHÂN</h1>
                 </header>
                 <div className="register-content">
-                    <Info_input 
+                    <InfoInput 
                         labelName = "Họ và tên"
                         type = "text"
                     />
                     <div className="sex-option">
                         <label className="register-label" htmlFor="">Giới tính</label>
-                        <input className="register-radio" type="radio" value="Nam"/> Nam
-                        <input className="register-radio" type="radio" value="Nữ"/> Nữ
+                        <input className="register-radio" type="radio" value="Nam" name="sex"/> Nam
+                        <input className="register-radio" type="radio" value="Nữ" name="sex"/> Nữ
                     </div>
-                    <Info_input 
-                        labelName = "CMND/CCCD"
-                        type = "text"
+                    <InfoInput 
+                        labelName = "Ngày sinh"
+                        type = "date"
                     />
-                    <Info_input 
+                    <InfoInput 
                         labelName = "Số điện thoại"
                         type = "text"
                     />
-                    <Info_input 
+                    <InfoInput 
                         labelName = "Email"
                         type = "text"
                     />
-                    <Info_input 
+                    <InfoInput 
                         labelName = "Địa chỉ"
                         type = "text"
                     />
