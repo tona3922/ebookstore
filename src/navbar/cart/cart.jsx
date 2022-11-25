@@ -51,7 +51,7 @@ export function Cart(props) {
     <>
       <div>
         <Link to="/">
-          <button className="mainButton" style={returnButton}>
+          <button className="mainButton_cart" style={returnButton}>
             <img src={returnIcon} alt="" />
             Quay lại
           </button>
@@ -80,14 +80,14 @@ export function Cart(props) {
               </div>
               <div id="ci_quantity">
                 <button
-                  className="image_button"
+                  className="ci_image_button"
                   onClick={() => onDecrease(item)}
                 >
                   <img src={minusButton} alt="" />
                 </button>
                 <span style={quantityStyle}> {item.qty} </span>
                 <button
-                  className="image_button"
+                  className="ci_image_button"
                   onClick={() => onIncrease(item)}
                 >
                   <img src={plusButton} alt="" />
@@ -99,7 +99,7 @@ export function Cart(props) {
                 </p>
               </div>
               <div id="ci_quit_button">
-                <button className="image_button" onClick={() => onDelete(item)}>
+                <button className="ci_image_button" onClick={() => onDelete(item)}>
                   <img src={quitButton} alt="" />
                 </button>
               </div>
@@ -119,13 +119,13 @@ export function Cart(props) {
       {cartItems.length !== 0 && (
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Link to="/confirm_order">
-        <button className="mainButton" style={{ backgroundColor: "#D4E09B" }}>
+        <button className="mainButton_cart" style={{ backgroundColor: "#D4E09B" }}>
           <img src={okIcon} alt="" />
           XÁC NHẬN ĐƠN HÀNG
         </button>
         </Link>
         <button
-          className="mainButton"
+          className="mainButton_cart"
           style={{ backgroundColor: "#FFC4AE" }}
           onClick={() => {
             if (cartItems.length !== 0)

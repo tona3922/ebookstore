@@ -6,7 +6,7 @@ import momo from "../../img/home/momo.png";
 import bank from "../../img/home/bank.png";
 import cash from "../../img/cash.png";
 import "./confirm_order.css";
-import "./cart.css"; // for reusing mainBox_cart mainButton style
+import "./cart.css"; // for reusing mainBox_cart mainButton_cart style
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -70,7 +70,7 @@ export default function ConfirmOrder(props) {
     <>
       <div>
         <Link to="/cart">
-        <button className="mainButton" style={returnButton}>
+        <button className="mainButton_cart" style={returnButton}>
           <img src={returnIcon} alt="" />
           Quay lại
         </button>
@@ -80,7 +80,7 @@ export default function ConfirmOrder(props) {
 
       <div className="mainBox_cart mainBox_confirm">
         <div className="mainBox_confirm formBox formContainer">
-          <div className="row" style={sectionTitle}>
+          <div className="row_confirm" style={sectionTitle}>
             1. Thông tin người nhận
           </div>
           <form>
@@ -124,9 +124,9 @@ export default function ConfirmOrder(props) {
       <div className="mainBox_cart mainBox_confirm">
         <div className="mainBox_confirm choiceBox">
           <div style={sectionTitle}>3. Phương thức thanh toán</div>
-          <label className="choiceContainer">
+          <label className="choiceContainer label_confirm">
             <input
-              className="radioButton"
+              className="radioButton_confirm"
               type="radio"
               value="0"
               checked={userInfo.method === "0"}
@@ -140,9 +140,9 @@ export default function ConfirmOrder(props) {
             Thanh toán tiền mặt khi nhận hàng
           </label>
           <br />
-          <label className="choiceContainer">
+          <label className="choiceContainer label_confirm">
             <input
-              className="radioButton"
+              className="radioButton_confirm"
               type="radio"
               value="1"
               checked={userInfo.method === "1"}
@@ -156,9 +156,9 @@ export default function ConfirmOrder(props) {
             Chuyển khoản qua ngân hàng
           </label>
           <br />
-          <label className="choiceContainer">
+          <label className="choiceContainer label_confirm">
             <input
-              className="radioButton"
+              className="radioButton_confirm"
               type="radio"
               value="2"
               checked={userInfo.method === "2"}
@@ -175,7 +175,7 @@ export default function ConfirmOrder(props) {
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <button
-          className="mainButton"
+          className="mainButton_cart"
           style={{ backgroundColor: "#E0FD56" }}
           onClick={handleSubmit}
         >
@@ -196,12 +196,13 @@ function EditableInput(props) {
   };
 
   return (
-    <div className="row">
-      <div className="col-25">
-        <label>{labelText}</label>
+    <div className="row_confirm">
+      <div className="col-25_confirm">
+        <label className="label_confirm">{labelText}</label>
       </div>
-      <div className="col-75">
+      <div className="col-75_confirm">
         <input
+          className="input_confirm"
           ref={inputRef}
           type="text"
           name={name}
@@ -210,9 +211,9 @@ function EditableInput(props) {
           style={{background:'white'}}
         />
       </div>
-      <div className="col-end">
+      <div className="col-end_confirm">
         <button
-          className="mainButton"
+          className="mainButton_cart"
           onClick={handleClick}
           style={{ backgroundColor: "inherit", boxShadow: "none" }}
         >
@@ -227,12 +228,12 @@ function UneditableInput(props) {
   const { labelText, name, value } = props;
 
   return (
-    <div className="row">
-      <div className="col-25">
-        <label>{labelText}</label>
+    <div className="row_confirm">
+      <div className="col-25_confirm">
+        <label className="label_confirm">{labelText}</label>
       </div>
-      <div className="col-75">
-        <input type="text" name={name} value={value} style={{background:'#FEFAE0'}}readOnly />
+      <div className="col-75_confirm">
+        <input className="input_confirm" type="text" name={name} value={value} style={{background:'#FEFAE0'}}readOnly />
       </div>
     </div>
   );
