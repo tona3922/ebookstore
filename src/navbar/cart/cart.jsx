@@ -65,12 +65,12 @@ export function Cart(props) {
           cartItems.map((item) => (
             <div
               className="ci_container"
-              id={item.id}
+              id={item._id}
               style={{ color: "#79444A" }}
-              key={item.id}
+              key={item._id}
             >
               <div id="ci_image">
-                <img src={item.thumbnail} style={{ maxWidth: "100%" }} alt="" />
+                <img src={item.image} style={{ maxWidth: "100%" }} alt="" />
               </div>
               <div id="ci_info">
                 <p style={{ fontSize: "30px", fontWeight: "bold" }}>

@@ -15,7 +15,8 @@ import { Topbook } from "./topbook";
 import { useNavigate, Link } from "react-router-dom";
 import "./home.css";
 
-export const Home = () => {
+export const Home = (props) => {
+  const {cartItems, onDecrease, onIncrease} = props
   let navigate = useNavigate();
   function handleChange(value) {
     navigate(`${value}`);
@@ -95,7 +96,7 @@ export const Home = () => {
       </div>
       <hr></hr>
       <div id="topbook" className="topbook">
-        <Topbook />
+        <Topbook cartItems={cartItems} onDecrease={onDecrease} onIncrease={onIncrease}/>
       </div>
       <hr></hr>
       <div id="viewbook" className="viewbook">

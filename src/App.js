@@ -20,45 +20,16 @@ import { Science } from "./navbar/home/book genre/science";
 import { Search } from "./navbar/home/search";
 // import Data from "./navbar/home/data.json";
 
-const item1 = {
-  id: 1,
-  thumbnail: require("./img/book1.jpg"),
-  title: "Tôi thấy hoa vàng trên cỏ xanh",
-  author: "Nguyễn Nhật Ánh",
-  price: 123000,
-  stock: 50,
-};
-const item2 = {
-  id: 2,
-  thumbnail: require("./img/book1.jpg"),
-  title: "Data Structure and Algorithm",
-  author: "Various",
-  price: 690000,
-  stock: 69,
-};
-const item3 = {
-  id: 3,
-  thumbnail: require("./img/book1.jpg"),
-  title: "Operating System Concept",
-  author: "Various",
-  price: 690000,
-  stock: 70,
-};
-const bookList = [item1, item2, item3]; // bookList tui để tạm đây, mốt mình có thể dời ra file riêng
-
 function App() {
-  const [cartItems, setCartItems] = useState([
-    { ...bookList[0], qty: 3 },
-    { ...bookList[1], qty: 5 },
-    { ...bookList[2], qty: 3 },
-  ]); // sau khi bên View Book hoàn thiện thì cái này sẽ khởi tạo trống, tạm thời để cái này để xem
+  // 
+  const [cartItems, setCartItems] = useState([]);
 
   const onIncrease = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = cartItems.find((x) => x._id === product._id);
     if (exist) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+          x._id === product._id ? { ...exist, qty: exist.qty + 1 } : x
         )
       );
     } else {
@@ -66,19 +37,19 @@ function App() {
     }
   };
   const onDecrease = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = cartItems.find((x) => x._id === product._id);
     if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
+      setCartItems(cartItems.filter((x) => x._id !== product._id));
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+          x._id === product._id ? { ...exist, qty: exist.qty - 1 } : x
         )
       );
     }
   };
   const onDelete = (product) => {
-    setCartItems(cartItems.filter((x) => x.id !== product.id));
+    setCartItems(cartItems.filter((x) => x._id !== product._id));
   };
   const onDeleteAll = () => {
     setCartItems(() => []);
@@ -87,7 +58,11 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home 
+            cartItems={cartItems}
+            onDecrease={onDecrease}
+            onIncrease={onIncrease}
+          />} />
           <Route path="/contact" element={<Contact />} />
           <Route
             path="/cart"
@@ -106,18 +81,15 @@ function App() {
           <Route path="/signup/info_reg" element={<Register_info />} />
           <Route path="/allbook" element={<AllBook />} />
           <Route path="/product" element={<Products />} />
-          <Route path="/review/:id" element={<Review />} />
+          <Route path="/review/:_id" element={<Review />} />
           <Route path="/admin/*" element={<Admin />} />
-<<<<<<< HEAD
           <Route path="/adventure" element={<Adventure />} />
           <Route path="/comic" element={<Comic />} />
           <Route path="/fiction" element={<Fiction />} />
           <Route path="/novel" element={<Novel />} />
           <Route path="/search" element={<Search />} />
           <Route path="/science" element={<Science />} />
-=======
           <Route path="/profile" element={<Profile />} />
->>>>>>> 300a3a45216b0f1a975f3ed702592cee9ef0b7b5
         </Routes>
       </Router>
     </div>

@@ -4,7 +4,8 @@ import Data from "./data.json";
 import { FaShoppingBag, FaBook } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export const Topbook = () => {
+export const Topbook = (props) => {
+  const {cartItems, onDecrease, onIncrease} = props
   const array = Data.products,
     final = [];
   function compare(a, b) {
@@ -39,7 +40,7 @@ export const Topbook = () => {
               </div>
             </div>
             <div className="downcard">
-              <button className="shopping-bag">
+              <button className="shopping-bag" onClick={() => onIncrease(fins)}>
                 Add to cart <FaShoppingBag />
               </button>
               <button className="review">
