@@ -153,7 +153,7 @@ export const Profile = () => {
             <div className="modal-profile">
                 <div className="modal-container">
                     <header className="modal-header">
-                        <h1>ĐỔI MẬT KHẨU</h1>
+                        <h1>SỬA HỒ SƠ</h1>
                     </header>
                     <div className="modal-content">
                     <InfoInput labelName = "Họ và tên" type = "text" defaultVal = {profileInfo.name}/>
