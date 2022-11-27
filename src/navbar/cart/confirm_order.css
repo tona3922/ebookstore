@@ -7,13 +7,11 @@
   box-shadow: none;
   flex-grow: 1;
 }
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
-input[type="text"],
-select,
-textarea {
+.input_confirm[type="text"] {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -21,7 +19,7 @@ textarea {
   resize: vertical;
 }
 
-label {
+.label_confirm {
   font-weight: bold;
   padding: 12px 12px 12px 0;
   display: inline-block;
@@ -48,28 +46,28 @@ label {
   display: block;
 }
 
-.col-25 {
+.col-25_confirm {
   float: left;
   width: 30%;
   margin-top: 6px;
 }
 
-.col-75 {
+.col-75_confirm {
   float: left;
   /* width: auto%; */
   margin-top: 6px;
 }
 
-.col-end {
+.col-end_confirm {
   float: left;
   /* margin-top: 6px; */
 }
 
-.row {
+.row_confirm {
   width: 100%;
 }
 /* Clear floats after the columns */
-.row:after {
+.row_confirm:after {
   content: "";
   display: table;
   clear: both;
@@ -77,12 +75,12 @@ label {
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 1000px) {
-  .col-25,
-  .col-75,
-  input[type="submit"] {
+  .col-25_confirm,
+  .col-75_confirm,
+  /* input[type="submit"] {
     width: 100%;
     margin-top: 0;
-  }
+  } */
   .mainBox_confirm {
     flex-direction: column;
   }
@@ -96,7 +94,7 @@ label {
   margin: 25px;
 }
 
-.radioButton {
+.radioButton_confirm {
   margin:0;
   padding:0;    
   width:20px!important;  
