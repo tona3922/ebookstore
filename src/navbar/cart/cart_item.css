@@ -30,18 +30,18 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.image_button {
+.ci_image_button {
   background-color: inherit;
   border: none;
 }
-.image_button > img {
+.ci_image_button > img {
   width: 30px;
   opacity: 0.8;
 }
-.image_button > img:hover {
+.ci_image_button > img:hover {
   opacity: 1;
 }
-.image_button > img:active {
+.ci_image_button > img:active {
   opacity: 0.5;
 }
 

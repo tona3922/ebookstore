@@ -1,5 +1,5 @@
 import "./style.scss";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { Home } from "./navbar/home/home";
 import { Cart } from "./navbar/cart/cart";
 import { Contact } from "./navbar/contact/contact";
@@ -7,6 +7,7 @@ import { Login } from "./authen/login";
 import { Signup } from "./authen/singup";
 import { Register_info } from "./authen/register_info";
 import { Profile } from "./profile_management/profile";
+import { Activity } from "./profile_management/activities";
 import Admin from "./admin/pages/admin";
 import { useState } from "react";
 import { AllBook } from "./navbar/home/allbook";
@@ -18,48 +19,29 @@ import { Fiction } from "./navbar/home/book genre/fiction";
 import { Novel } from "./navbar/home/book genre/novel";
 import { Science } from "./navbar/home/book genre/science";
 import { Search } from "./navbar/home/search";
+<<<<<<< HEAD
 import { Feedback } from "./navbar/home/feedback";
+=======
+import ConfirmOrder from "./navbar/cart/confirm_order";
+>>>>>>> bec98254f4f1703e39114476f29bf717c43e42f7
 // import Data from "./navbar/home/data.json";
 
-const item1 = {
-  id: 1,
-  thumbnail: require("./img/book1.jpg"),
-  title: "Tôi thấy hoa vàng trên cỏ xanh",
-  author: "Nguyễn Nhật Ánh",
-  price: 123000,
-  stock: 50,
-};
-const item2 = {
-  id: 2,
-  thumbnail: require("./img/book1.jpg"),
-  title: "Data Structure and Algorithm",
-  author: "Various",
-  price: 690000,
-  stock: 69,
-};
-const item3 = {
-  id: 3,
-  thumbnail: require("./img/book1.jpg"),
-  title: "Operating System Concept",
-  author: "Various",
-  price: 690000,
-  stock: 70,
-};
-const bookList = [item1, item2, item3]; // bookList tui để tạm đây, mốt mình có thể dời ra file riêng
-
 function App() {
-  const [cartItems, setCartItems] = useState([
-    { ...bookList[0], qty: 3 },
-    { ...bookList[1], qty: 5 },
-    { ...bookList[2], qty: 3 },
-  ]); // sau khi bên View Book hoàn thiện thì cái này sẽ khởi tạo trống, tạm thời để cái này để xem
-
+  // 
+  const [cartItems, setCartItems] = useState([]);
+  const [userInfo] = useState({
+    name: 'Nguyễn Văn A',
+    address: '1, Lê Duẩn, P.1, Q.1, TP.HCM',
+    phone: '0909090909',
+    method:'0'
+  });
+  // chưa có kiểm tra số lượng còn lại của sách
   const onIncrease = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = cartItems.find((x) => x._id === product._id);
     if (exist) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+          x._id === product._id ? { ...exist, qty: exist.qty + 1 } : x
         )
       );
     } else {
@@ -67,19 +49,19 @@ function App() {
     }
   };
   const onDecrease = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
+    const exist = cartItems.find((x) => x._id === product._id);
     if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
+      setCartItems(cartItems.filter((x) => x._id !== product._id));
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
+          x._id === product._id ? { ...exist, qty: exist.qty - 1 } : x
         )
       );
     }
   };
   const onDelete = (product) => {
-    setCartItems(cartItems.filter((x) => x.id !== product.id));
+    setCartItems(cartItems.filter((x) => x._id !== product._id));
   };
   const onDeleteAll = () => {
     setCartItems(() => []);
@@ -88,7 +70,11 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home 
+            cartItems={cartItems}
+            onDecrease={onDecrease}
+            onIncrease={onIncrease}
+          />} />
           <Route path="/contact" element={<Contact />} />
           <Route
             path="/cart"
@@ -107,9 +93,17 @@ function App() {
           <Route path="/signup/info_reg" element={<Register_info />} />
           <Route path="/allbook" element={<AllBook />} />
           <Route path="/product" element={<Products />} />
+<<<<<<< HEAD
           <Route path="/review/:id" element={<Review />} />
           <Route path="/feedback/:id" element={<Feedback />} />
           <Route path="/admin/*" element={<Admin />} />
+=======
+          <Route path="/review/:_id" element={<Review />} />
+          <Route path="/admin/*" element={<Admin />}/>
+          {/* render={() => {
+            return localStorage.getItem("accessToken")? <Admin /> : <Navigate to="/signin" />
+          }}  */}
+>>>>>>> bec98254f4f1703e39114476f29bf717c43e42f7
           <Route path="/adventure" element={<Adventure />} />
           <Route path="/comic" element={<Comic />} />
           <Route path="/fiction" element={<Fiction />} />
@@ -117,6 +111,12 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/science" element={<Science />} />
           <Route path="/profile" element={<Profile />} />
+<<<<<<< HEAD
+=======
+          <Route path="/profile/activities" element={<Activity />} />
+          <Route path="/activities" element={<Activity />} />
+          <Route path="/confirm_order" element={< ConfirmOrder userInfo={userInfo} cartItems={cartItems}/>}/>
+>>>>>>> bec98254f4f1703e39114476f29bf717c43e42f7
         </Routes>
       </Router>
     </div>

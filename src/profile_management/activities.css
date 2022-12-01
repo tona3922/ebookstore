@@ -1,0 +1,239 @@
+/* .activity-page {
+    background-image: url(../img/profile/act_background.jpeg);
+    position: absolute;
+    width: 100%;
+} */
+.clear {
+    clear: both;
+}
+
+.activity-header {
+    background-color: #ffff;
+    position: fixed;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 70.6px;
+}
+
+.back-btn-activity {
+    /* background-color: #DDBEA9; */
+    margin: auto 0 auto 70px;
+}
+
+.logo-activity {
+    width: 228px;
+    height: 70.6px;
+    position: fixed;
+    top: 0;
+    right: 0; 
+}
+
+.activity-navbar {
+    position: fixed;
+    top: 100px;
+    left: 70px;
+    background-color: #EDF2F4;
+    border-radius: 40px;
+    width: 16%;
+    height: 80%;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.activity-navbar h1 {
+    font-size: 30px;
+    margin: 50px auto 50px;
+    color: #472D30;
+}
+
+.activity-page-btn {
+    border-radius: 20px;
+    width: 70%;
+    display: block;
+    border: none;  
+    color: #472D30;
+    background-color: #ffff;
+    font-weight: 600;
+    padding: 25px 0;
+    margin: 20px auto 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.activity-page-btn p {
+    font-size: 20px;
+    margin: 10px auto;
+    border: 1px #472D30 solid;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    color: #E29578;
+    font-weight: 700;
+}
+
+.activity-page-btn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+.activity-page-btn:active {
+    opacity: 1;
+    border: 3px solid #e4c1f9;
+}
+.activity-page-btn > img {
+    width: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.bills-cur {
+    border: 3px solid #e4c1f9;
+}
+
+.bills-cur p {
+    color: #b5838d;
+    background-color: #ffcdb2;
+}
+
+/* .bills-his {
+    border: none;
+} */
+
+.activity-page-btn.open {
+    border: 3px solid #e4c1f9;
+}
+
+.activity-page-btn.open p {
+    color: #b5838d;
+    background-color: #ffcdb2;
+}
+
+.activity-page-btn.close {
+    border: none;
+}
+
+.activity-page-btn.close p {
+    color: #E29578;
+    background-color: #ffff;
+}
+
+.activity-container {
+    margin-top: 70.6px;
+    margin-bottom: 50px;
+    margin-right: 4%;
+    /* position: absolute; */
+    background-color: rgba(255,255,255,0.1);
+    width: 70%;
+    float: right;
+}
+
+.cur-actvity {
+    display: block;
+}
+
+.his-activity {
+    display: none;
+} 
+
+.activity-container.open {
+    display: block; 
+}
+
+.activity-container.close {
+    display: none;
+}
+
+
+.bills-header {
+    color: #472D30;
+    font-size: 30px;
+    width: 80%;
+    padding: 50px 0 10px 0;
+    margin: 0px;
+    background-color: white;
+    position: sticky;
+    top: 70.6px;
+    border-bottom: 3px solid #472D30;
+}
+
+.bill-info {
+    /* width: 200px; */
+    /* display: flex;
+    justify-content: space-between; */
+    padding: 5px 30px 5px 30px;
+
+}
+
+.bill-info .label {
+    width: 130px;
+    color: #79444A;
+    font-weight: 700;
+}
+
+
+.bill-info p {
+    display: inline-block;
+    margin: 0;
+}
+
+
+.activity-content {
+    /* background-image: linear-gradient(to bottom, rgba(255,255,255,0.1) 10%,rgba(255,255,255,0.1) 10%), url(../img/profile/act_background.jpeg); */
+    background-color: rgba(237,242,244,0.4);
+    width: 80%;
+    min-height: 500px;
+    float: left;
+    margin-top: 10px;
+    border-radius: 30px;
+}
+
+.bill-item {
+    background-color: #F4EEEC;
+    border-radius: 50px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: 3%;
+    width: 95%;
+    float: left;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0);
+}
+
+.bill-info-contain {
+    background-color: #ffff;
+    margin: 20px 30px 10px 30px;
+    border-radius: 20px;
+}
+
+.info {
+    display: inline-block;
+    width: 45%;
+}
+
+.status {
+    display: inline-block;
+    width: 55%;
+}
+
+.detail-btn {
+    border-radius: 20px;
+    padding: 7px 15px;
+    border: none; 
+    color: #472D30;
+    font-weight: 600;
+    background-color: #D9D9D9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    float: right;
+    margin: 20px 0;
+}
+.detail-btn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+.detail-btn:active {
+    opacity: 1;
+}
+.detail-btn > img {
+    width: 30px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+

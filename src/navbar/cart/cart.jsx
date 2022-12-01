@@ -7,9 +7,8 @@ import returnIcon from "../../img/button/return.png";
 import minusButton from "../../img/button/minus.png";
 import plusButton from "../../img/button/plus.png";
 import quitButton from "../../img/button/quit.png";
+import emptyCart from "../../img/emptyCart.png";
 import { Link } from "react-router-dom";
-
-// Note: chưa có đường link quay lại trang trước, link tới trang xác nhận đơn
 
 const quantityStyle = {
   backgroundColor: "rgb(249, 205, 211)",
@@ -52,7 +51,7 @@ export function Cart(props) {
     <>
       <div>
         <Link to="/">
-          <button className="mainButton" style={returnButton}>
+          <button className="mainButton_cart" style={returnButton}>
             <img src={returnIcon} alt="" />
             Quay lại
           </button>
@@ -60,17 +59,17 @@ export function Cart(props) {
         <span style={pageTitleStyle}>Giỏ hàng của bạn</span>
       </div>
 
-      <div className="mainBox">
+      <div className="mainBox_cart">
         {cartItems.length !== 0 &&
           cartItems.map((item) => (
             <div
               className="ci_container"
-              id={item.id}
+              id={item._id}
               style={{ color: "#79444A" }}
-              key={item.id}
+              key={item._id}
             >
               <div id="ci_image">
-                <img src={item.thumbnail} style={{ maxWidth: "100%" }} alt="" />
+                <img src={item.image} style={{ maxWidth: "100%" }} alt="" />
               </div>
               <div id="ci_info">
                 <p style={{ fontSize: "30px", fontWeight: "bold" }}>
@@ -81,14 +80,14 @@ export function Cart(props) {
               </div>
               <div id="ci_quantity">
                 <button
-                  className="image_button"
+                  className="ci_image_button"
                   onClick={() => onDecrease(item)}
                 >
                   <img src={minusButton} alt="" />
                 </button>
                 <span style={quantityStyle}> {item.qty} </span>
                 <button
-                  className="image_button"
+                  className="ci_image_button"
                   onClick={() => onIncrease(item)}
                 >
                   <img src={plusButton} alt="" />
@@ -100,7 +99,7 @@ export function Cart(props) {
                 </p>
               </div>
               <div id="ci_quit_button">
-                <button className="image_button" onClick={() => onDelete(item)}>
+                <button className="ci_image_button" onClick={() => onDelete(item)}>
                   <img src={quitButton} alt="" />
                 </button>
               </div>
@@ -116,14 +115,17 @@ export function Cart(props) {
           <div style={totalBoxStyle}>Tổng cộng: {totalPrice} VNĐ</div>
         )}
       </div>
-
+      
+      {cartItems.length !== 0 && (
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <button className="mainButton" style={{ backgroundColor: "#D4E09B" }}>
+        <Link to="/confirm_order">
+        <button className="mainButton_cart" style={{ backgroundColor: "#D4E09B" }}>
           <img src={okIcon} alt="" />
           XÁC NHẬN ĐƠN HÀNG
         </button>
+        </Link>
         <button
-          className="mainButton"
+          className="mainButton_cart"
           style={{ backgroundColor: "#FFC4AE" }}
           onClick={() => {
             if (cartItems.length !== 0)
@@ -135,6 +137,15 @@ export function Cart(props) {
           XÓA GIỎ HÀNG
         </button>
       </div>
+      )}
+
+      {cartItems.length === 0 && (
+        <div>
+          <img src={emptyCart} style={{display:"block",width:"30%",margin:"auto"}} alt='Empty cart'/>
+          <p style={{fontWeight:'bold',textAlign:'center'}}>Your cart is empty</p>
+          <p style={{textAlign:'center'}}>Looks like you have not added anything to your cart. Go ahead & explore top categories.</p>
+        </div>
+      )}
     </>
   );
 }
