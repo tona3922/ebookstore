@@ -1,7 +1,11 @@
+.upperNav {
+  padding-top: 10px;
+}
+
 nav {
   padding-left: 50px;
   padding-right: 50px;
-  height: 50px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,9 +15,16 @@ img.navimg {
   width: 24px;
 }
 .navbutton {
+  font-size: 17px;
   display: flex;
   align-items: center;
 }
+
+.navbutton:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
 .Left {
   width: 240px;
   display: flex;
@@ -23,4 +34,9 @@ img.navimg {
   width: 360px;
   display: flex;
   justify-content: space-between;
+}
+
+.introHome img {
+  width: 316px;
+  height: 98px;
 }

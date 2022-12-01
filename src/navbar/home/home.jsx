@@ -8,12 +8,103 @@ import phone from "../../img/home/phone.png";
 import location from "../../img/home/location.png";
 import momo from "../../img/home/momo.png";
 import bank from "../../img/home/bank.png";
-import slider1 from "../../img/home/slider1.png";
+import slider1 from "../../img/home/slider1.gif"
+import slider2 from "../../img/home/slider2.png";
+import slider3 from "../../img/home/slider3.png";
+import slider4 from "../../img/home/slider4.png";
+import slider5 from "../../img/home/slider5.png";
+import prev_btn from "../../img/button/prev_btn.png";
+import next_btn from "../../img/button/next_btn.png";
 import { Viewbook } from "./viewbook";
 import { Uppernav } from "../uppernav";
 import { Topbook } from "./topbook";
 import { useNavigate, Link } from "react-router-dom";
 import "./home.css";
+
+var index = 0;
+var slideDirection = 0;
+let timeout;
+
+const increaseImage = function() {
+  var imageList = document.querySelectorAll(".image-slider");
+  var imageBtn = document.querySelectorAll('.manual-btn');
+  var l = imageList.length;
+
+  for(var i = 0; i < l; i++) {
+    if(imageList[i].checked === true) {
+      index = i;
+      break;
+    }
+  }
+
+  imageBtn[index].classList.remove("display");
+
+  if(index === l-1) {
+    index =  index - 1;
+    slideDirection = 1;
+  } else {
+    index = index + 1;
+  }
+  imageList[index].checked = true;
+  imageBtn[index].classList.add("display");
+  timeout = setTimeout(displaySlider,8000);
+}
+
+const decreaseImage = function() {
+  var imageList = document.querySelectorAll(".image-slider");
+  var imageBtn = document.querySelectorAll('.manual-btn');
+  var l = imageList.length;
+
+  for(var i = 0; i < l; i++) {
+    if(imageList[i].checked === true) {
+      index = i;
+      break;
+    }
+  }
+
+  imageBtn[index].classList.remove("display");
+  
+  if(index === 0) {
+    index =  index + 1;
+    slideDirection = 0;
+  } else {
+    index = index - 1;
+  }
+  imageList[index].checked = true;
+  imageBtn[index].classList.add("display");
+  timeout = setTimeout(displaySlider,8000);
+}
+
+var displaySlider = function() {
+    if(slideDirection === 0) {
+      increaseImage();
+    }
+    else {
+      decreaseImage();
+    }
+};
+
+var  handleClickOption = function() {
+  clearTimeout(timeout);
+  var imageList = document.querySelectorAll(".image-slider");
+  var imageBtn = document.querySelectorAll('.manual-btn');
+  var l = imageList.length;
+  
+  imageBtn[index].classList.remove("display");
+
+  for(var i = 0; i < l; i++) {
+    console.log(imageList[i].checked);
+    if(imageList[i].checked === true) {
+      index = i;
+    }
+  }
+
+  imageBtn[index].classList.add("display");
+  setTimeout(displaySlider,10000);
+}
+
+timeout = setTimeout(displaySlider,8000);
+
 
 export const Home = (props) => {
   const {cartItems, onDecrease, onIncrease} = props
@@ -22,8 +113,12 @@ export const Home = (props) => {
     navigate(`${value}`);
     value = "";
   }
+
   // let input = "";
   const [input, setInput] = useState("");
+
+  
+
   return (
     <div className="homepage">
       <Uppernav />
@@ -64,30 +159,32 @@ export const Home = (props) => {
         </div>
       </div>
       <div className="slider">
+        <img onClick={()=>{clearTimeout(timeout); decreaseImage();}} className="direct-btn prev-btn" src={prev_btn} alt="" />
+        <img onClick={()=>{clearTimeout(timeout); increaseImage();}} className="direct-btn next-btn" src={next_btn} alt="" />
         <div className="slides">
-          <input type="radio" id="radio1" name="radio-btn" />
-          <input type="radio" id="radio2" name="radio-btn" />
-          <input type="radio" id="radio3" name="radio-btn" />
-          <input type="radio" id="radio4" name="radio-btn" />
-          <input type="radio" id="radio5" name="radio-btn" />
+          <input onClick={handleClickOption} type="radio" id="radio1" className = "image-slider" name="radio-btn"  defaultChecked="checked" />
+          <input onClick={handleClickOption} type="radio" id="radio2" className = "image-slider" name="radio-btn" />
+          <input onClick={handleClickOption} type="radio" id="radio3" className = "image-slider" name="radio-btn" />
+          <input onClick={handleClickOption} type="radio" id="radio4" className = "image-slider" name="radio-btn" />
+          <input onClick={handleClickOption} type="radio" id="radio5" className = "image-slider" name="radio-btn" />
           <div className="slide first">
-            <img src={slider1} alt="" />
-          </div>
-          <div className="slide">
-            <img src={bank} alt="" />
+            <img src={slider2} alt="" />
           </div>
           <div className="slide">
             <img src={slider1} alt="" />
           </div>
           <div className="slide">
-            <img src={slider1} alt="" />
+            <img src={slider3} alt="" />
           </div>
           <div className="slide">
-            <img src={slider1} alt="" />
+            <img src={slider4} alt="" />
+          </div>
+          <div className="slide">
+            <img src={slider5} alt="" />
           </div>
         </div>
         <div className="navigation-manual">
-          <label htmlFor="radio1" className="manual-btn"></label>
+          <label htmlFor="radio1" className="manual-btn display"></label>
           <label htmlFor="radio2" className="manual-btn"></label>
           <label htmlFor="radio3" className="manual-btn"></label>
           <label htmlFor="radio4" className="manual-btn"></label>

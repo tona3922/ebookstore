@@ -49,8 +49,8 @@ input {
   font-size: 16px;
 }
 input::placeholder {
-  color: black;
-  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);;
+  /* font-weight: bold; */
   font-size: 16px;
 }
 button.search {
@@ -60,19 +60,40 @@ button.search {
   border: none;
   background: #e29578;
   border-radius: 20px;
+  cursor: pointer;
 }
 a {
   text-decoration: none;
 }
 /* slider////////// */
 .slider {
-  height: 600px;
+  height: 580px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 350px;
+  text-align: center;
+  /* padding-left: 350px; */
+  margin-top: 20px;
   /* padding-left: 50%; */
   overflow: hidden;
+}
+.direct-btn {
+  width: 90px;
+  opacity: 0.3;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-25%);
+  cursor: pointer;
+}
+.direct-btn:hover {
+  width: 100px;
+  opacity: 0.9;
+}
+.direct-btn.prev-btn {
+  left: 12%;
+}
+.direct-btn.next-btn {
+  right: 12%;
 }
 .slides {
   width: 500%;
@@ -85,18 +106,19 @@ a {
 }
 .slide {
   width: 20%;
-  transition: 2s;
+  transition: 4s;
 }
 .slide img {
-  width: 800px;
+  width: 900px;
   height: 500px;
   border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 30%), 0 6px 20px 0 rgb(0 0 0 / 0%);
 }
 .navigation-manual {
-  width: 800px;
+  /* width: 800px; */
   display: flex;
   justify-content: center;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
 }
 .manual-btn {
   border: 3px solid darksalmon;
@@ -107,7 +129,7 @@ a {
 .manual-btn:not(:last-child) {
   margin-right: 40px;
 }
-.manual-btn:hover {
+.manual-btn.display, .manual-btn:hover {
   background-color: darksalmon;
 }
 #radio1:checked ~ .first {
