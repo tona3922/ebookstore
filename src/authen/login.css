@@ -208,6 +208,28 @@ header.modal-header {
     background-color: #DDBEA9;
 }
 
+/* .notification {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+    display: none; 
+}
+
+.notification .notification-container {
+    border: 2px solid #472D30;
+    background-color: #fff;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    animation: modalFadein ease 0.6s;
+} */
+
 @keyframes Fadein {
     from {
         opacity: 0;

@@ -1,5 +1,24 @@
+
+export const account = [
+    {
+        username: "congtran14",
+        password: "cong1234",
+        role: "Guest"
+    },
+    {
+        username: "kimcuonghoang12",
+        password: "cuong123",
+        role: "admin"
+    },
+    {
+        username: "khoacao555",
+        password: "caotrananhkhoa9999",
+        role: "manager"
+    }
+];
+
 export const profileInfo = {
-    id: 1,
+    username: "congtran14",
     name: "Trần Chí Công", 
     sex: "Nam",
     DoB: "14/05/2002",
@@ -9,7 +28,7 @@ export const profileInfo = {
 }
 
 export const curActivity = {
-    id_acc: 1,
+    username: "congtran14",
     activities: [
         {
             id: "DH00000",

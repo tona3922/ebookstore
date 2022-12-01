@@ -1,5 +1,5 @@
 import "./style.scss";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { Home } from "./navbar/home/home";
 import { Cart } from "./navbar/cart/cart";
 import { Contact } from "./navbar/contact/contact";
@@ -90,7 +90,10 @@ function App() {
           <Route path="/allbook" element={<AllBook />} />
           <Route path="/product" element={<Products />} />
           <Route path="/review/:_id" element={<Review />} />
-          <Route path="/admin/*" element={<Admin />} />
+          <Route path="/admin/*" element={<Admin />}/>
+          {/* render={() => {
+            return localStorage.getItem("accessToken")? <Admin /> : <Navigate to="/signin" />
+          }}  */}
           <Route path="/adventure" element={<Adventure />} />
           <Route path="/comic" element={<Comic />} />
           <Route path="/fiction" element={<Fiction />} />

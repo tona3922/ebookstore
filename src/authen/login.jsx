@@ -1,11 +1,34 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { InfoInput } from "./register_info";
+import { useHistory } from "react";
+import { account } from "../profile_management/profile_data";
 import logo from "../img/home/logo.png";
 import login_icon from "../img/login-icon.png";
 import back_icon from "../img/back.png";
 import ok_icon from "../img/button/ok.png";
 import "./login.css";
+
+
+
+
+function LoginProcess() {
+
+  var form = document.getElementById("my-form");
+  function handleForm(event) { event.preventDefault(); } 
+  form.addEventListener('submit', handleForm);
+
+  
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+  if(username !== "" && password !== "") {
+    let checkLogin = account.some(cur => cur.username === username && cur.password === password);
+    if(checkLogin) {
+      localStorage.setItem("accessToken",username);
+    }
+  }
+  
+}
 
 export const Login = () => {
   const displayModal = () => {
@@ -24,24 +47,28 @@ export const Login = () => {
             <img className="login-logo" src={logo} alt="" />
             <h1>ĐĂNG NHẬP</h1>
           </header>
-          <div className="login-content">
+          <form id="my-form" className="login-content">
             <label className="login-label" htmlFor="username">
               Tên đăng nhập
             </label>
             <input
               name="username"
+              id="username"
               className="login-input"
               type="text"
               placeholder="Tên đăng nhập"
+              required
             />
             <label className="login-label" htmlFor="password">
               Mật khẩu
             </label>
             <input
               name="password"
+              id="password"
               className="login-input"
               type="password"
               placeholder="Mật khẩu"
+              required
             />
             <div className="button-container">
               <Link to="/">
@@ -50,7 +77,7 @@ export const Login = () => {
                   Quay lại
                 </button>
               </Link>
-              <button className="btn login-btn">
+              <button className="btn login-btn" onClick={LoginProcess}  type="submit">
                 <img src={login_icon} alt="" />
                 Đăng nhập
               </button>
@@ -66,7 +93,7 @@ export const Login = () => {
                 Chưa có tài khoản? <Link to="/signup">Đăng ký</Link>
               </p>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <div className="modal-pw">
@@ -91,6 +118,11 @@ export const Login = () => {
           </div>
         </div>
       </div>
+
+      {/* <div className="notification">
+        <p>Tên đăng nhập hoặc mật khẩu không đúng!</p>
+        <button>Nhập lại</button>
+      </div> */}
     </div>
   );
 };
