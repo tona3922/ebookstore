@@ -57,7 +57,7 @@ export const Login = () => {
               className="login-input"
               type="text"
               placeholder="Tên đăng nhập"
-              required
+              // required
             />
             <label className="login-label" htmlFor="password">
               Mật khẩu
@@ -68,7 +68,7 @@ export const Login = () => {
               className="login-input"
               type="password"
               placeholder="Mật khẩu"
-              required
+              // required
             />
             <div className="button-container">
               <Link to="/">
