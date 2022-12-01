@@ -13,7 +13,6 @@ export const Uppernav = () => {
       <nav>
         <div className="Left">
           <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-            {/* <FaHome /> */}
             <div className="navbutton">
               <img class="navimg" src={home} alt="" />
               &nbsp; Home
@@ -31,14 +30,12 @@ export const Uppernav = () => {
         </div>
         <div className="Right">
           <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
-            {/* <FaShoppingCart /> */}
             <div className="navbutton">
               <img class="navimg" src={cart} alt="" />
               &nbsp;Cart
             </div>
           </Link>
           <Link to="/signup" style={{ textDecoration: "none", color: "black" }}>
-            {/* <FaSignInAlt /> */}
             <div className="navbutton">
               <img class="navimg" src={signup} alt="" />
               &nbsp;Sign Up

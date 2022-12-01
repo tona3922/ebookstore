@@ -7,7 +7,6 @@ import { Link, useLocation } from "react-router-dom";
 export const Review = () => {
   const location = useLocation();
   const idx = location.state.index;
-  // console.log(idx);
   const product = Data.products[idx - 1];
   return (
     <div className="reviewpage">
@@ -29,7 +28,17 @@ export const Review = () => {
             <button className="shopping-bag">
               Add to cart <FaShoppingBag />
             </button>
-            <button className="feedback">Feedback</button>
+            <button className="feedback">
+              <Link
+                to={{
+                  pathname: "/feedback/" + product._id,
+                }}
+                style={{ textDecoration: "none", color: "white" }}
+                state={{ index: product._id }}
+              >
+                Feedback
+              </Link>
+            </button>
           </div>
           <div className="right">
             <h1>{product.title}</h1>
