@@ -48,7 +48,7 @@ export const Science = () => {
         if (final.length === 0) {
           return (
             <div className="genrealert">
-              Sorry there is no one left, we will restock it soon
+              Sorry, there is no one left, we will restock it soon
             </div>
           );
         }

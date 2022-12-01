@@ -1,0 +1,64 @@
+.feedbackcontainer {
+  display: flex;
+  margin: 0 auto;
+  width: 70%;
+  flex-direction: column;
+  gap: 40px;
+  border-bottom: 1px solid black;
+  padding-bottom: 20px;
+  .feedbackpersonal {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 6px;
+    .feedinfo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 180px;
+      font-size: 18px;
+      .feedname {
+        padding: 20px 20px 20px 20px;
+        border-radius: 15px;
+      }
+      img {
+        height: 65px;
+        height: 65px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+    .feedcomment {
+      width: 65%;
+      padding: 20px 20px 20px 20px;
+      font-weight: bold;
+      border: 1px solid black;
+      border-radius: 15px;
+    }
+  }
+}
+.yourfeedback {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding-top: 100px;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 15px;
+  input {
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    width: 400px;
+  }
+  button {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    width: 80px;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+}

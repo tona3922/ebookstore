@@ -1,5 +1,10 @@
 import "./style.scss";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import { Home } from "./navbar/home/home";
 import { Cart } from "./navbar/cart/cart";
 import { Contact } from "./navbar/contact/contact";
@@ -19,21 +24,18 @@ import { Fiction } from "./navbar/home/book genre/fiction";
 import { Novel } from "./navbar/home/book genre/novel";
 import { Science } from "./navbar/home/book genre/science";
 import { Search } from "./navbar/home/search";
-<<<<<<< HEAD
 import { Feedback } from "./navbar/home/feedback";
-=======
 import ConfirmOrder from "./navbar/cart/confirm_order";
->>>>>>> bec98254f4f1703e39114476f29bf717c43e42f7
 // import Data from "./navbar/home/data.json";
 
 function App() {
-  // 
+  //
   const [cartItems, setCartItems] = useState([]);
   const [userInfo] = useState({
-    name: 'Nguyễn Văn A',
-    address: '1, Lê Duẩn, P.1, Q.1, TP.HCM',
-    phone: '0909090909',
-    method:'0'
+    name: "Nguyễn Văn A",
+    address: "1, Lê Duẩn, P.1, Q.1, TP.HCM",
+    phone: "0909090909",
+    method: "0",
   });
   // chưa có kiểm tra số lượng còn lại của sách
   const onIncrease = (product) => {
@@ -70,11 +72,16 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Home 
-            cartItems={cartItems}
-            onDecrease={onDecrease}
-            onIncrease={onIncrease}
-          />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
           <Route path="/contact" element={<Contact />} />
           <Route
             path="/cart"
@@ -93,17 +100,14 @@ function App() {
           <Route path="/signup/info_reg" element={<Register_info />} />
           <Route path="/allbook" element={<AllBook />} />
           <Route path="/product" element={<Products />} />
-<<<<<<< HEAD
           <Route path="/review/:id" element={<Review />} />
           <Route path="/feedback/:id" element={<Feedback />} />
           <Route path="/admin/*" element={<Admin />} />
-=======
           <Route path="/review/:_id" element={<Review />} />
-          <Route path="/admin/*" element={<Admin />}/>
+          <Route path="/admin/*" element={<Admin />} />
           {/* render={() => {
             return localStorage.getItem("accessToken")? <Admin /> : <Navigate to="/signin" />
           }}  */}
->>>>>>> bec98254f4f1703e39114476f29bf717c43e42f7
           <Route path="/adventure" element={<Adventure />} />
           <Route path="/comic" element={<Comic />} />
           <Route path="/fiction" element={<Fiction />} />
@@ -111,12 +115,12 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/science" element={<Science />} />
           <Route path="/profile" element={<Profile />} />
-<<<<<<< HEAD
-=======
           <Route path="/profile/activities" element={<Activity />} />
           <Route path="/activities" element={<Activity />} />
-          <Route path="/confirm_order" element={< ConfirmOrder userInfo={userInfo} cartItems={cartItems}/>}/>
->>>>>>> bec98254f4f1703e39114476f29bf717c43e42f7
+          <Route
+            path="/confirm_order"
+            element={<ConfirmOrder userInfo={userInfo} cartItems={cartItems} />}
+          />
         </Routes>
       </Router>
     </div>

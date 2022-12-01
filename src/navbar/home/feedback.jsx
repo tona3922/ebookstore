@@ -1,6 +1,8 @@
 import React from "react";
 import Data from "./data.json";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import "./feedback.scss";
+import { Rating } from "@mui/material";
 
 export const Feedback = () => {
   const location = useLocation();
@@ -8,8 +10,38 @@ export const Feedback = () => {
   const product = Data.products[idx - 1];
   return (
     <div>
-      <div>{product._id}</div>
-      <div>{product.content}</div>
+      <Link
+        to={{
+          pathname: "/review/" + product._id,
+        }}
+        style={{ textDecoration: "none", color: "black" }}
+        state={{ index: product._id }}
+      >
+        {" "}
+        <button className="backbutton">
+          <span>&#8610;</span>Back
+        </button>
+      </Link>
+      <div className="feedbackcontainer">
+        {product.feedbacks.map((feeds) => (
+          <div className="feedbackpersonal">
+            <div className="feedinfo">
+              <div className="feedname">{feeds.name}</div>
+              <img src={feeds.img} alt="#" />
+            </div>
+            {/* <div className="feedrating">Rating: {feeds.rating}</div> */}
+            <div>
+              <Rating name="size-medium" defaultValue={feeds.rating} readOnly />
+            </div>
+            <div className="feedcomment">{feeds.comment}</div>
+          </div>
+        ))}
+      </div>
+      <div className="yourfeedback">
+        <Rating name="size-medium" defaultValue={0} />
+        <input type="text" />
+        <button>Post</button>
+      </div>
     </div>
   );
 };

@@ -33,7 +33,7 @@ export const Review = () => {
                 to={{
                   pathname: "/feedback/" + product._id,
                 }}
-                style={{ textDecoration: "none", color: "white" }}
+                style={{ textDecoration: "none", color: "black" }}
                 state={{ index: product._id }}
               >
                 Feedback

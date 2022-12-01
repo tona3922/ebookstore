@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useReducer } from "react";
 import logo from "../../img/home/logo.png";
 import facebook from "../../img/home/facebook.png";
 import instagram from "../../img/home/instagram.png";
@@ -16,11 +16,16 @@ import { useNavigate, Link } from "react-router-dom";
 import "./home.css";
 
 export const Home = (props) => {
-  const {cartItems, onDecrease, onIncrease} = props
+  const { cartItems, onDecrease, onIncrease } = props;
   let navigate = useNavigate();
   function handleChange(value) {
     navigate(`${value}`);
     value = "";
+  }
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
+
+  function handleClick() {
+    forceUpdate();
   }
   // let input = "";
   const [input, setInput] = useState("");
@@ -52,7 +57,7 @@ export const Home = (props) => {
             value={input}
             onInput={(e) => setInput(e.target.value)}
           />
-          <button class="search">
+          <button class="search" onclick={{ handleClick }}>
             <Link
               to="/search"
               style={{ textDecoration: "none", color: "black" }}
@@ -96,7 +101,11 @@ export const Home = (props) => {
       </div>
       <hr></hr>
       <div id="topbook" className="topbook">
-        <Topbook cartItems={cartItems} onDecrease={onDecrease} onIncrease={onIncrease}/>
+        <Topbook
+          cartItems={cartItems}
+          onDecrease={onDecrease}
+          onIncrease={onIncrease}
+        />
       </div>
       <hr></hr>
       <div id="viewbook" className="viewbook">
