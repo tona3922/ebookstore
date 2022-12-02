@@ -113,15 +113,12 @@ export const Home = (props) => {
     navigate(`${value}`);
     value = "";
   }
-<<<<<<< HEAD
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
   function handleClick() {
     forceUpdate();
   }
-=======
 
->>>>>>> 93feb37ede202273ff9adfa186a4b5ca0673ee09
   // let input = "";
   const [input, setInput] = useState("");
 
