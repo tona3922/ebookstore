@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### `npm run run-all`
 
-Run server and the app with just 1 command line.
+Run server and app with just 1 command line.
 
 ### `npm start`
 
