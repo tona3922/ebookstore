@@ -17,8 +17,8 @@ export const Products = () => {
             <div className="bookinfo">
               <em>{product.title}</em>
               <span>{product.author}</span>
-              <span>price: ${product.price}</span>
-              <p>available : {product.count}</p>
+              <span>Giá: {product.price}</span>
+              <p>Kho : {product.count}</p>
             </div>
           </div>
           <div className="downcard">

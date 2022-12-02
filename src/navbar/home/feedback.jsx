@@ -19,7 +19,7 @@ export const Feedback = () => {
       >
         {" "}
         <button className="backbutton">
-          <span>&#8610;</span>Back
+          <span>&#8610;</span>Go Back
         </button>
       </Link>
       <div className="feedbackcontainer">
@@ -29,7 +29,6 @@ export const Feedback = () => {
               <div className="feedname">{feeds.name}</div>
               <img src={feeds.img} alt="#" />
             </div>
-            {/* <div className="feedrating">Rating: {feeds.rating}</div> */}
             <div>
               <Rating name="size-medium" defaultValue={feeds.rating} readOnly />
             </div>

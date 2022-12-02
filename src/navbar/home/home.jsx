@@ -8,7 +8,7 @@ import phone from "../../img/home/phone.png";
 import location from "../../img/home/location.png";
 import momo from "../../img/home/momo.png";
 import bank from "../../img/home/bank.png";
-import slider1 from "../../img/home/slider1.gif"
+import slider1 from "../../img/home/slider1.gif";
 import slider2 from "../../img/home/slider2.png";
 import slider3 from "../../img/home/slider3.png";
 import slider4 from "../../img/home/slider4.png";
@@ -25,13 +25,13 @@ var index = 0;
 var slideDirection = 0;
 let timeout;
 
-const increaseImage = function() {
+const increaseImage = function () {
   var imageList = document.querySelectorAll(".image-slider");
-  var imageBtn = document.querySelectorAll('.manual-btn');
+  var imageBtn = document.querySelectorAll(".manual-btn");
   var l = imageList.length;
 
-  for(var i = 0; i < l; i++) {
-    if(imageList[i].checked === true) {
+  for (var i = 0; i < l; i++) {
+    if (imageList[i].checked === true) {
       index = i;
       break;
     }
@@ -39,72 +39,70 @@ const increaseImage = function() {
 
   imageBtn[index].classList.remove("display");
 
-  if(index === l-1) {
-    index =  index - 1;
+  if (index === l - 1) {
+    index = index - 1;
     slideDirection = 1;
   } else {
     index = index + 1;
   }
   imageList[index].checked = true;
   imageBtn[index].classList.add("display");
-  timeout = setTimeout(displaySlider,8000);
-}
+  timeout = setTimeout(displaySlider, 8000);
+};
 
-const decreaseImage = function() {
+const decreaseImage = function () {
   var imageList = document.querySelectorAll(".image-slider");
-  var imageBtn = document.querySelectorAll('.manual-btn');
+  var imageBtn = document.querySelectorAll(".manual-btn");
   var l = imageList.length;
 
-  for(var i = 0; i < l; i++) {
-    if(imageList[i].checked === true) {
+  for (var i = 0; i < l; i++) {
+    if (imageList[i].checked === true) {
       index = i;
       break;
     }
   }
 
   imageBtn[index].classList.remove("display");
-  
-  if(index === 0) {
-    index =  index + 1;
+
+  if (index === 0) {
+    index = index + 1;
     slideDirection = 0;
   } else {
     index = index - 1;
   }
   imageList[index].checked = true;
   imageBtn[index].classList.add("display");
-  timeout = setTimeout(displaySlider,8000);
-}
-
-var displaySlider = function() {
-    if(slideDirection === 0) {
-      increaseImage();
-    }
-    else {
-      decreaseImage();
-    }
+  timeout = setTimeout(displaySlider, 8000);
 };
 
-var  handleClickOption = function() {
+var displaySlider = function () {
+  if (slideDirection === 0) {
+    increaseImage();
+  } else {
+    decreaseImage();
+  }
+};
+
+var handleClickOption = function () {
   clearTimeout(timeout);
   var imageList = document.querySelectorAll(".image-slider");
-  var imageBtn = document.querySelectorAll('.manual-btn');
+  var imageBtn = document.querySelectorAll(".manual-btn");
   var l = imageList.length;
-  
+
   imageBtn[index].classList.remove("display");
 
-  for(var i = 0; i < l; i++) {
+  for (var i = 0; i < l; i++) {
     console.log(imageList[i].checked);
-    if(imageList[i].checked === true) {
+    if (imageList[i].checked === true) {
       index = i;
     }
   }
 
   imageBtn[index].classList.add("display");
-  setTimeout(displaySlider,10000);
-}
+  setTimeout(displaySlider, 10000);
+};
 
-timeout = setTimeout(displaySlider,8000);
-
+timeout = setTimeout(displaySlider, 8000);
 
 export const Home = (props) => {
   const { cartItems, onDecrease, onIncrease } = props;
@@ -113,19 +111,14 @@ export const Home = (props) => {
     navigate(`${value}`);
     value = "";
   }
-<<<<<<< HEAD
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
   function handleClick() {
     forceUpdate();
   }
-=======
 
->>>>>>> 93feb37ede202273ff9adfa186a4b5ca0673ee09
   // let input = "";
   const [input, setInput] = useState("");
-
-  
 
   return (
     <div className="homepage">
@@ -167,14 +160,61 @@ export const Home = (props) => {
         </div>
       </div>
       <div className="slider">
-        <img onClick={()=>{clearTimeout(timeout); decreaseImage();}} className="direct-btn prev-btn" src={prev_btn} alt="" />
-        <img onClick={()=>{clearTimeout(timeout); increaseImage();}} className="direct-btn next-btn" src={next_btn} alt="" />
+        <img
+          onClick={() => {
+            clearTimeout(timeout);
+            decreaseImage();
+          }}
+          className="direct-btn prev-btn"
+          src={prev_btn}
+          alt=""
+        />
+        <img
+          onClick={() => {
+            clearTimeout(timeout);
+            increaseImage();
+          }}
+          className="direct-btn next-btn"
+          src={next_btn}
+          alt=""
+        />
         <div className="slides">
-          <input onClick={handleClickOption} type="radio" id="radio1" className = "image-slider" name="radio-btn"  defaultChecked="checked" />
-          <input onClick={handleClickOption} type="radio" id="radio2" className = "image-slider" name="radio-btn" />
-          <input onClick={handleClickOption} type="radio" id="radio3" className = "image-slider" name="radio-btn" />
-          <input onClick={handleClickOption} type="radio" id="radio4" className = "image-slider" name="radio-btn" />
-          <input onClick={handleClickOption} type="radio" id="radio5" className = "image-slider" name="radio-btn" />
+          <input
+            onClick={handleClickOption}
+            type="radio"
+            id="radio1"
+            className="image-slider"
+            name="radio-btn"
+            defaultChecked="checked"
+          />
+          <input
+            onClick={handleClickOption}
+            type="radio"
+            id="radio2"
+            className="image-slider"
+            name="radio-btn"
+          />
+          <input
+            onClick={handleClickOption}
+            type="radio"
+            id="radio3"
+            className="image-slider"
+            name="radio-btn"
+          />
+          <input
+            onClick={handleClickOption}
+            type="radio"
+            id="radio4"
+            className="image-slider"
+            name="radio-btn"
+          />
+          <input
+            onClick={handleClickOption}
+            type="radio"
+            id="radio5"
+            className="image-slider"
+            name="radio-btn"
+          />
           <div className="slide first">
             <img src={slider2} alt="" />
           </div>
@@ -220,9 +260,15 @@ export const Home = (props) => {
             <p>KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng.</p>
           </div>
           <div className="media">
-            <img class="imgmedia" src={facebook} alt="#" />
-            <img class="imgmedia" src={instagram} alt="#" />
-            <img class="imgmedia" src={twitter} alt="#" />
+            <a href="https://www.facebook.com/">
+              <img class="imgmedia" src={facebook} alt="#" />
+            </a>
+            <a href="https://www.instagram.com/">
+              <img class="imgmedia" src={instagram} alt="#" />
+            </a>
+            <a href="https://twitter.com/">
+              <img class="imgmedia" src={twitter} alt="#" />
+            </a>
           </div>
         </div>
         <div className="footerRight">
@@ -234,17 +280,21 @@ export const Home = (props) => {
             </div>
             <div className="contactinfo">
               <img class="info" src={phone} alt="" />
-              &nbsp; abcxyz
+              &nbsp; 0909090909
             </div>
             <div className="contactinfo">
               <img class="info" src={mail} alt="" />
-              &nbsp; abcxyz
+              &nbsp; abcxyz@gmail.com
             </div>
           </div>
           <p className="footrightTitle">Online payment</p>
           <div className="onlinepay">
-            <img class="onlinepayicon" src={momo} alt="" />
-            <img class="onlinepayicon" src={bank} alt="" />
+            <a href="https://momo.vn/">
+              <img class="onlinepayicon" src={momo} alt="" />
+            </a>
+            <a href="https://ocb.com.vn/vi/ca-nhan">
+              <img class="onlinepayicon" src={bank} alt="" />
+            </a>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import "./topbook.scss";
 import Data from "./data.json";
 import { FaShoppingBag, FaBook } from "react-icons/fa";
@@ -17,12 +17,17 @@ export const Topbook = (props) => {
     }
     return 0;
   }
-
   array.sort(compare);
   array.reverse();
   for (let i = 0; i < array.length && i < 5; i++) {
     final.push(array[i]);
   }
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
+
+  function handleClick() {
+    forceUpdate();
+  }
+
   var pusharray = [],
     pusharray2 = [];
   function pushproduct(start, end, funct) {
@@ -37,8 +42,8 @@ export const Topbook = (props) => {
             <div className="bookinfo">
               <em>{final[i].title}</em>
               <span>{final[i].author}</span>
-              <span>price: ${final[i].price}</span>
-              <p>available : {final[i].count}</p>
+              <span>Giá: {final[i].price}</span>
+              <p>Kho : {final[i].count}</p>
             </div>
           </div>
           <div className="downcard">
@@ -48,7 +53,12 @@ export const Topbook = (props) => {
             >
               Add to cart <FaShoppingBag />
             </button>
-            <button className="review">
+            <button
+              className="review"
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
               <Link
                 to={{
                   pathname: "/review/" + final[i]._id,
@@ -71,72 +81,6 @@ export const Topbook = (props) => {
       <div className="topbooktitle">Top Books</div>
       <div className="top1to2">{pusharray}</div>
       <div className="top3to5">{pusharray2}</div>
-      {/* <div className="top1n2">
-        <div className="card">
-          <div className="uppercard">
-            <div className="bookimg">
-              <img src={final[0].image} alt="" />
-            </div>
-            <div className="bookinfo">
-              <em>{final[0].title}</em>
-              <span>{final[0].author}</span>
-              <span>price: ${final[0].price}</span>
-              <p>available : {final[0].count}</p>
-            </div>
-          </div>
-          <div className="downcard">
-            <button
-              className="shopping-bag"
-              onClick={() => onIncrease(final[0])}
-            >
-              Add to cart <FaShoppingBag />
-            </button>
-            <button className="review">
-              <Link
-                to={{
-                  pathname: "/review/" + final[0]._id,
-                }}
-                style={{ textDecoration: "none", color: "white" }}
-                state={{ index: final[0]._id }}
-              >
-                review <FaBook />
-              </Link>
-            </button>
-          </div>
-        </div>
-        <div className="card">
-          <div className="uppercard">
-            <div className="bookimg">
-              <img src={final[1].image} alt="" />
-            </div>
-            <div className="bookinfo">
-              <em>{final[1].title}</em>
-              <span>{final[1].author}</span>
-              <span>price: ${final[1].price}</span>
-              <p>available : {final[1].count}</p>
-            </div>
-          </div>
-          <div className="downcard">
-            <button
-              className="shopping-bag"
-              onClick={() => onIncrease(final[1])}
-            >
-              Add to cart <FaShoppingBag />
-            </button>
-            <button className="review">
-              <Link
-                to={{
-                  pathname: "/review/" + final[1]._id,
-                }}
-                style={{ textDecoration: "none", color: "white" }}
-                state={{ index: final[1]._id }}
-              >
-                review <FaBook />
-              </Link>
-            </button>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

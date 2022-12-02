@@ -22,8 +22,8 @@ export const Viewbook = () => {
           <div className="bookinfo">
             <em>{products[i].title}</em>
             <span>{products[i].author}</span>
-            <span>price: ${products[i].price}</span>
-            <p>available : {products[i].count}</p>
+            <span>Giá: {products[i].price}</span>
+            <p>Kho : {products[i].count}</p>
           </div>
         </div>
         <div className="downcard">

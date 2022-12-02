@@ -1,14 +1,27 @@
 .backbutton {
-  width: 80px;
+  width: 130px;
   height: 50px;
   border: none;
   background-color: white;
   font-size: 24px;
   display: flex;
-  width: 90px;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+}
+.backbutton2 {
+  width: 70px;
+  height: 50px;
+  border: none;
+  background-color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  .img {
+    width: 24px;
+  }
 }
 .reviewbook {
   display: flex;

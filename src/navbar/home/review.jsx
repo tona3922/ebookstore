@@ -3,6 +3,7 @@ import Data from "./data.json";
 import { FaShoppingBag } from "react-icons/fa";
 import "./review.scss";
 import { Link, useLocation } from "react-router-dom";
+import home from "../../img/navbar/home.png";
 
 export const Review = () => {
   const location = useLocation();
@@ -16,10 +17,19 @@ export const Review = () => {
       >
         {" "}
         <button className="backbutton">
-          <span>&#8610;</span>Back
+          <span>&#8610;</span>All Book
         </button>
       </Link>
-
+      <Link
+        to="/"
+        style={{ textDecoration: "none", color: "black", fontSize: "28" }}
+      >
+        {" "}
+        <button className="backbutton2">
+          <span>&#8610;</span>
+          <img class="navimg" src={home} alt="" />
+        </button>
+      </Link>
       <div className="reviewbook">
         <div className="title">Details</div>
         <div className="detail">
@@ -43,31 +53,31 @@ export const Review = () => {
           <div className="right">
             <h1>{product.title}</h1>
             <h2>
-              Author :{" "}
+              Tác Giả :{" "}
               <em>
                 <b>{product.author}</b>
               </em>
             </h2>
-            <h2 style={{ color: "red" }}>Price : ${product.price}</h2>
-            <h2>Genre : {product.genre}</h2>
-            <h2>Content</h2>
+            <h2 style={{ color: "red" }}>Giá : {product.price}</h2>
+            <h2>Thể loại : {product.genre}</h2>
+            <h2>Nội dung</h2>
             <p>{product.content}</p>
-            <h2>Desciption</h2>
+            <h2>Mô tả</h2>
             <p>
-              <em>Available : </em>
+              <em>Kho : </em>
               {product.count}
             </p>
             <p>
-              <b>More :</b> {product.description}
+              <b>Thông tin thêm :</b> {product.description}
             </p>
             <p>
-              <b>Page :</b> {product.pages}
+              <b>Số Trang :</b> {product.pages}
             </p>
             <p>
-              <b>Language :</b> {product.language}
+              <b>Ngôn ngữ:</b> {product.language}
             </p>
             <p>
-              <b>Publisher :</b> {product.publisher}
+              <b>Nhà xuất bản :</b> {product.publisher}
             </p>
           </div>
         </div>

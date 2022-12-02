@@ -12,12 +12,11 @@
 }
 .topcard {
   align-items: center;
-  width: 100%;
+  margin: 0 auto;
+  width: 80%;
   border: 1px solid rgba(180, 180, 180, 0.842);
   padding: 10px;
   border-radius: 10px;
-  border-width: 2px;
-  border-color: black;
   display: flex;
   flex-direction: column;
   background-color: #f4f1de;
