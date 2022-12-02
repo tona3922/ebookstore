@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### `npm run run-all`
 
 Run server and app with just 1 command line.
+#### Note: Please import database from .sql file for the server to run correctly.
 
 ### `npm start`
 
