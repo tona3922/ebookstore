@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React from "react";
 import "./topbook.scss";
 import Data from "./data.json";
 import { FaShoppingBag, FaBook } from "react-icons/fa";
@@ -21,11 +21,6 @@ export const Topbook = (props) => {
   array.reverse();
   for (let i = 0; i < array.length && i < 5; i++) {
     final.push(array[i]);
-  }
-  const [, forceUpdate] = useReducer((x) => x + 1, 0);
-
-  function handleClick() {
-    forceUpdate();
   }
 
   var pusharray = [],
