@@ -1,14 +1,25 @@
 import React, { Component } from 'react'
 import SearchBar from './searchbar'
 import "./header.scss"
+import {
+    Link
+} from "react-router-dom"
 
 export default class Header extends Component {
     render() {
+        console.log(this.props.searchbarPH)
         return (
             <div className="top--header">
                 <h1>{this.props.title}</h1>
-                {this.props.quantity !== 0 && <h6>{this.props.quantity}</h6>}
-                {this.props.searchbarPH !== "" && <SearchBar searchbarPH={this.props.searchbarPH} />}
+                {(this.props.quantity !== 0 || typeof this.props.quantity != 'undefined') && <h6>{this.props.quantity}</h6>}
+                {typeof this.props.addBook != 'undefined' &&
+                    <Link className="addbook-link" to={"/admin/shop/addbook/"}>
+                        <button type="button" className="add--book">
+                            <img src={process.env.PUBLIC_URL + "/admin/table/admin-option/import.png"} alt=""></img>
+                            <h6>THÊM SÁCH</h6>
+                        </button>
+                    </Link>}
+                {(this.props.searchbarPH !== "") && <SearchBar searchbarPH={this.props.searchbarPH} />}
             </div>
 
         )

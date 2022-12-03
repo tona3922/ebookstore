@@ -1,0 +1,1 @@
+Use MySQL Workbench to import this file for as_bookstore schema.

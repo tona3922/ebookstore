@@ -22,7 +22,7 @@ export default function App() {
             <Switch>
                 <Route path="/accounts" element={<Customers />} />
                 <Route path="/create-account" element={<CreateAccount />} />
-                <Route path="/shop" element={<ManageBooks />} />
+                <Route path="/shop/*" element={<ManageBooks />} />
                 <Route path="/stocks/*" element={<Stock />} />
             </Switch>
         </div>
