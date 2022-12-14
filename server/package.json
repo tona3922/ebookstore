@@ -1,0 +1,35 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "api for bookstore",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrdiamond12312/bookstore-api.git"
+  },
+  "keywords": [
+    "bookstore",
+    "kamikaze",
+    "nodejs",
+    "mybookstore"
+  ],
+  "author": "Nice, Diago",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrdiamond12312/bookstore-api/issues"
+  },
+  "homepage": "https://github.com/mrdiamond12312/bookstore-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
