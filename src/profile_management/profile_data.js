@@ -3,7 +3,7 @@ export const account = [
     {
         username: "congtran14",
         password: "cong1234",
-        role: "Guest"
+        role: "guest"
     },
     {
         username: "kimcuonghoang12",
@@ -17,15 +17,35 @@ export const account = [
     }
 ];
 
-export const profileInfo = {
-    username: "congtran14",
-    name: "Trần Chí Công", 
-    sex: "Nam",
-    DoB: "14/05/2002",
-    email: "cong.tran1452002@hcmut.edu.vn",
-    phonenumber: "0909246357",
-    address: "175 Trương Định"
-}
+export const profileInfo = [
+    {
+        username: "congtran14",
+        name: "Trần Chí Công", 
+        sex: "Nam",
+        DoB: "14/05/2002",
+        email: "cong.tran1452002@hcmut.edu.vn",
+        phonenumber: "0909246357",
+        address: "175 Trương Định"
+    },
+    {
+        username: "kimcuonghoang12",
+        name: "Hoàng Kim Cương", 
+        sex: "Nam",
+        DoB: "01/01/2002",
+        email: "cuong.hoang2002@hcmut.edu.vn",
+        phonenumber: "0909123456",
+        address: "10 Hoàng Văn Thụ"
+    },
+    {
+        username: "khoacao555",
+        name: "Khoa Cao", 
+        sex: "Nam",
+        DoB: "28/02/2002",
+        email: "khoa.cao2002@hcmut.edu.vn",
+        phonenumber: "0908111222",
+        address: "15 Kỳ Đồng"
+    }
+];
 
 export const curActivity = {
     username: "congtran14",

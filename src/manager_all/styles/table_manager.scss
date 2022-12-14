@@ -1,0 +1,115 @@
+body {
+	// display: flex;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: auto;
+}
+*{
+	box-sizing: border-box;
+}
+div {
+}
+
+.divTable{
+	display: table;
+	// width: 100%;
+	overflow-x: auto;
+	margin-left: 2vw;
+	// padding: 0 10%;
+	
+	.divTableBody{
+		// display: flex;
+		// margin: auto;
+		// display: table-row-group;
+		margin: 0 auto;
+		.header{
+			// width: 80%;
+			// margin: 100px 100px;
+			position: sticky;
+			top: 100px;
+			bottom: 0;
+			background-color: rgb(255, 255, 255);
+			display: table-row;
+			// line-height: 10px;
+			height: 76px;
+			border-bottom: 3px solid #000000;
+			.divTableCell{
+				&:first-child {
+					border-left: 0px solid #000000;
+				}
+				// padding: 0 10px;
+				display: table-cell;
+				// max-width: 450px;
+				border: 0;
+				border-left: 1px solid ;
+				border-image: linear-gradient(transparent 30%, rgb(61, 61, 61) 20% 70%, transparent 0%) 0 0 0 1 / 2px;
+	
+				// border-radius: 10px;
+				vertical-align: middle;
+				font-weight: bold;
+				padding: 3px 10px;
+			}
+			box-shadow: 0 1px black;
+		}
+
+		.row{
+			display: table-row;
+			// height: 105px;
+			height: 80px;
+			.divTableCell{
+				border: 0;
+				// max-width: 450px;
+				max-width: 850px;
+				display: table-cell;
+				vertical-align: middle;
+				padding: 3px 10px;
+
+				.m--option{
+					opacity: 0;
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+					button{
+						height: 41px;
+						width: 198px;
+						// border-radius: 90px;
+						border: 0;
+						// opacity: 1;
+						display: flex;
+						// background-color: white;
+						flex-direction: row;
+						align-items: center;
+						// justify-content: center;
+						gap: 6px;
+				
+						font-weight: bold;
+						font-size: 16px;
+						line-height: 24px;
+						img{
+							margin-left: -3px;
+							// padding: 5px;
+							height: 35px;
+							// background-color: white;
+							// border-radius: 90px;
+						}
+					}
+					.edit{
+						// background: #DFF1C7;
+					}
+					.del{
+						// background: #E8A8A8;
+					}
+				}
+			}
+			&:hover {
+				background-color: #D3D3D3 ;
+				.divTableCell{
+					.m--option{
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}

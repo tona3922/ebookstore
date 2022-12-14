@@ -137,7 +137,7 @@ header.login-header {
 }
 
 .login-text {
-    padding-top: 25px;
+    /* padding-top: 25px; */
     text-align: center;
     font-size: 15px;
 }

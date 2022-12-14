@@ -1,7 +1,6 @@
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { InfoInput } from "./register_info";
-import { useHistory } from "react";
 import { account } from "../profile_management/profile_data";
 import logo from "../img/home/logo.png";
 import login_icon from "../img/login-icon.png";
@@ -9,28 +8,29 @@ import back_icon from "../img/back.png";
 import ok_icon from "../img/button/ok.png";
 import "./login.css";
 
+export const Login = () => {
 
+  const  LoginProcess = function() {
+    var form = document.getElementById("my-form");
 
-
-function LoginProcess() {
-
-  var form = document.getElementById("my-form");
-  function handleForm(event) { event.preventDefault(); } 
-  form.addEventListener('submit', handleForm);
-
+    function handleForm(event) { event.preventDefault(); } 
+    form.addEventListener('submit', handleForm);
   
-  let username = document.getElementById("username").value;
-  let password = document.getElementById("password").value;
-  if(username !== "" && password !== "") {
-    let checkLogin = account.some(cur => cur.username === username && cur.password === password);
-    if(checkLogin) {
-      localStorage.setItem("accessToken",username);
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    if(username !== "" && password !== "") {
+      let checkLogin = account.some(cur => cur.username === username && cur.password === password);
+      let curAcc = account.find(cur => localStorage.getItem("accessToken") === cur.username);
+      if(checkLogin) {
+        localStorage.setItem("accessToken",username);
+        localStorage.setItem("role",curAcc.role)
+        window.location.replace("/");
+      }
+      else {
+        alert("Tên đăng nhập hoặc mật khẩu không đúng");
+      }
     }
   }
-  
-}
-
-export const Login = () => {
   const displayModal = () => {
     const modal = document.querySelector(".modal-pw");
     modal.classList.add("open");
@@ -57,7 +57,7 @@ export const Login = () => {
               className="login-input"
               type="text"
               placeholder="Tên đăng nhập"
-              // required
+              required
             />
             <label className="login-label" htmlFor="password">
               Mật khẩu
@@ -68,7 +68,7 @@ export const Login = () => {
               className="login-input"
               type="password"
               placeholder="Mật khẩu"
-              // required
+              required
             />
             <div className="button-container">
               <Link to="/">
@@ -82,9 +82,10 @@ export const Login = () => {
                 Đăng nhập
               </button>
             </div>
+          </form>
             <div className="login-text">
               <p>
-                Quên mật khẩu?{" "}
+                Quên mật khẩu? {" "}
                 <button onClick={displayModal} className="update-pw-btn">
                   Cập nhật mật khẩu
                 </button>
@@ -93,7 +94,6 @@ export const Login = () => {
                 Chưa có tài khoản? <Link to="/signup">Đăng ký</Link>
               </p>
             </div>
-          </form>
         </div>
       </div>
       <div className="modal-pw">
@@ -119,6 +119,7 @@ export const Login = () => {
         </div>
       </div>
 
+      
       {/* <div className="notification">
         <p>Tên đăng nhập hoặc mật khẩu không đúng!</p>
         <button>Nhập lại</button>

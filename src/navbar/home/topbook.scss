@@ -1,5 +1,5 @@
 .topbooktitle {
-  margin: 30px auto 0 auto;
+  margin: 40px auto 0 auto;
   border-radius: 20px;
   width: 60%;
   text-align: center;
@@ -14,13 +14,17 @@
   align-items: center;
   margin: 0 auto;
   width: 80%;
-  border: 1px solid rgba(180, 180, 180, 0.842);
+  // border: 1px solid rgba(180, 180, 180, 0.842);
   padding: 10px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   background-color: #f4f1de;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 10%);
+  cursor: pointer;
 }
+
+
 .topnum {
   font-size: 24px;
   font-weight: bold;
@@ -41,7 +45,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 30px;
-  margin: 50px 30px 30px 30px;
+  margin: 60px 30px 70px 30px;
   .topcard {
     .topnum {
       color: brown;

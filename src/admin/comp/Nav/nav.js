@@ -1,14 +1,16 @@
 import React from 'react';
 import {
-    NavLink
+    NavLink, Link
 } from "react-router-dom";
 
 export default function Navbar() {
     return (
         <nav>
-            <div className='logo'>
-                <img src={process.env.PUBLIC_URL + '/admin/logo_kamikaze.png'} alt="" />
-            </div>
+            <Link to="/">
+                <div className='logo'>
+                    <img src={process.env.PUBLIC_URL + '/admin/logo_kamikaze.png'} alt="" style={{cursor:"pointer"}}/>
+                </div>
+            </Link>
             <div className="routes">
                 <NavLink className='nav--route' to="/admin/accounts">
                     <img src={process.env.PUBLIC_URL + '/admin/nav-bar/acc.png'} alt="" />

@@ -11,6 +11,8 @@ import ok_icon from "../img/button/ok.png";
 import { profileInfo } from "./profile_data";
 import "./profile.css";
 
+let curAcc;
+
 function Displayprofile (props) {
     return (
         <Fragment>
@@ -45,7 +47,7 @@ function Displayprofile (props) {
 }
 
 function Displaysexoption () {
-    if (profileInfo.sex === "Nam"){
+    if (curAcc.sex === "Nam"){
         return (
             <Fragment>
                 <input className="register-radio" type="radio" value="Nam" name="sex" defaultChecked="checked"/> Nam
@@ -63,23 +65,41 @@ function Displaysexoption () {
     }  
 }
 
+function DisplayActivityBtn () {
+    if(localStorage.getItem("role") === "guest") {
+        return (
+            <Fragment>
+                <Link to="/profile/activities">
+                    <button className="profile-page-btn">
+                        <img src={activity_icon} alt="" />
+                        Xem hoạt động
+                    </button>
+                </Link>
+            </Fragment>
+        )
+    }
+};
+
 export const Profile = () => {
-        const displayModal = () => {
-            const modal = document.querySelector(".modal-pw");
-            modal.classList.add("open");
-        };
-        const removeModal = () => {
-            const modal = document.querySelector(".modal-pw.open");
-            modal.classList.remove("open");
-        };
-        const displayModalProfile = () => {
-            const modal = document.querySelector(".modal-profile");
-            modal.classList.add("open");
-        };
-        const removeModalProfile = () => {
-            const modal = document.querySelector(".modal-profile.open");
-            modal.classList.remove("open");
-        };
+    const displayModal = () => {
+        const modal = document.querySelector(".modal-pw");
+        modal.classList.add("open");
+    };
+    const removeModal = () => {
+        const modal = document.querySelector(".modal-pw.open");
+        modal.classList.remove("open");
+    };
+    const displayModalProfile = () => {
+        const modal = document.querySelector(".modal-profile");
+        modal.classList.add("open");
+    };
+    const removeModalProfile = () => {
+        const modal = document.querySelector(".modal-profile.open");
+        modal.classList.remove("open");
+    };
+
+    curAcc = profileInfo.find(cur => {return cur.username === localStorage.getItem("accessToken")});
+
     return(
         <Fragment>
             <div className="profile-page">
@@ -95,7 +115,7 @@ export const Profile = () => {
                     <div className="profile-container">
                         <div className="avatar-section">
                             <img className="ava-img" src={profile_ava} alt="" />
-                            <h1 className="profile-name">{profileInfo.name}</h1>
+                            <h1 className="profile-name">{curAcc.name}</h1>
                             <button onClick={displayModalProfile} className="profile-page-btn">
                                 <img src={update_profile_icon} alt="" />
                                 Sửa hồ sơ
@@ -104,23 +124,18 @@ export const Profile = () => {
                                 <img src={change_password_icon} alt="" />
                                 Đổi mật khẩu
                             </button>
-                            <Link to="/profile/activities">
-                                <button className="profile-page-btn">
-                                    <img src={activity_icon} alt="" />
-                                    Xem hoạt động
-                                </button>
-                            </Link>
+                            <DisplayActivityBtn />
                         </div>
                         
                         <div className="profile-content-section">
                             <h1>My Profile</h1>
                             <Displayprofile 
-                                name = {profileInfo.name}
-                                sex = {profileInfo.sex}
-                                DoB = {profileInfo.DoB}
-                                email = {profileInfo.email}
-                                phonenumber = {profileInfo.phonenumber}
-                                address = {profileInfo.address}
+                                name = {curAcc.name}
+                                sex = {curAcc.sex}
+                                DoB = {curAcc.DoB}
+                                email = {curAcc.email}
+                                phonenumber = {curAcc.phonenumber}
+                                address = {curAcc.address}
                             />
                         </div>
                     </div>
@@ -156,17 +171,17 @@ export const Profile = () => {
                         <h1>SỬA HỒ SƠ</h1>
                     </header>
                     <div className="modal-content">
-                    <InfoInput labelName = "Họ và tên" type = "text" defaultVal = {profileInfo.name}/>
+                    <InfoInput labelName = "Họ và tên" type = "text" defaultVal = {curAcc.name}/>
                     <div className="sex-option">
-                        <label className="register-label" htmlFor="" defaultValue={profileInfo.sex}>Giới tính</label>
+                        <label className="register-label" htmlFor="" defaultValue={curAcc.sex}>Giới tính</label>
                         <Displaysexoption />
                         {/* <input className="register-radio" type="radio" value="Nam" name="sex"/> Nam
                         <input className="register-radio" type="radio" value="Nữ" name="sex"/> Nữ */}
                     </div>
-                    <InfoInput labelName = "Ngày sinh" type = "date" defaultVal = {profileInfo.DoB}/>
-                    <InfoInput labelName = "Số điện thoại" type = "text" defaultVal = {profileInfo.phonenumber}/>
-                    <InfoInput labelName = "Email" type = "text" defaultVal = {profileInfo.email}/>
-                    <InfoInput labelName = "Địa chỉ" type = "text" defaultVal = {profileInfo.address}/>
+                    <InfoInput labelName = "Ngày sinh" type = "date" defaultVal = {curAcc.DoB}/>
+                    <InfoInput labelName = "Số điện thoại" type = "text" defaultVal = {curAcc.phonenumber}/>
+                    <InfoInput labelName = "Email" type = "text" defaultVal = {curAcc.email}/>
+                    <InfoInput labelName = "Địa chỉ" type = "text" defaultVal = {curAcc.address}/>
                     </div>
                     <div className="button-container">
                         <button onClick={removeModalProfile} className="btn back-btn-modal">

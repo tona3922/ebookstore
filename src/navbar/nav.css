@@ -1,11 +1,11 @@
-.upperNav {
+/* .upperNav {
   padding-top: 10px;
-}
+} */
 
 nav {
   padding-left: 50px;
   padding-right: 50px;
-  height: 45px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,14 +14,18 @@ nav {
 img.navimg {
   width: 24px;
 }
+
+img.nav-ava {
+  width: 40px;
+}
 .navbutton {
+  height: 55px;
   font-size: 17px;
   display: flex;
   align-items: center;
 }
 
 .navbutton:hover {
-  opacity: 0.7;
   cursor: pointer;
 }
 
@@ -37,6 +41,32 @@ img.navimg {
 }
 
 .introHome img {
-  width: 316px;
-  height: 98px;
+  width: 305px;
+  height: 90px;
+}
+
+.sub-nav {
+  position: absolute;
+  top: 55px;
+  margin: 0;
+  padding: 0;
+  background-color: #ffff;
+  list-style: none;
+  width: 168px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 30%), 0 6px 20px 0 rgb(0 0 0 / 0%);
+  display: none;
+}
+
+.sub-nav li {
+  text-decoration: none;
+  color: black;
+}
+
+.sub-nav.add {
+  display: block;
+}
+
+.sub-nav li:hover {
+  background-color: blanchedalmond;
 }

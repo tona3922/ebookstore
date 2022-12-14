@@ -126,10 +126,10 @@ export const Home = (props) => {
       <div className="introHome">
         <img src={logo} alt="#" />
         <a href="#topbook">
-          <button class="normbutton">Top Books</button>
+          <button class="normbutton">Bán chạy</button>
         </a>
         <a href="#viewbook">
-          <button class="normbutton">View Books</button>
+          <button class="normbutton">Sản phẩm</button>
         </a>
         <button class="category">
           <select onChange={(event) => handleChange(event.target.value)}>
@@ -160,25 +160,28 @@ export const Home = (props) => {
         </div>
       </div>
       <div className="slider">
-        <img
-          onClick={() => {
-            clearTimeout(timeout);
-            decreaseImage();
-          }}
-          className="direct-btn prev-btn"
-          src={prev_btn}
-          alt=""
-        />
-        <img
-          onClick={() => {
-            clearTimeout(timeout);
-            increaseImage();
-          }}
-          className="direct-btn next-btn"
-          src={next_btn}
-          alt=""
-        />
-        <div className="slides">
+          <div className="slides">
+          <div className="dirbtn-container">
+            <img
+              onClick={() => {
+                clearTimeout(timeout);
+                decreaseImage();
+              }}
+              className="direct-btn prev-btn"
+              src={prev_btn}
+              alt=""
+            />
+            <img
+              onClick={() => {
+              clearTimeout(timeout);
+              increaseImage();
+              }}
+              className="direct-btn next-btn"
+              src={next_btn}
+              alt=""
+            />
+          </div> 
+          
           <input
             onClick={handleClickOption}
             type="radio"
@@ -251,7 +254,7 @@ export const Home = (props) => {
       <div id="viewbook" className="viewbook">
         <Viewbook />
       </div>
-      <hr></hr>
+      {/* <hr></hr> */}
       <div className="footer">
         <div className="footerLeft">
           <img class="imgfootleft" src={logo} alt="#" />
@@ -272,22 +275,22 @@ export const Home = (props) => {
           </div>
         </div>
         <div className="footerRight">
-          <p className="footrightTitle">Contact</p>
+          <p className="footrightTitle">Liên hệ</p>
           <div className="contact">
             <div className="contactinfo">
               <img class="info" src={location} alt="" />
-              &nbsp; abcxyz
+              &nbsp; Văn phòng MyBookstore
             </div>
             <div className="contactinfo">
               <img class="info" src={phone} alt="" />
-              &nbsp; 0909090909
+              &nbsp; 1900 246 357
             </div>
             <div className="contactinfo">
               <img class="info" src={mail} alt="" />
-              &nbsp; abcxyz@gmail.com
+              &nbsp; myBookstore88@gmail.com
             </div>
           </div>
-          <p className="footrightTitle">Online payment</p>
+          <p className="footrightTitle">Thanh toán trực tuyến</p>
           <div className="onlinepay">
             <a href="https://momo.vn/">
               <img class="onlinepayicon" src={momo} alt="" />

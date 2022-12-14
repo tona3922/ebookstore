@@ -25,10 +25,48 @@ import { Novel } from "./navbar/home/book genre/novel";
 import { Science } from "./navbar/home/book genre/science";
 import { Search } from "./navbar/home/search";
 import { Feedback } from "./navbar/home/feedback";
+import Manager from "./manager_all/pages/manager_pages"
 import ConfirmOrder from "./navbar/cart/confirm_order";
+
+
 // import Data from "./navbar/home/data.json";
 
 function App() {
+  // KT đăng nhập
+  
+  const RedirectPageAdmin = function() {
+    if(localStorage.getItem("role") === "admin") {
+      return(
+        <Admin />
+      ) 
+    }
+    else{
+      return(
+        <Navigate to="/" />
+      ) 
+    }
+  }
+
+  const RedirectPageManager = function() {
+    if(localStorage.getItem("role") === "manager") {
+      return(
+        <Manager />
+      ) 
+    }
+    else{
+      return(
+        <Navigate to="/" />
+      ) 
+    }
+  }
+
+  const RedirectActivity = function() {
+    if (localStorage.getItem("accessToken")) {
+      if(localStorage.getItem("role") === "guest") return <Activity />;
+      else return <Navigate to="/" />
+    }
+    else return <Navigate to="/signin" />
+  }
   //
   const [cartItems, setCartItems] = useState([]);
   const [userInfo] = useState({
@@ -102,9 +140,9 @@ function App() {
           <Route path="/product" element={<Products />} />
           <Route path="/review/:id" element={<Review />} />
           <Route path="/feedback/:id" element={<Feedback />} />
-          <Route path="/admin/*" element={<Admin />} />
+          {/* <Route path="/admin/*" element={<Admin />} /> */}
           <Route path="/review/:_id" element={<Review />} />
-          <Route path="/admin/*" element={<Admin />} />
+          <Route path="/admin/*" element={(localStorage.getItem("accessToken"))? RedirectPageAdmin() : <Navigate to="/signin" />}/>
           {/* render={() => {
             return localStorage.getItem("accessToken")? <Admin /> : <Navigate to="/signin" />
           }}  */}
@@ -114,13 +152,13 @@ function App() {
           <Route path="/novel" element={<Novel />} />
           <Route path="/search" element={<Search />} />
           <Route path="/science" element={<Science />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/profile/activities" element={<Activity />} />
-          <Route path="/activities" element={<Activity />} />
+          <Route path="/profile" element={(localStorage.getItem("accessToken"))? <Profile /> : <Navigate to="/signin" />} />
+          <Route path="/profile/activities" element={RedirectActivity()} />
           <Route
             path="/confirm_order"
             element={<ConfirmOrder userInfo={userInfo} cartItems={cartItems} />}
           />
+          <Route path="/manager/*" element={(localStorage.getItem("accessToken"))? RedirectPageManager() : <Navigate to="/signin" />} />
         </Routes>
       </Router>
     </div>
