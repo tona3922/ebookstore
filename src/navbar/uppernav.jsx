@@ -18,15 +18,14 @@ export const Uppernav = () => {
               &nbsp; Home
             </div>
           </Link>
-          <Link
-            to="/contact"
-            style={{ textDecoration: "none", color: "black" }}
-          >
+          {/* <Link to="/" style={{ textDecoration: "none", color: "black" }}> */}
+          <a href="#footer" style={{ textDecoration: "none", color: "black" }}>
             <div className="navbutton">
               <img class="navimg" src={contact} alt="" />
               &nbsp;Contact
             </div>
-          </Link>
+          </a>
+          {/* </Link> */}
         </div>
         <div className="Right">
           <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>

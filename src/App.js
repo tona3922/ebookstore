@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import { Home } from "./navbar/home/home";
 import { Cart } from "./navbar/cart/cart";
-import { Contact } from "./navbar/contact/contact";
 import { Login } from "./authen/login";
 import { Signup } from "./authen/singup";
 import { Register_info } from "./authen/register_info";
@@ -82,7 +81,7 @@ function App() {
               />
             }
           />
-          <Route path="/contact" element={<Contact />} />
+          {/* <Route path="/#footer" element={<Contact />} /> */}
           <Route
             path="/cart"
             element={

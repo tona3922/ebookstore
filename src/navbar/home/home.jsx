@@ -252,7 +252,7 @@ export const Home = (props) => {
         <Viewbook />
       </div>
       <hr></hr>
-      <div className="footer">
+      <div id="footer" className="footer">
         <div className="footerLeft">
           <img class="imgfootleft" src={logo} alt="#" />
           <div className="notice">
