@@ -1,4 +1,4 @@
-import { React, useState, useReducer } from "react";
+import { React, useState } from "react";
 import logo from "../../img/home/logo.png";
 import facebook from "../../img/home/facebook.png";
 import instagram from "../../img/home/instagram.png";
@@ -111,11 +111,11 @@ export const Home = (props) => {
     navigate(`${value}`);
     value = "";
   }
-  const [, forceUpdate] = useReducer((x) => x + 1, 0);
+  // const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
-  function handleClick() {
-    forceUpdate();
-  }
+  // function handleClick() {
+  //   forceUpdate();
+  // }
 
   // let input = "";
   const [input, setInput] = useState("");
@@ -148,7 +148,12 @@ export const Home = (props) => {
             value={input}
             onInput={(e) => setInput(e.target.value)}
           />
-          <button class="search" onClick={ handleClick }>
+          <button
+            class="search"
+            onClick={() => {
+              window.location.reload();
+            }}
+          >
             <Link
               to="/search"
               style={{ textDecoration: "none", color: "black" }}
@@ -249,10 +254,10 @@ export const Home = (props) => {
       </div>
       <hr></hr>
       <div id="viewbook" className="viewbook">
-        <Viewbook 
+        <Viewbook
           cartItems={cartItems}
           onDecrease={onDecrease}
-          onIncrease={onIncrease}        
+          onIncrease={onIncrease}
         />
       </div>
       <hr></hr>

@@ -7,7 +7,7 @@ import AddButton from "./AddButton";
 
 export const Topbook = (props) => {
   const { cartItems, onDecrease, onIncrease } = props;
-  const array = Data.products,
+  const array = [...Data.products],
     final = [];
   function compare(a, b) {
     if (a.count < b.count) {
