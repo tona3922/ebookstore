@@ -103,3 +103,16 @@
 link {
   width: 100px;
 }
+.shop-button {
+  background-color: #386641;
+  color: white;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: beige;
+  height: 40px;
+  /* width: 50%; */
+  cursor: pointer;
+}
+.shop-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}

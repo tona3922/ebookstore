@@ -136,15 +136,14 @@ export const Uppernav = () => {
               &nbsp; Trang chủ
             </div>
           </Link>
-          <Link
-            to="/contact"
-            style={{ textDecoration: "none", color: "black" }}
-          >
+          {/* <Link to="/" style={{ textDecoration: "none", color: "black" }}> */}
+          <a href="#footer" style={{ textDecoration: "none", color: "black" }}>
             <div className="navbutton">
               <img class="navimg" src={contact} alt="" />
               &nbsp;Liên hệ
             </div>
-          </Link>
+          </a>
+          {/* </Link> */}
         </div>
         <div className="Right">
           <DisplayRightNav />

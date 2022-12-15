@@ -1,4 +1,4 @@
-import { React, useState, useReducer } from "react";
+import { React, useState } from "react";
 import logo from "../../img/home/logo.png";
 import facebook from "../../img/home/facebook.png";
 import instagram from "../../img/home/instagram.png";
@@ -111,11 +111,11 @@ export const Home = (props) => {
     navigate(`${value}`);
     value = "";
   }
-  const [, forceUpdate] = useReducer((x) => x + 1, 0);
+  // const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
-  function handleClick() {
-    forceUpdate();
-  }
+  // function handleClick() {
+  //   forceUpdate();
+  // }
 
   // let input = "";
   const [input, setInput] = useState("");
@@ -148,7 +148,12 @@ export const Home = (props) => {
             value={input}
             onInput={(e) => setInput(e.target.value)}
           />
-          <button class="search" onclick={{ handleClick }}>
+          <button
+            class="search"
+            onClick={() => {
+              window.location.reload();
+            }}
+          >
             <Link
               to="/search"
               style={{ textDecoration: "none", color: "black" }}
@@ -242,7 +247,6 @@ export const Home = (props) => {
           <label htmlFor="radio5" className="manual-btn"></label>
         </div>
       </div>
-      <hr></hr>
       <div id="topbook" className="topbook">
         <Topbook
           cartItems={cartItems}
@@ -250,12 +254,14 @@ export const Home = (props) => {
           onIncrease={onIncrease}
         />
       </div>
-      <hr></hr>
       <div id="viewbook" className="viewbook">
-        <Viewbook />
+        <Viewbook
+          cartItems={cartItems}
+          onDecrease={onDecrease}
+          onIncrease={onIncrease}
+        />
       </div>
-      {/* <hr></hr> */}
-      <div className="footer">
+      <div id="footer" className="footer">
         <div className="footerLeft">
           <img class="imgfootleft" src={logo} alt="#" />
           <div className="notice">

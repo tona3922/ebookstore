@@ -1,12 +1,13 @@
 import React from "react";
 import "./topbook.scss";
 import Data from "./data.json";
-import { FaShoppingBag, FaBook } from "react-icons/fa";
+import { FaBook } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import AddButton from "./AddButton";
 
 export const Topbook = (props) => {
   const { cartItems, onDecrease, onIncrease } = props;
-  const array = Data.products,
+  const array = [...Data.products],
     final = [];
   function compare(a, b) {
     if (a.count < b.count) {
@@ -42,12 +43,18 @@ export const Topbook = (props) => {
             </div>
           </div>
           <div className="downcard">
-            <button
+            <AddButton
+              cartItems={cartItems}
+              onDecrease={onDecrease}
+              onIncrease={onIncrease}
+              product={final[i]}
+            />
+            {/* <button
               className="shopping-bag"
               onClick={() => onIncrease(final[i])}
             >
-              Add to cart <FaShoppingBag />
-            </button>
+              Add to cart
+            </button> */}
             <button
               className="review"
               onClick={() => {
@@ -61,7 +68,7 @@ export const Topbook = (props) => {
                 style={{ textDecoration: "none", color: "white" }}
                 state={{ index: final[i]._id }}
               >
-                review <FaBook />
+                Review <FaBook />
               </Link>
             </button>
           </div>

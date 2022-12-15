@@ -1,10 +1,12 @@
 import React from "react";
-import { FaShoppingBag, FaBook } from "react-icons/fa";
+import { FaBook } from "react-icons/fa";
 import "./viewbook.css";
 import { Link } from "react-router-dom";
 import Data from "./data.json";
+import AddButton from "./AddButton";
 
-export const Products = () => {
+export const Products = (props) => {
+  const { cartItems, onDecrease, onIncrease } = props;
   const products = Data.products;
   return (
     <div className="container">
@@ -18,13 +20,16 @@ export const Products = () => {
               <em>{product.title}</em>
               <span>{product.author}</span>
               <span>Giá: {product.price}</span>
-              <p>Kho : {product.count}</p>
+              <p>Kho: {product.count}</p>
             </div>
           </div>
           <div className="downcard">
-            <button className="shopping-bag">
-              Add to cart <FaShoppingBag />
-            </button>
+            <AddButton
+              cartItems={cartItems}
+              onDecrease={onDecrease}
+              onIncrease={onIncrease}
+              product={product}
+            />
             <button className="review">
               <Link
                 to={{
@@ -33,7 +38,7 @@ export const Products = () => {
                 style={{ textDecoration: "none", color: "white" }}
                 state={{ index: product._id }}
               >
-                review <FaBook />
+                Review <FaBook />
               </Link>
             </button>
           </div>
