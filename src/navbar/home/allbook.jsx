@@ -7,7 +7,8 @@ import { Products } from "./products";
 import home from "../../img/navbar/home.png";
 import cart from "../../img/navbar/cart.png";
 
-export const AllBook = () => {
+export const AllBook = (props) => {
+  const { cartItems, onDecrease, onIncrease } = props;
   return (
     <div id="product">
       <div className="allbooknav">
@@ -26,7 +27,11 @@ export const AllBook = () => {
       </div>
       <div className="viewbooktitle">View all book</div>
       <div>
-        <Products />
+        <Products 
+          cartItems={cartItems}
+          onDecrease={onDecrease}
+          onIncrease={onIncrease}        
+        />
       </div>
     </div>
   );
