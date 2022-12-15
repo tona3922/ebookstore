@@ -43,8 +43,18 @@ export const Topbook = (props) => {
             </div>
           </div>
           <div className="downcard">
-            <AddButton cartItems={cartItems} onDecrease={onDecrease} 
-                      onIncrease={onIncrease} product={final[i]}/>
+            <AddButton
+              cartItems={cartItems}
+              onDecrease={onDecrease}
+              onIncrease={onIncrease}
+              product={final[i]}
+            />
+            {/* <button
+              className="shopping-bag"
+              onClick={() => onIncrease(final[i])}
+            >
+              Add to cart
+            </button> */}
             <button
               className="review"
               onClick={() => {

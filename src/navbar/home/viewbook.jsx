@@ -5,7 +5,6 @@ import Data from "./data.json";
 import "./viewbook.css";
 import AddButton from "./AddButton";
 
-
 export const Viewbook = (props) => {
   const { cartItems, onDecrease, onIncrease } = props;
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
@@ -30,9 +29,13 @@ export const Viewbook = (props) => {
           </div>
         </div>
         <div className="downcard">
-          <AddButton cartItems={cartItems} onDecrease={onDecrease} 
-                    onIncrease={onIncrease} product={products[i]}/>
-          
+          <AddButton
+            cartItems={cartItems}
+            onDecrease={onDecrease}
+            onIncrease={onIncrease}
+            product={products[i]}
+          />
+
           <button className="review">
             <Link
               to={{
@@ -56,7 +59,7 @@ export const Viewbook = (props) => {
         to="/allbook"
         style={{ textDecoration: "none", color: "black", fontWeight: "bold" }}
       >
-        <div className="toallbook" onClick={ handleClick }>
+        <div className="toallbook" onClick={{ handleClick }}>
           <span>&#8611;</span>&nbsp; View all book here
         </div>
       </Link>

@@ -24,8 +24,12 @@ export const Products = (props) => {
             </div>
           </div>
           <div className="downcard">
-            <AddButton cartItems={cartItems} onDecrease={onDecrease} 
-                      onIncrease={onIncrease} product={product}/>
+            <AddButton
+              cartItems={cartItems}
+              onDecrease={onDecrease}
+              onIncrease={onIncrease}
+              product={product}
+            />
             <button className="review">
               <Link
                 to={{
