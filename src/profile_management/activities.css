@@ -85,14 +85,14 @@
     margin-right: 10px;
 }
 
-.bills-cur {
+/* .bills-cur {
     border: 3px solid #e4c1f9;
-}
+} */
 
-.bills-cur p {
+/*.bills-cur p {
     color: #b5838d;
     background-color: #ffcdb2;
-}
+} */
 
 /* .bills-his {
     border: none;
@@ -126,13 +126,13 @@
     float: right;
 }
 
-.cur-actvity {
+/* .cur-actvity {
     display: block;
 }
 
 .his-activity {
     display: none;
-} 
+}  */
 
 .activity-container.open {
     display: block; 
@@ -224,16 +224,70 @@
     float: right;
     margin: 20px 0;
 }
-.detail-btn:hover {
+.cancel-btn {
+    border-radius: 20px;
+    padding: 7px 15px;
+    border: none; 
+    color: #472D30;
+    font-weight: 600;
+    background-color: #ebe9e9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    float: right;
+    margin: 20px 20px;
+}
+.detail-btn:hover, .cancel-btn:hover {
     opacity: 0.7;
     cursor: pointer;
 }
-.detail-btn:active {
+.detail-btn:active, .cancel-btn:active {
     opacity: 1;
 }
-.detail-btn > img {
+.detail-btn > img, .cancel-btn > img {
     width: 30px;
     vertical-align: middle;
     margin-left: 10px;
 }
 
+.modal-cancelbills, .modal-cancelrefuse {
+    display: none;
+}
+
+.modal-cancelbills.open, .modal-cancelrefuse.open{
+    background-color: rgb(238, 238, 238, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+    
+}
+
+.modal-cancelbills .modal-cancelbills-container{
+    background-color: #fff;
+    width: 430px;
+    height: 170px;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 10%);
+}
+
+.modal-cancelbills .modal-cancelbills-container > p {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.modal-cancelrefuse .modal-cancelrefuse-container {
+    background-color: #fff;
+    width: 430px;
+    height: 170px;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 10%);
+}
+
+.modal-cancelrefuse .modal-cancelrefuse-container > p {
+    text-align: center;
+    margin: 25px 60px;
+}

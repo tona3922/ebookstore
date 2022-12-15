@@ -6,6 +6,7 @@ import back_icon from "../img/back.png";
 import bills_icon from "../img/profile/bills_icon.png";
 import bills_history_icon from "../img/profile/bills_history_icon.png";
 import detail_icon from "../img/profile/detail_icon.png";
+import cancel_icon from "../img/button/cancel_icon.png"
 import { curActivity } from "./profile_data";
 import { hisActivity } from "./profile_data";
 import "./activities.css";
@@ -32,12 +33,29 @@ function Billinfo (props) {
     )
 }
 
-function Billitems ({activity}) {
+function Billitems ({activity,typeof_act}) {
+    const confirmCancel = () => {
+        if(activity.status === "Đang giao hàng") {
+            document.querySelector(".modal-cancelrefuse").classList.add("open");
+        }
+        else {
+            document.querySelector(".modal-cancelbills").classList.add("open");
+        }
+    }
 
     function DecideLabel () {
         if(activity.status === "Đã hoàn thành")
             return <Billinfo label="Ngày nhận" content={activity.finish_date}/>
         else return <Billinfo label="Thanh toán" content={activity.payment}/>
+    }
+
+    function CancelBtn() {
+        if(typeof_act === "cur") {
+            return <button className="cancel-btn"  onClick={confirmCancel}>
+            Hủy đơn
+            <img src={cancel_icon} alt="" />
+        </button>  
+        }
     }
 
     return (
@@ -51,11 +69,12 @@ function Billitems ({activity}) {
                 <div className="status">
                     <Billinfo label="Tình trạng" content={activity.status}/>
                     <DecideLabel />
-                </div>         
+                </div>       
                 <button className="detail-btn">
                     Xem chi tiết
                     <img src={detail_icon} alt="" />
                 </button>
+                <CancelBtn/>
             </div>
         </div>
     )
@@ -64,60 +83,40 @@ function Billitems ({activity}) {
 
 export const Activity = () => {
     const navigate = useNavigate();
-    // document.querySelector(".activity-container.cur-activity").add("open");
-    
+
     const openCurActivity = () => {
-        if(document.querySelector(".activity-container.cur-activity.open") === null
-            && document.querySelector(".activity-container.cur-activity.close") === null) {
-            document.querySelector(".activity-container.cur-activity").classList.add("open");
-            document.querySelector(".activity-container.his-activity").classList.add("close");
-            document.querySelector(".activity-page-btn.bills-cur").classList.add("open");
-            document.querySelector(".activity-page-btn.bills-his").classList.add("close");
-        }
-        else {
+        if(document.querySelector(".activity-container.cur-activity.open") === null) {
             const curActivity = document.querySelector(".activity-container.cur-activity.close");
             const hisActivity = document.querySelector(".activity-container.his-activity.open");
             const curButton = document.querySelector(".activity-page-btn.bills-cur.close");
             const hisButton = document.querySelector(".activity-page-btn.bills-his.open");
-            if(hisActivity !== null) {
-                curActivity.classList.remove("close");
-                hisActivity.classList.remove("open");
-                curActivity.classList.add("open");
-                hisActivity.classList.add("close");
-                curButton.classList.remove("close");
-                hisButton.classList.remove("open");
-                curButton.classList.add("open");
-                hisButton.classList.add("close");
-            }  
+            curActivity.classList.remove("close");
+            hisActivity.classList.remove("open");
+            curActivity.classList.add("open");
+            hisActivity.classList.add("close");
+            curButton.classList.remove("close");
+            hisButton.classList.remove("open");
+            curButton.classList.add("open");
+            hisButton.classList.add("close");
         }
     }
 
     const openHisActivity = () => {
-        if(document.querySelector(".activity-container.cur-activity.open") === null
-            && document.querySelector(".activity-container.cur-activity.close") === null) {
-            document.querySelector(".activity-container.cur-activity").classList.add("close");
-            document.querySelector(".activity-container.his-activity").classList.add("open");
-            document.querySelector(".activity-page-btn.bills-cur").classList.add("close");
-            document.querySelector(".activity-page-btn.bills-his").classList.add("open");
-        }
-        else {
+        if(document.querySelector(".activity-container.his-activity.open") === null) {
             const curActivity = document.querySelector(".activity-container.cur-activity.open");
             const hisActivity = document.querySelector(".activity-container.his-activity.close");
             const curButton = document.querySelector(".activity-page-btn.bills-cur.open");
             const hisButton = document.querySelector(".activity-page-btn.bills-his.close");
-            if(hisActivity !== null) {
-                curActivity.classList.remove("open");
-                hisActivity.classList.remove("close");
-                curActivity.classList.add("close");
-                hisActivity.classList.add("open");
-                curButton.classList.remove("open");
-                hisButton.classList.remove("close");
-                curButton.classList.add("close");
-                hisButton.classList.add("open");
-            }  
+            curActivity.classList.remove("open");
+            hisActivity.classList.remove("close");
+            curActivity.classList.add("close");
+            hisActivity.classList.add("open");
+            curButton.classList.remove("open");
+            hisButton.classList.remove("close");
+            curButton.classList.add("close");
+            hisButton.classList.add("open");
         }
     }
-
     return(
         <Fragment>
             <div className="activity-page">
@@ -130,33 +129,63 @@ export const Activity = () => {
                 </div>
                 <div className="activity-navbar">
                     <h1>My Activities</h1>
-                    <button onClick={openCurActivity} className="activity-page-btn bills-cur">
+                    <button onClick={openCurActivity} className="activity-page-btn bills-cur open">
                         <img src={bills_icon} alt="" />
                         Đơn hàng hiện tại
                         <p>{curActivity.activities.length}</p>
                     </button>
-                    <button onClick={openHisActivity} className="activity-page-btn bills-his">
+                    <button onClick={openHisActivity} className="activity-page-btn bills-his close">
                         <img src={bills_history_icon} alt="" />
                         Lịch sử đơn hàng
                         <p>{hisActivity.activities.length}</p>
                     </button>
                 </div>
-                <div className="activity-container cur-activity">
+                <div className="activity-container cur-activity open">
                     <h1 className="bills-header">Đơn hàng hiện tại</h1>
                     <div className="activity-content">
                         {curActivity.activities.map(activity => (
-                            <Billitems activity={activity}/>
+                            <Billitems activity={activity} typeof_act="cur"/>
                         ))}
                     </div>  
                 </div>
 
-                <div className="activity-container his-activity">
+                <div className="activity-container his-activity close">
                     <h1 className="bills-header">Lịch sử đơn hàng</h1>
                     <div className="activity-content">
                         {hisActivity.activities.map(activity => (
                             <Billitems activity={activity}/>
                         ))}
                     </div>  
+                </div>
+            </div>
+
+            <div className="modal-cancelbills">
+                <div className="modal-cancelbills-container">
+                    <p>Bạn muốn hủy đơn hàng?</p>
+                    <div className="button-container">
+                        <button className="btn" 
+                            onClick={()=>{document.querySelector(".modal-cancelbills.open").classList.remove("open");}}
+                        >
+                            Quay lại
+                        </button>
+                        <button className="btn" style={{marginLeft: "22%", backgroundColor:"rgb(255 155 118)"}}
+                            onClick={()=>{alert("Hủy đơn hàng thành công!")}}
+                        >
+                            Xác nhận
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div className="modal-cancelrefuse">
+                <div className="modal-cancelrefuse-container">
+                    <p>Bạn không thể hủy đơn hàng này do đơn hàng đang được giao đến!</p>
+                    <div className="button-container">
+                        <button className="btn" style={{backgroundColor:"rgb(255 155 118)", padding:"12px 40px"}}
+                            onClick={()=>{document.querySelector(".modal-cancelrefuse.open").classList.remove("open");}}
+                        >
+                            OK
+                        </button>
+                    </div>
                 </div>
             </div>
         </Fragment>

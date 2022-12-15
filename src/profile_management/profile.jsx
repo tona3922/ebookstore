@@ -143,7 +143,7 @@ export const Profile = () => {
             </div>
 
             <div className="modal-pw">
-                <div className="modal-container">
+                <div className="modal-container modal-changepw" >
                     <header className="modal-header">
                         <h1>ĐỔI MẬT KHẨU</h1>
                     </header>

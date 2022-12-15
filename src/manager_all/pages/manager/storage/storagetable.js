@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component , useState } from 'react'
 
 class Option extends Component {
     render() {
@@ -33,6 +33,48 @@ class TableRow extends Component {
     }
 };
 
+export default function StorageTable (props) {
+    const {codeSearched} = props
+
+    return (
+        <>
+            { (codeSearched === "Hoàng tử bé" ||  codeSearched === "9781853261589") &&
+                <div className="divTable">
+                    <div className="divTableBody">
+                            <TableRow type="header" info={["No.", "Mã kho", "Tên kho", "Số điện thoại", "Số lượng"]} />
+                            <TableRow type="row" info={["1", "KH0001", "Kho A - Số 13, Trần Hưng Đạo, Phường 6, Quận Phú Nhuận, TP.HCM", "0987654321", "100"]} />
+                            <TableRow type="row" info={["2", "KH0002", "Kho B - Số 15, Trường Chinh, Phường 12, Quận 9, TP.HCM", "0987654321", "250"]} />
+                            <TableRow type="row" info={["3", "KH0003", "Kho C - Số 159, Hoàng Văn Thụ, Phường 10, Quận 7, TP.HCM", "0123123123", "100"]} />
+                            <TableRow type="row" info={["", "", "Tổng", "", "450"]} />
+                    </div>
+                </div>
+            }
+            { (codeSearched === "9786042268127" ||  codeSearched === "Chú thuật hồi chiến - Tập 1") &&
+            <div className="divTable">
+                <div className="divTableBody">
+                        <TableRow type="header" info={["No.", "Mã kho", "Tên kho", "Số điện thoại", "Số lượng"]} />
+                        <TableRow type="row" info={["1", "KH0001", "Kho A - Số 13, Trần Hưng Đạo, Phường 6, Quận Phú Nhuận, TP.HCM", "0987654321", "100"]} />
+                        <TableRow type="row" info={["2", "KH0002", "Kho C - Số 159, Hoàng Văn Thụ, Phường 10, Quận 7, TP.HCM", "0123123123", "150"]} />
+                        <TableRow type="row" info={["", "", "Tổng", "", "250"]} />
+                </div>
+            </div>
+            }        
+            <div>
+            { codeSearched !== "9786042268127" && codeSearched !== "Chú thuật hồi chiến - Tập 1" &&  codeSearched !== "9781853261589" &&  codeSearched !== "Hoàng tử bé" && codeSearched === "" &&
+                <p style={{textAlign:'center'}}>
+                    Vui lòng nhập mã ISBN!
+                </p>
+            }
+            { codeSearched !== "9786042268127" && codeSearched !== "Chú thuật hồi chiến - Tập 1" &&  codeSearched !== "9781853261589" &&  codeSearched !== "Hoàng tử bé" &&  codeSearched !== "" &&
+                <p style={{textAlign:'center'}}>
+                    Sách không tồn tại!
+                </p>
+            }
+            </div>
+        </>
+    )
+};
+/*
 export default class StorageTable extends Component {
     render() {
         return (
@@ -48,7 +90,7 @@ export default class StorageTable extends Component {
         )
     }
 };
-
+*/
 /*
                     <TableRow type="row" info={["1", "DH10100", "Trần Chí Công", "0123456789", "120.000", "Đang chuẩn bị", <Option />]} />
                     <TableRow type="row" info={["2", "DH10101", "Hoàng Kim Cương", "0987654321", "250.000", "Đang giao hàng", <Option />]} />

@@ -1,21 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ListOrderSearchBar from './listordersearchbar'
 import ListOrderSearchDate from './listordersearchdate'
+import '../../../styles/index_manager.scss'
+import '../../../styles/table_manager.scss'
 
-export default class ListOrderHeader extends Component {
-    render() {
-        return (
-	<>
-            <div className="manager--top--header">
-                <h1>Xem danh sách đơn hàng</h1>
-		<ListOrderSearchBar />
-            </div>
-		<div className="manager--top--header">
-			<ListOrderSearchDate />
-		</div>
-	</>
-        )
-    }
+export default function ListOrderHeader(props) {
+    const {setCodeSearched, setFromTo} = props
+
+    return (
+<>
+    <div className="manager--top--header">
+        <h1>Xem danh sách đơn hàng</h1>
+        <ListOrderSearchBar setCodeSearched={setCodeSearched}/>
+    </div>
+    <div className="manager--top--header">
+        <ListOrderSearchDate setFromTo={setFromTo}/>
+    </div>
+</>
+    )
 }
 
 // 

@@ -339,7 +339,7 @@ div {
 		// background-color: transparent;
 		h3 {
         		margin-left: 3vw;
-			margin-top: 3vh;
+			margin-top: 2vh;
         		font-size: 25px;
         		// overflow-x: default;
 		}
@@ -356,7 +356,7 @@ div {
     		padding-left: 2em; // Posion into Nav
 		form{
 			display: flex;
-			margin-top: 2vh;
+			margin-top: 0.5vh;
         		padding-right: 2em;
         		margin-left: 0.5vw;
         		// margin-right: 0.5vw; // Position between
@@ -415,11 +415,11 @@ div {
     		margin: 0 0;
     		// flex-flow: row wrap;
     		// position: relative;
-    		padding-bottom: 1.5rem;
+    		padding-bottom: 0.25rem;
     		// padding-right: 0.5em;
     		padding-left: 2em; // Posion into Nav
 		.searchdate--input {
-			margin-top: 3vh;
+			margin-top: 0.5vh;
         		padding: 0;
         		margin-left: 0.5vw;
         		margin-right: 0.5vw; // Position between
@@ -560,7 +560,7 @@ div {
 		display: flex;
 		margin-left: 39px;
 		padding-top: 15px;	
-		padding-bottom: 5px;
+		padding-bottom: 2px;
 	}
 	.aab {
 		position: sticky;
@@ -576,6 +576,7 @@ div {
 		color: #03045E;
 		// padding-bottom: 5px;
 	}
+
 
 	.line--chart {
 		position: sticky;
@@ -741,3 +742,99 @@ div {
 //   font-weight: lighter;
 //   color: blue;
 // }
+.viewdata-btn {
+    height: 40px;
+    background-color: #e29578;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+	margin-top: 3vh;
+	width: 110px;
+	padding: 0 10px;
+	margin-left: -10px;
+}
+
+.view-data-modal.open {
+	background-color: rgb(238, 238, 238, 0.3);
+	// position: absolute;
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // right: 0;
+    // bottom: 0;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.view-data-modal {
+	display: none;
+}
+
+.view-data-modal-container {
+	background-color: #fff;
+    width: 60%;
+    min-height: 50px;
+    border-radius: 40px;
+	margin: 50px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 10%);
+}
+
+.view-list {
+    margin: 20px 3vw 0 3vw;
+}
+
+.view-list .col-name > p {
+	display: inline-block;
+	border: 1px solid rgb(35, 45, 48);
+	background-color: rgb(139, 226, 255);
+	padding: 10px 10px;
+	margin: 0;
+}
+
+.view-list .list-content > p {
+	display: inline-block;
+	border: 1px solid rgb(35, 45, 48);
+	background-color: #fff;
+	padding: 10px 10px;
+	margin: 0;
+}
+
+.view-list .conclusion div > p {
+	display: inline-block;
+	margin: 20px 10px 0;
+}
+
+.back-btn-viewdata {
+	display: block; 
+	margin: 30px auto 40px auto;
+	background-color: #c8c2fb;
+    padding: 15px 30px;
+}
+
+
+.view-data-navbtn-container{
+	width: 60%;
+    margin: auto;
+	display: flex;
+    justify-content: space-between;
+}
+
+.view-data-nav-btn {
+    margin: 10px 20px;
+    padding: 15px 20px;
+    width: 200px;
+    border: none;
+    border-radius: 15px;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.view-data-nav-btn:hover {
+	opacity: 0.8;
+}
+
+.view-data-nav-btn.open {
+	background-color: #bbe8fd;
+}

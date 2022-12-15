@@ -1,6 +1,20 @@
 import React, { Component } from 'react'
 import StorageSearchBar from './storagesearchbar'
 
+export default function StorageHeader(props) {
+    const {setCodeSearched} = props
+
+    return (
+        <>
+            <div className="manager--top--header">
+                <h1>Kho hàng</h1>
+                <StorageSearchBar setCodeSearched={setCodeSearched}/>
+            </div>
+        </>
+    )
+}
+
+/*
 export default class StorageHeader extends Component {
     render() {
         return (
@@ -11,7 +25,7 @@ export default class StorageHeader extends Component {
         )
     }
 }
-
+*/
 // 
 // <ListOrderSearchDate />
 

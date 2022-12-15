@@ -8,7 +8,7 @@ export default class StorageContent extends Component {
         return (
 		<div className="storage--content">
 			<h3>Số lượng sản phẩm trong các kho</h3>
-            	</div>
+        </div>
 	)
     }
 }

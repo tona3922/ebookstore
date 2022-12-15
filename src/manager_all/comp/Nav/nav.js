@@ -1,16 +1,17 @@
 import React from 'react';
 import {
-    Link, NavLink, BrowserRouter
+    NavLink, Link
 } from "react-router-dom";
 
 export default function Navbar() {
     return (
         <nav>
             <Link to="/">
-                <div className='manager--logo' style={{cursor: "pointer"}}>
+                <div className='manager--logo' style={{cursor:"pointer"}}>
                     <img src={require('../../image/managerimage/logo_kamikaze.png')} alt="Error!" />
                 </div>
             </Link>
+            
             <div className="manager--routes">
                 <NavLink className='manager--nav--route' to="/manager/listorder">
                     <img src={require('../../image/managerimage/nav-bar/listorder.png')} alt="O" />

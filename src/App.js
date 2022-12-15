@@ -25,6 +25,7 @@ import { Novel } from "./navbar/home/book genre/novel";
 import { Science } from "./navbar/home/book genre/science";
 import { Search } from "./navbar/home/search";
 import { Feedback } from "./navbar/home/feedback";
+import { ViewOrderData } from "./manager_all/pages/manager/viewdata/orderdata";
 import Manager from "./manager_all/pages/manager_pages"
 import ConfirmOrder from "./navbar/cart/confirm_order";
 
@@ -159,6 +160,9 @@ function App() {
             element={<ConfirmOrder userInfo={userInfo} cartItems={cartItems} />}
           />
           <Route path="/manager/*" element={(localStorage.getItem("accessToken"))? RedirectPageManager() : <Navigate to="/signin" />} />
+          <Route path="/manager/orderdata" element={(localStorage.getItem("accessToken"))? 
+                                              ((localStorage.getItem("role") === "manager")? <ViewOrderData /> : <Navigate to="/" />) 
+                                              : <Navigate to="/signin" />} />
         </Routes>
       </Router>
     </div>

@@ -6,6 +6,8 @@ import logo from "../img/home/logo.png";
 import login_icon from "../img/login-icon.png";
 import back_icon from "../img/back.png";
 import ok_icon from "../img/button/ok.png";
+import close_icon from "../img/button/close_icon.png";
+import email from "../img/profile/email.gif"
 import "./login.css";
 
 export const Login = () => {
@@ -38,6 +40,18 @@ export const Login = () => {
   const removeModal = () => {
     const modal = document.querySelector(".modal-pw.open");
     modal.classList.remove("open");
+  };
+  const displayModalstep2 = () => {
+    const modal = document.querySelector(".modal-pw.open");
+    const modalstep2 = document.querySelector(".modal-pw-step2");
+    modal.classList.remove("open");
+    modalstep2.classList.add("open");
+  };
+  const displayModalstep3 = () => {
+    const modalstep2 = document.querySelector(".modal-pw-step2.open");
+    const modalstep3 = document.querySelector(".modal-pw-step3");
+    modalstep2.classList.remove("open");
+    modalstep3.classList.add("open");
   };
   return (
     <div>
@@ -103,15 +117,14 @@ export const Login = () => {
           </header>
           <div className="modal-content">
             <InfoInput labelName="Tên đăng nhập" type="text" />
-            <InfoInput labelName="Mật khẩu mới" type="password" />
-            <InfoInput labelName="Xác nhận mật khẩu mới" type="password" />
+            <InfoInput labelName="Email/Số điện thoại" type="text" />
           </div>
           <div className="button-container">
             <button onClick={removeModal} className="btn back-btn-modal">
               <img src={back_icon} alt="" />
               Quay lại
             </button>
-            <button className="btn confirm-btn">
+            <button className="btn confirm-btn" onClick={displayModalstep2}>
               <img src={ok_icon} alt="" />
               Xác nhận
             </button>
@@ -119,7 +132,41 @@ export const Login = () => {
         </div>
       </div>
 
+      <div className="modal-pw-step2">
+        <div className="modal-container">
+          <div className="close-icon-container">
+            <img src={close_icon} alt="" className="close-icon"
+            onClick={()=>{document.querySelector(".modal-pw-step2.open").classList.remove("open")}}/>
+          </div>
+          <img src={email} alt="" style={{top:'10px'}}/>
+          <div className="modal-content">
+            <label htmlFor="pincode">Nhập mã xác nhận bao gồm 4 chữ số được gửi đến email/số điện thoại của bạn:</label>
+            <input type="text" placeholder="****" name="pincode"/>
+          </div>
+          <button onClick={displayModalstep3}>
+            Xác nhận
+          </button>
+        </div>
+      </div>
       
+      <div className="modal-pw-step3">
+        <div className="modal-container">
+          <div className="close-icon-container">
+            <img src={close_icon} alt="" className="close-icon"
+            onClick={()=>{document.querySelector(".modal-pw-step3.open").classList.remove("open")}}/>
+          </div>
+          <header className="modal-header">
+            <h1>CẬP NHẬT MẬT KHẨU</h1>
+          </header>
+          <div className="modal-content">
+            <InfoInput labelName="Nhập mật khẩu mới" type="password" />
+            <InfoInput labelName="Nhập lại mật khẩu mới" type="password" />
+          </div>
+          <button onClick={displayModalstep3}>
+            Xác nhận
+          </button>
+        </div>
+      </div>
       {/* <div className="notification">
         <p>Tên đăng nhập hoặc mật khẩu không đúng!</p>
         <button>Nhập lại</button>
