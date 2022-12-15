@@ -97,8 +97,20 @@ function App() {
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup/info_reg" element={<Register_info />} />
-          <Route path="/allbook" element={<AllBook />} />
-          <Route path="/product" element={<Products />} />
+          <Route path="/allbook" element={
+            <AllBook 
+              cartItems={cartItems}
+              onDecrease={onDecrease}
+              onIncrease={onIncrease}              
+            />
+            } />
+          <Route path="/product" element={
+            <Products 
+              cartItems={cartItems}
+              onDecrease={onDecrease}
+              onIncrease={onIncrease}          
+            />
+          } />
           <Route path="/review/:id" element={<Review />} />
           <Route path="/feedback/:id" element={<Feedback />} />
           <Route path="/admin/*" element={<Admin />} />
@@ -107,12 +119,37 @@ function App() {
           {/* render={() => {
             return localStorage.getItem("accessToken")? <Admin /> : <Navigate to="/signin" />
           }}  */}
-          <Route path="/adventure" element={<Adventure />} />
-          <Route path="/comic" element={<Comic />} />
-          <Route path="/fiction" element={<Fiction />} />
-          <Route path="/novel" element={<Novel />} />
+          <Route path="/adventure" element={
+          <Adventure 
+            cartItems={cartItems}
+            onDecrease={onDecrease}
+            onIncrease={onIncrease}          
+          />} />
+          <Route path="/comic" element={
+          <Comic 
+            cartItems={cartItems}
+            onDecrease={onDecrease}
+            onIncrease={onIncrease}            
+          />} />
+          <Route path="/fiction" element={
+          <Fiction 
+            cartItems={cartItems}
+            onDecrease={onDecrease}
+            onIncrease={onIncrease}               
+          />} />
+          <Route path="/novel" element={
+          <Novel 
+            cartItems={cartItems}
+            onDecrease={onDecrease}
+            onIncrease={onIncrease}          
+          />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/science" element={<Science />} />
+          <Route path="/science" element={
+          <Science 
+            cartItems={cartItems}
+            onDecrease={onDecrease}
+            onIncrease={onIncrease}          
+          />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/activities" element={<Activity />} />
           <Route path="/activities" element={<Activity />} />

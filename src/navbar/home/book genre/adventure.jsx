@@ -4,8 +4,10 @@ import { FaShoppingBag, FaBook } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import cart from "../../../img/navbar/cart.png";
 import "./genre.scss";
+import AddButton from "../AddButton";
 
-export const Adventure = () => {
+export const Adventure = (props) => {
+  const { cartItems, onDecrease, onIncrease } = props;
   const products = Data.products;
   const final = [];
   let i = 0;
@@ -68,9 +70,8 @@ export const Adventure = () => {
                   </div>
                 </div>
                 <div className="downcard">
-                  <button className="shopping-bag">
-                    Add to cart <FaShoppingBag />
-                  </button>
+                  <AddButton cartItems={cartItems} onDecrease={onDecrease} 
+                        onIncrease={onIncrease} product={fins}/>
                   <button className="review">
                     <Link
                       to={{

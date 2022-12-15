@@ -148,7 +148,7 @@ export const Home = (props) => {
             value={input}
             onInput={(e) => setInput(e.target.value)}
           />
-          <button class="search" onclick={{ handleClick }}>
+          <button class="search" onClick={ handleClick }>
             <Link
               to="/search"
               style={{ textDecoration: "none", color: "black" }}
@@ -249,7 +249,11 @@ export const Home = (props) => {
       </div>
       <hr></hr>
       <div id="viewbook" className="viewbook">
-        <Viewbook />
+        <Viewbook 
+          cartItems={cartItems}
+          onDecrease={onDecrease}
+          onIncrease={onIncrease}        
+        />
       </div>
       <hr></hr>
       <div id="footer" className="footer">
