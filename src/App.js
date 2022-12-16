@@ -15,6 +15,8 @@ import { Activity } from "./profile_management/activities";
 import Admin from "./admin/pages/admin";
 import { useState } from "react";
 import { AllBook } from "./navbar/home/allbook";
+import { Htl } from "./navbar/home/hightolow";
+import { Lth } from "./navbar/home/lowtohigh";
 import { Products } from "./navbar/home/products";
 import { Review } from "./navbar/home/review";
 import { Adventure } from "./navbar/home/book genre/adventure";
@@ -25,48 +27,36 @@ import { Science } from "./navbar/home/book genre/science";
 import { Search } from "./navbar/home/search";
 import { Feedback } from "./navbar/home/feedback";
 import { ViewOrderData } from "./manager_all/pages/manager/viewdata/orderdata";
-import Manager from "./manager_all/pages/manager_pages"
+import Manager from "./manager_all/pages/manager_pages";
 import ConfirmOrder from "./navbar/cart/confirm_order";
-
 
 // import Data from "./navbar/home/data.json";
 
 function App() {
   // KT đăng nhập
-  
-  const RedirectPageAdmin = function() {
-    if(localStorage.getItem("role") === "admin") {
-      return(
-        <Admin />
-      ) 
-    }
-    else{
-      return(
-        <Navigate to="/" />
-      ) 
-    }
-  }
 
-  const RedirectPageManager = function() {
-    if(localStorage.getItem("role") === "manager") {
-      return(
-        <Manager />
-      ) 
+  const RedirectPageAdmin = function () {
+    if (localStorage.getItem("role") === "admin") {
+      return <Admin />;
+    } else {
+      return <Navigate to="/" />;
     }
-    else{
-      return(
-        <Navigate to="/" />
-      ) 
-    }
-  }
+  };
 
-  const RedirectActivity = function() {
+  const RedirectPageManager = function () {
+    if (localStorage.getItem("role") === "manager") {
+      return <Manager />;
+    } else {
+      return <Navigate to="/" />;
+    }
+  };
+
+  const RedirectActivity = function () {
     if (localStorage.getItem("accessToken")) {
-      if(localStorage.getItem("role") === "guest") return <Activity />;
-      else return <Navigate to="/" />
-    }
-    else return <Navigate to="/signin" />
-  }
+      if (localStorage.getItem("role") === "guest") return <Activity />;
+      else return <Navigate to="/" />;
+    } else return <Navigate to="/signin" />;
+  };
   //
   const [cartItems, setCartItems] = useState([]);
   const [userInfo] = useState({
@@ -136,69 +126,153 @@ function App() {
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup/info_reg" element={<Register_info />} />
-          <Route path="/allbook" element={
-            <AllBook 
-              cartItems={cartItems}
-              onDecrease={onDecrease}
-              onIncrease={onIncrease}              
-            />
-            } />
-          <Route path="/product" element={
-            <Products 
-              cartItems={cartItems}
-              onDecrease={onDecrease}
-              onIncrease={onIncrease}          
-            />
-          } />
+          <Route
+            path="/allbook"
+            element={
+              <AllBook
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/product"
+            element={
+              <Products
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/:name/lth"
+            element={
+              <Lth
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/:name/htl"
+            element={
+              <Htl
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
           <Route path="/review/:id" element={<Review />} />
           <Route path="/feedback/:id" element={<Feedback />} />
           {/* <Route path="/admin/*" element={<Admin />} /> */}
           <Route path="/review/:_id" element={<Review />} />
-          <Route path="/admin/*" element={(localStorage.getItem("accessToken"))? RedirectPageAdmin() : <Navigate to="/signin" />}/>
+          <Route
+            path="/admin/*"
+            element={
+              localStorage.getItem("accessToken") ? (
+                RedirectPageAdmin()
+              ) : (
+                <Navigate to="/signin" />
+              )
+            }
+          />
           {/* render={() => {
             return localStorage.getItem("accessToken")? <Admin /> : <Navigate to="/signin" />
           }}  */}
-          <Route path="/adventure" element={
-          <Adventure 
-            cartItems={cartItems}
-            onDecrease={onDecrease}
-            onIncrease={onIncrease}          
-          />} />
-          <Route path="/comic" element={
-          <Comic 
-            cartItems={cartItems}
-            onDecrease={onDecrease}
-            onIncrease={onIncrease}            
-          />} />
-          <Route path="/fiction" element={
-          <Fiction 
-            cartItems={cartItems}
-            onDecrease={onDecrease}
-            onIncrease={onIncrease}               
-          />} />
-          <Route path="/novel" element={
-          <Novel 
-            cartItems={cartItems}
-            onDecrease={onDecrease}
-            onIncrease={onIncrease}          
-          />} />
+          <Route
+            path="/adventure"
+            element={
+              <Adventure
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/comic"
+            element={
+              <Comic
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/fiction"
+            element={
+              <Fiction
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/novel"
+            element={
+              <Novel
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
           <Route path="/search" element={<Search />} />
-          <Route path="/science" element={
-          <Science 
-            cartItems={cartItems}
-            onDecrease={onDecrease}
-            onIncrease={onIncrease}          
-          />} />
-          <Route path="/profile" element={(localStorage.getItem("accessToken"))? <Profile /> : <Navigate to="/signin" />} />
+          <Route
+            path="/science"
+            element={
+              <Science
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              localStorage.getItem("accessToken") ? (
+                <Profile />
+              ) : (
+                <Navigate to="/signin" />
+              )
+            }
+          />
           <Route path="/profile/activities" element={RedirectActivity()} />
           <Route
             path="/confirm_order"
             element={<ConfirmOrder userInfo={userInfo} cartItems={cartItems} />}
           />
-          <Route path="/manager/*" element={(localStorage.getItem("accessToken"))? RedirectPageManager() : <Navigate to="/signin" />} />
-          <Route path="/manager/orderdata" element={(localStorage.getItem("accessToken"))? 
-                                              ((localStorage.getItem("role") === "manager")? <ViewOrderData /> : <Navigate to="/" />) 
-                                              : <Navigate to="/signin" />} />
+          <Route
+            path="/manager/*"
+            element={
+              localStorage.getItem("accessToken") ? (
+                RedirectPageManager()
+              ) : (
+                <Navigate to="/signin" />
+              )
+            }
+          />
+          <Route
+            path="/manager/orderdata"
+            element={
+              localStorage.getItem("accessToken") ? (
+                localStorage.getItem("role") === "manager" ? (
+                  <ViewOrderData />
+                ) : (
+                  <Navigate to="/" />
+                )
+              ) : (
+                <Navigate to="/signin" />
+              )
+            }
+          />
         </Routes>
       </Router>
     </div>

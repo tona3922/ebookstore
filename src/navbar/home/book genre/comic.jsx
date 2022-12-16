@@ -1,6 +1,6 @@
 import React from "react";
 import Data from "../data.json";
-import { FaShoppingBag, FaBook } from "react-icons/fa";
+import { FaBook } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import cart from "../../../img/navbar/cart.png";
 import "./genre.scss";
@@ -65,13 +65,17 @@ export const Comic = (props) => {
                   <div className="bookinfo">
                     <em>{fins.title}</em>
                     <span>{fins.author}</span>
-                    <span>price: ${fins.price}</span>
-                    <p>available : {fins.count}</p>
+                    <span>Giá : ${fins.price}</span>
+                    <p>Kho : {fins.count}</p>
                   </div>
                 </div>
                 <div className="downcard">
-                  <AddButton cartItems={cartItems} onDecrease={onDecrease} 
-                        onIncrease={onIncrease} product={fins}/>
+                  <AddButton
+                    cartItems={cartItems}
+                    onDecrease={onDecrease}
+                    onIncrease={onIncrease}
+                    product={fins}
+                  />
                   <button className="review">
                     <Link
                       to={{

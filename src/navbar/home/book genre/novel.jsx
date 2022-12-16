@@ -1,13 +1,18 @@
 import React from "react";
 import Data from "../data.json";
-import { FaShoppingBag, FaBook } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaBook } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 import cart from "../../../img/navbar/cart.png";
 import "./genre.scss";
 import AddButton from "../AddButton";
 
 export const Novel = (props) => {
-  const { cartItems, onDecrease, onIncrease } = props;
+  const { cartItems, onDecrease, onIncrease, onArr } = props;
+  let navigate = useNavigate();
+  function handleChange(value) {
+    navigate(`${value}`);
+    value = "";
+  }
   const products = Data.products;
   const final = [];
   let i = 0;
@@ -46,6 +51,13 @@ export const Novel = (props) => {
           </div>
         </div>
       </div>
+      {/* <button class="category">
+        <select onChange={(event) => handleChange(event.target.value)}>
+          <option value="novel">from A-Z</option>
+          <option value="Htl">Highest to lowest</option>
+          <option value="Lth">Lowest to highest</option>
+        </select>
+      </button> */}
       {(() => {
         if (final.length === 0) {
           return (
@@ -65,13 +77,17 @@ export const Novel = (props) => {
                   <div className="bookinfo">
                     <em>{fins.title}</em>
                     <span>{fins.author}</span>
-                    <span>price: ${fins.price}</span>
-                    <p>available : {fins.count}</p>
+                    <span>Giá : ${fins.price}</span>
+                    <p>Kho : {fins.count}</p>
                   </div>
                 </div>
                 <div className="downcard">
-                  <AddButton cartItems={cartItems} onDecrease={onDecrease} 
-                          onIncrease={onIncrease} product={fins}/>
+                  <AddButton
+                    cartItems={cartItems}
+                    onDecrease={onDecrease}
+                    onIncrease={onIncrease}
+                    product={fins}
+                  />
                   <button className="review">
                     <Link
                       to={{
