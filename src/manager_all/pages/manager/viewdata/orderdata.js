@@ -44,7 +44,7 @@ export const ViewOrderData = () => {
                             {
                                 data_order.map((cur,index) => (
                                     <Fragment>
-                                        <p style={{width:'20%'}}>{index}</p>
+                                        <p style={{width:'20%'}}>{index + 1}</p>
                                         <p style={{width:'40%'}}>{cur.date}</p>
                                         <p style={{width:'40%'}}>{cur.numorders}</p>
                                     </Fragment>
@@ -91,7 +91,7 @@ export const ViewOrderData = () => {
                             {
                                 data_revenue.map((cur,index) => (
                                     <Fragment>
-                                        <p style={{width:'20%'}}>{index}</p>
+                                        <p style={{width:'20%'}}>{index + 1}</p>
                                         <p style={{width:'40%'}}>{cur.date}</p>
                                         <p style={{width:'40%'}}>{cur.revenue}</p>
                                     </Fragment>
