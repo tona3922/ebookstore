@@ -1,13 +1,18 @@
 import React from "react";
 import Data from "../data.json";
 import { FaBook } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import cart from "../../../img/navbar/cart.png";
 import "./genre.scss";
 import AddButton from "../AddButton";
 
 export const Fiction = (props) => {
   const { cartItems, onDecrease, onIncrease } = props;
+  let navigate = useNavigate();
+  function handleChange(value) {
+    navigate(`${value}`);
+    value = "";
+  }
   const products = Data.products;
   const final = [];
   let i = 0;
@@ -46,6 +51,13 @@ export const Fiction = (props) => {
           </div>
         </div>
       </div>
+      <button class="sort_category">
+        <select onChange={(event) => handleChange(event.target.value)}>
+          <option value="novel">from A-Z</option>
+          <option value="Htlfiction">Highest to lowest</option>
+          <option value="Lthfiction">Lowest to highest</option>
+        </select>
+      </button>
       {(() => {
         if (final.length === 0) {
           return (
@@ -65,7 +77,7 @@ export const Fiction = (props) => {
                   <div className="bookinfo">
                     <em>{fins.title}</em>
                     <span>{fins.author}</span>
-                    <span>Giá : ${fins.price}</span>
+                    <span>Giá : {fins.price}</span>
                     <p>Kho : {fins.count}</p>
                   </div>
                 </div>

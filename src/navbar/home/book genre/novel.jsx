@@ -7,7 +7,7 @@ import "./genre.scss";
 import AddButton from "../AddButton";
 
 export const Novel = (props) => {
-  const { cartItems, onDecrease, onIncrease, onArr } = props;
+  const { cartItems, onDecrease, onIncrease } = props;
   let navigate = useNavigate();
   function handleChange(value) {
     navigate(`${value}`);
@@ -51,13 +51,13 @@ export const Novel = (props) => {
           </div>
         </div>
       </div>
-      {/* <button class="category">
+      <button class="sort_category">
         <select onChange={(event) => handleChange(event.target.value)}>
           <option value="novel">from A-Z</option>
-          <option value="Htl">Highest to lowest</option>
-          <option value="Lth">Lowest to highest</option>
+          <option value="Htlnovel">Highest to lowest</option>
+          <option value="Lthnovel">Lowest to highest</option>
         </select>
-      </button> */}
+      </button>
       {(() => {
         if (final.length === 0) {
           return (
@@ -77,7 +77,7 @@ export const Novel = (props) => {
                   <div className="bookinfo">
                     <em>{fins.title}</em>
                     <span>{fins.author}</span>
-                    <span>Giá : ${fins.price}</span>
+                    <span>Giá : {fins.price}</span>
                     <p>Kho : {fins.count}</p>
                   </div>
                 </div>

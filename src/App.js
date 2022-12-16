@@ -29,6 +29,16 @@ import { Feedback } from "./navbar/home/feedback";
 import { ViewOrderData } from "./manager_all/pages/manager/viewdata/orderdata";
 import Manager from "./manager_all/pages/manager_pages";
 import ConfirmOrder from "./navbar/cart/confirm_order";
+import { Lthnovel } from "./navbar/home/book genre/lthnovel";
+import { Htlnovel } from "./navbar/home/book genre/htlnovel";
+import { Lthadventure } from "./navbar/home/book genre/lthadventure";
+import { Htladventure } from "./navbar/home/book genre/htladventure";
+import { Lthcomic } from "./navbar/home/book genre/lthcomic";
+import { Htlcomic } from "./navbar/home/book genre/htlcomic";
+import { Lthfiction } from "./navbar/home/book genre/lthfiction";
+import { Htlfiction } from "./navbar/home/book genre/htlfiction";
+import { Lthscience } from "./navbar/home/book genre/lthscience";
+import { Htlscience } from "./navbar/home/book genre/htlscience";
 
 // import Data from "./navbar/home/data.json";
 
@@ -160,6 +170,106 @@ function App() {
             path="/:name/htl"
             element={
               <Htl
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/:name/lthnovel"
+            element={
+              <Lthnovel
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/:name/htlnovel"
+            element={
+              <Htlnovel
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/:name/lthadventure"
+            element={
+              <Lthadventure
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/:name/htladventure"
+            element={
+              <Htladventure
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/:name/lthcomic"
+            element={
+              <Lthcomic
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/:name/htlcomic"
+            element={
+              <Htlcomic
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/:name/lthfiction"
+            element={
+              <Lthfiction
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/:name/htlfiction"
+            element={
+              <Htlfiction
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/:name/lthscience"
+            element={
+              <Lthscience
+                cartItems={cartItems}
+                onDecrease={onDecrease}
+                onIncrease={onIncrease}
+              />
+            }
+          />
+          <Route
+            path="/:name/htlscience"
+            element={
+              <Htlscience
                 cartItems={cartItems}
                 onDecrease={onDecrease}
                 onIncrease={onIncrease}
